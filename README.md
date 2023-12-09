@@ -17,6 +17,7 @@ src
     │   ├── backend         # Contains backend files
     │   ├── gui             # Contains GUI files
     │   ├── models          # Contains models/objects used in the app
+    │   ├── utils           # Contains utility files
     │   └── Konsmail.java
     └── resources           # Contains resources used in the app (images, icons, etc.)
 ```
