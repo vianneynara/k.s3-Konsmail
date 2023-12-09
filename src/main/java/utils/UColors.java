@@ -6,6 +6,7 @@ package utils;
  *
  * @author <a href="https://github.com/vianneynara">Nara</a>
  * */
+
 public enum UColors {
 	MAROON("0x952323"),
 	RED("0xA73121"),
