@@ -6,7 +6,8 @@ package models;
  * <ul>
  *     <li> {@link #firstName} - User's first name </li>
  *     <li> {@link #lastName} - User's last name </li>
- *     <li> {@link #email} - User's email </li>
+ *     <li> {@link #emailAddress} - User's email </li>
+ *     <li> {@link #password} - User's password </li>
  *     <li> {@link #uuid} - Unique User ID </li>
  * </ul>
  *
