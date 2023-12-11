@@ -11,7 +11,6 @@ package models;
  *     <li> {@link #emailAddress} - User's email </li>
  *     <li> {@link #password} - User's password </li>
  *     <li> {@link #uuid} - Unique User ID </li>
->>>>>>> 5bdf10d8bcd850b5eb37c7bc8c35d1b0192c5f48
  * </ul>
  *
  * @author <a href="https://github.com/vianneynara">Nara</a>
