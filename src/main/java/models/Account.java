@@ -4,8 +4,6 @@ package models;
  * This class will be used to store the user's account information at a state.
  * The attributes of this class as follows:
  * <ul>
-
-=======
  *     <li> {@link #firstName} - User's first name </li>
  *     <li> {@link #lastName} - User's last name </li>
  *     <li> {@link #emailAddress} - User's email </li>
