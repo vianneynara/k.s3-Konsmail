@@ -11,6 +11,7 @@ import models.Email;
  *
  * @author <a href="https://github.com/vianneynara">Nara</a>
  */
+
 public class DatabaseConnector {
 	/* Database Accessor Credentials */
 	private static final String JDBC_URL = "jdbc:oracle:thin:@localhost:1521:xe";

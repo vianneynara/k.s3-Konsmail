@@ -4,14 +4,19 @@ package models;
  * This class will be used to store the user's account information at a state.
  * The attributes of this class as follows:
  * <ul>
- *     <li>firstName: String</li>
- *     <li>lastName: String</li>
- *     <li>emailAddress: String</li>
- *     <li>link uuid: String</li>
+
+=======
+ *     <li> {@link #firstName} - User's first name </li>
+ *     <li> {@link #lastName} - User's last name </li>
+ *     <li> {@link #emailAddress} - User's email </li>
+ *     <li> {@link #password} - User's password </li>
+ *     <li> {@link #uuid} - Unique User ID </li>
+>>>>>>> 5bdf10d8bcd850b5eb37c7bc8c35d1b0192c5f48
  * </ul>
  *
  * @author <a href="https://github.com/vianneynara">Nara</a>
  * */
+
 public class Account {
 	// Attribute declarations
 	private String firstName;
