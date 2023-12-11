@@ -6,7 +6,7 @@ package models;
  * <ul>
  *     <li>firstName: String</li>
  *     <li>lastName: String</li>
- *     <li>email: String</li>
+ *     <li>emailAddress: String</li>
  *     <li>link uuid: String</li>
  * </ul>
  *
