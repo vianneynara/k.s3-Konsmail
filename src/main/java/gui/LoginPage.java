@@ -71,6 +71,11 @@ public class LoginPage extends javax.swing.JFrame {
         });
 
         b_login.setText("Login");
+        b_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_loginActionPerformed(evt);
+            }
+        });
 
         b_register.setText("Register");
         b_register.addActionListener(new java.awt.event.ActionListener() {
@@ -155,10 +160,14 @@ public class LoginPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_b_registerActionPerformed
 
+    private void b_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_loginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_loginActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
