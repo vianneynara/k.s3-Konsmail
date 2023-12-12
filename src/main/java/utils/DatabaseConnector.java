@@ -65,7 +65,7 @@ public class DatabaseConnector {
 				mailbox.add(new Email(src, dest, subj, email, date.toLocalDate()));
 			}
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 		return mailbox;
@@ -89,7 +89,7 @@ public class DatabaseConnector {
 				accounts.add(new Account(fName, lName, eAddr, pass, uuid));
 			}
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 		return accounts;
@@ -109,7 +109,7 @@ public class DatabaseConnector {
 			ps.setString(5, mail.getDate().toString());
 
 			ps.executeUpdate();
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
@@ -128,7 +128,7 @@ public class DatabaseConnector {
 			ps.setString(5, acct.getUuid().toString());
 
 			ps.executeUpdate();
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
