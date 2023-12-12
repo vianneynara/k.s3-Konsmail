@@ -18,13 +18,13 @@ import java.time.LocalDate;
 
 public class Email {
     //Attribute declarations
-    Account source;
-    Account destination;
-    String subject;
-    String email;
-    LocalDate date;
+    private String source;
+    private String destination;
+    private String subject;
+    private String email;
+    private LocalDate date;
 
-    public Email(Account source, Account destination, String subject, String email, LocalDate date) {
+    public Email(String source, String destination, String subject, String email, LocalDate date) {
         this.source = source;
         this.destination = destination;
         this.subject = subject;
@@ -32,11 +32,11 @@ public class Email {
         this.date = date;
     }
 
-    public void setSource(Account source) {
+    public void setSource(String source) {
         this.source = source;
     }
 
-    public void setDestination(Account destination) {
+    public void setDestination(String destination) {
         this.destination = destination;
     }
 
@@ -52,11 +52,11 @@ public class Email {
         this.date = date;
     }
 
-    public Account getSource() {
+    public String getSource() {
         return source;
     }
 
-    public Account getDestination() {
+    public String getDestination() {
         return destination;
     }
 

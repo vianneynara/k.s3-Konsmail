@@ -1,6 +1,6 @@
 package utils;
 
-import models.Ad;
+import models.Advertisement;
 import models.Email;
 
 /**
@@ -18,7 +18,7 @@ public class Checker {
         return false;
     }
 
-    public static boolean containsSymbol(String input) {
+    public static boolean containsNonAlphanumeric(String input) {
         for (char c : input.toCharArray()) {
             if (!Character.isLetterOrDigit(c))
                 return true;
@@ -26,8 +26,15 @@ public class Checker {
         return false;
     }
 
-    public static boolean isAd(Email mail) {
-        return mail instanceof Ad;
+    public static boolean isAdvertisement(Email mail) {
+        return mail instanceof Advertisement;
     }
-
+    
+    // possibly for password
+    public static boolean areEqual(String x, String y) {
+        if (x == y){
+            return true;
+        }
+        return false;
+    }
 }
