@@ -58,6 +58,7 @@ public class MailboxPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Konsmail: Mailbox");
+        setIconImage(new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/konsmail_icon.png"))).getImage());
         setResizable(false);
 
         MAIN_CONTAINER.setBackground(new java.awt.Color(255, 255, 255));

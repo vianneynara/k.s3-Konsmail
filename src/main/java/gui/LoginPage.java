@@ -42,6 +42,7 @@ public class LoginPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Konsmail: Login");
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        setIconImage(new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/konsmail_icon.png"))).getImage());
         setMaximumSize(null);
         setMinimumSize(null);
         setResizable(false);
