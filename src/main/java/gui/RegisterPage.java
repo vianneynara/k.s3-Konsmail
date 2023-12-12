@@ -40,8 +40,8 @@ public class RegisterPage extends javax.swing.JDialog {
         i_password = new javax.swing.JTextField();
         l_confirmPassword = new javax.swing.JLabel();
         i_confirmPassword = new javax.swing.JPasswordField();
-        l_surname = new javax.swing.JLabel();
-        i_surname = new javax.swing.JTextField();
+        l_lastName = new javax.swing.JLabel();
+        i_lastName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         b_back = new javax.swing.JButton();
         b_register = new javax.swing.JButton();
@@ -62,7 +62,7 @@ public class RegisterPage extends javax.swing.JDialog {
 
         i_confirmPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        l_surname.setText("Surname");
+        l_lastName.setText("Surname");
 
         jLabel1.setIcon(new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/KonsmailMail_logo.png"))).getImage().getScaledInstance(194, 86, Image.SCALE_SMOOTH)));
 
@@ -104,8 +104,8 @@ public class RegisterPage extends javax.swing.JDialog {
                             .addComponent(i_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(l_surname, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_surname, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(l_lastName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_lastName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(MAIN_PANELLayout.createSequentialGroup()
                         .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(l_email, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,9 +128,9 @@ public class RegisterPage extends javax.swing.JDialog {
                 .addGap(35, 35, 35)
                 .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(MAIN_PANELLayout.createSequentialGroup()
-                        .addComponent(l_surname)
+                        .addComponent(l_lastName)
                         .addGap(0, 0, 0)
-                        .addComponent(i_surname, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(i_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MAIN_PANELLayout.createSequentialGroup()
                         .addComponent(l_firstName)
                         .addGap(0, 0, 0)
@@ -225,14 +225,14 @@ public class RegisterPage extends javax.swing.JDialog {
     private javax.swing.JPasswordField i_confirmPassword;
     private javax.swing.JPasswordField i_email;
     private javax.swing.JTextField i_firstName;
+    private javax.swing.JTextField i_lastName;
     private javax.swing.JTextField i_password;
-    private javax.swing.JTextField i_surname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel l_confirmPassword;
     private javax.swing.JLabel l_email;
     private javax.swing.JLabel l_firstName;
+    private javax.swing.JLabel l_lastName;
     private javax.swing.JLabel l_password;
-    private javax.swing.JLabel l_surname;
     // End of variables declaration//GEN-END:variables
 }

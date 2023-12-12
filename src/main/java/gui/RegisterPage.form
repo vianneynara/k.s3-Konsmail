@@ -58,8 +58,8 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="l_surname" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="i_surname" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="l_lastName" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
+                              <Component id="i_lastName" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -91,9 +91,9 @@
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="l_surname" min="-2" max="-2" attributes="0"/>
+                          <Component id="l_lastName" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="i_surname" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="i_lastName" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="l_firstName" min="-2" max="-2" attributes="0"/>
@@ -162,12 +162,12 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="l_surname">
+        <Component class="javax.swing.JLabel" name="l_lastName">
           <Properties>
             <Property name="text" type="java.lang.String" value="Surname"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="i_surname">
+        <Component class="javax.swing.JTextField" name="i_lastName">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
