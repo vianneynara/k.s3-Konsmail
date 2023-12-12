@@ -29,12 +29,4 @@ public class Checker {
     public static boolean isAdvertisement(Email mail) {
         return mail instanceof Advertisement;
     }
-    
-    // possibly for password
-    public static boolean areEqual(String x, String y) {
-        if (x == y){
-            return true;
-        }
-        return false;
-    }
 }
