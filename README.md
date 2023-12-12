@@ -22,11 +22,27 @@ src
     └── resources           # Contains resources used in the app (images, icons, etc.)
 ```
 
-## Preview
+## GUI Preview
 
-<!-- ![Preview](path/to/image) -->
-<!-- ![Preview](path/to/image) -->
-<!-- ![Preview](path/to/image) -->
+The main window is not resizable, the resolution is fixed at 1366x768.
+
+### Login Page
+
+<p align="center">
+  <img src="images/login_page.png" alt="Login Page" width="400"/>
+</p>
+
+### Registration Page
+
+<p align="center">
+  <img src="images/registration_page.png" alt="Login Page" width="400"/>
+</p>
+
+### Mailbox Page
+
+<p align="center">
+  <img src="images/mailbox_page.png" alt="Login Page"/>
+</p>
 
 ## Contributors
 
