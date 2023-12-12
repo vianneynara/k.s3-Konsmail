@@ -26,22 +26,130 @@ public class MailboxPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        MAIN_CONTAINER = new javax.swing.JPanel();
+        TOOL_BAR = new javax.swing.JPanel();
+        i_searchBar = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        b_createMail = new javax.swing.JButton();
+        WINDOW_MENU_BAR = new javax.swing.JMenuBar();
+        m_userMenu = new javax.swing.JMenu();
+        m_configureAccount = new javax.swing.JMenuItem();
+        m_signOut = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        i_searchBar.setText("Search mail here...");
+        i_searchBar.setPreferredSize(new java.awt.Dimension(77, 30));
+        i_searchBar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                i_searchBarActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Main Inbox", "All Inboxes", "Promotions" }));
+        jComboBox1.setPreferredSize(new java.awt.Dimension(76, 30));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        b_createMail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        b_createMail.setText("Create Mail");
+        b_createMail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_createMailActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout TOOL_BARLayout = new javax.swing.GroupLayout(TOOL_BAR);
+        TOOL_BAR.setLayout(TOOL_BARLayout);
+        TOOL_BARLayout.setHorizontalGroup(
+            TOOL_BARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TOOL_BARLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(b_createMail, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101)
+                .addComponent(i_searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(413, Short.MAX_VALUE))
+        );
+        TOOL_BARLayout.setVerticalGroup(
+            TOOL_BARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TOOL_BARLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(TOOL_BARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_createMail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TOOL_BARLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(i_searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5))
+        );
+
+        javax.swing.GroupLayout MAIN_CONTAINERLayout = new javax.swing.GroupLayout(MAIN_CONTAINER);
+        MAIN_CONTAINER.setLayout(MAIN_CONTAINERLayout);
+        MAIN_CONTAINERLayout.setHorizontalGroup(
+            MAIN_CONTAINERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TOOL_BAR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        MAIN_CONTAINERLayout.setVerticalGroup(
+            MAIN_CONTAINERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MAIN_CONTAINERLayout.createSequentialGroup()
+                .addComponent(TOOL_BAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 695, Short.MAX_VALUE))
+        );
+
+        m_userMenu.setText("usr: nara@konsmail.dev");
+
+        m_configureAccount.setText("Configure Account");
+        m_configureAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m_configureAccountActionPerformed(evt);
+            }
+        });
+        m_userMenu.add(m_configureAccount);
+
+        m_signOut.setText("Sign Out");
+        m_userMenu.add(m_signOut);
+
+        WINDOW_MENU_BAR.add(m_userMenu);
+
+        setJMenuBar(WINDOW_MENU_BAR);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1366, Short.MAX_VALUE)
+            .addComponent(MAIN_CONTAINER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 768, Short.MAX_VALUE)
+            .addComponent(MAIN_CONTAINER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void m_configureAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_configureAccountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_m_configureAccountActionPerformed
+
+    private void i_searchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_searchBarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_i_searchBarActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void b_createMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_createMailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_createMailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +187,14 @@ public class MailboxPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel MAIN_CONTAINER;
+    private javax.swing.JPanel TOOL_BAR;
+    private javax.swing.JMenuBar WINDOW_MENU_BAR;
+    private javax.swing.JButton b_createMail;
+    private javax.swing.JTextField i_searchBar;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JMenuItem m_configureAccount;
+    private javax.swing.JMenuItem m_signOut;
+    private javax.swing.JMenu m_userMenu;
     // End of variables declaration//GEN-END:variables
 }
