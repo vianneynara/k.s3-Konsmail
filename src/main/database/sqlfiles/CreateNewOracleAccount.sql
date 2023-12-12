@@ -1,5 +1,9 @@
--- Creating account usip2pbol in Oracle Run SQL Command Line
+-- README: open "Run SQL Command Line" and execute the following commands:
+-- connect as administrator
+CONN sya as sysdba;
 
--- connect sys as sysdba;
--- create user usip2pbol identified by usip2pbol;
--- grant all privileges to usip2pbol;
+-- creates the user specifically for the project
+CREATE USER usip2pbol IDENTIFIED BY usip2pbol;
+
+-- grants all privileges to the user
+GRANT ALL PRIVILEGES TO usip2pbol;
