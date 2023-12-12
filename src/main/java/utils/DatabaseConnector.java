@@ -115,7 +115,7 @@ public class DatabaseConnector {
 	}
 
 	public static void insertAccount(Account acct) {
-		String query = "INSERT INTO MAILBOX" +
+		String query = "INSERT INTO ACCOUNTS" +
 				"VALUES (?, ?, ?, ?, ?)";
 
 		try (Connection conn = getConnection();
