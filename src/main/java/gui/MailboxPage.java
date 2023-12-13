@@ -4,6 +4,8 @@
  */
 package gui;
 
+import models.views.MailviewEmptyPanel;
+import models.views.MailviewPanel;
 import utils.USwingAppearance;
 
 import javax.swing.*;
@@ -16,11 +18,24 @@ import java.util.Objects;
  */
 public class MailboxPage extends javax.swing.JFrame {
 
+    private final CardLayout cardSwitcher;
+    private MailviewPanel mailviewPanel = new MailviewPanel();
+
     /**
      * Creates new form MailboxPage
      */
     public MailboxPage() {
         initComponents();
+        cardSwitcher = (CardLayout) MAIL_VIEW.getLayout();
+        initForms();
+//        enablePreview();
+    }
+
+    private void initForms() {
+//        MailviewEmptyPanel mailviewEmptyPanel = new MailviewEmptyPanel(); // please ignore this for now
+        MAIL_VIEW.add(mailviewPanel, "mailview");
+        MAIL_VIEW.add(new JPanel(), "emptyview");
+        cardSwitcher.show(MAIL_VIEW, "emptyview");
     }
 
     /**
@@ -110,16 +125,8 @@ public class MailboxPage extends javax.swing.JFrame {
 
         INBOX_SCROLLPANE.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        javax.swing.GroupLayout MAIL_VIEWLayout = new javax.swing.GroupLayout(MAIL_VIEW);
-        MAIL_VIEW.setLayout(MAIL_VIEWLayout);
-        MAIL_VIEWLayout.setHorizontalGroup(
-            MAIL_VIEWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 761, Short.MAX_VALUE)
-        );
-        MAIL_VIEWLayout.setVerticalGroup(
-            MAIL_VIEWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        MAIL_VIEW.setPreferredSize(new java.awt.Dimension(761, 713));
+        MAIL_VIEW.setLayout(new java.awt.CardLayout());
 
         b_mailReply.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         b_mailReply.setText("Reply");
@@ -163,7 +170,7 @@ public class MailboxPage extends javax.swing.JFrame {
                     .addComponent(b_mailReport, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
                     .addComponent(b_mailReply, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
                     .addComponent(b_markUnread, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
         MAIL_TOOLSLayout.setVerticalGroup(
             MAIL_TOOLSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,7 +181,7 @@ public class MailboxPage extends javax.swing.JFrame {
                 .addComponent(b_flag, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(b_markUnread, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 467, Short.MAX_VALUE)
                 .addComponent(b_mailReport, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -227,7 +234,7 @@ public class MailboxPage extends javax.swing.JFrame {
                     .addComponent(INBOX_SCROLLPANE, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(MAILBOX_FINDPANE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MAIL_VIEW, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(MAIL_VIEW, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MAIL_TOOLS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -238,12 +245,12 @@ public class MailboxPage extends javax.swing.JFrame {
                 .addComponent(TOOL_BAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MAIN_CONTAINERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(MAIL_VIEW, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MAIL_TOOLS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MAIN_CONTAINERLayout.createSequentialGroup()
+                    .addComponent(MAIL_VIEW, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
+                    .addGroup(MAIN_CONTAINERLayout.createSequentialGroup()
                         .addComponent(MAILBOX_FINDPANE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(INBOX_SCROLLPANE, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)))
+                        .addComponent(INBOX_SCROLLPANE))
+                    .addComponent(MAIL_TOOLS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -279,7 +286,9 @@ public class MailboxPage extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MAIN_CONTAINER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(MAIN_CONTAINER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleDescription("Mailbox");
@@ -323,12 +332,26 @@ public class MailboxPage extends javax.swing.JFrame {
 
     private void m_signOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_signOutActionPerformed
         this.dispose();
-        new LoginPage().setVisible(true);;
+        new LoginPage().setVisible(true);
     }//GEN-LAST:event_m_signOutActionPerformed
 
     private void b_flagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_flagActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_b_flagActionPerformed
+
+    public void enableMailTools() {
+        b_mailReply.setEnabled(true);
+        b_flag.setEnabled(true);
+        b_mailReport.setEnabled(true);
+        b_markUnread.setEnabled(true);
+    }
+
+    public void enablePreview() {
+        cardSwitcher.show(MAIL_VIEW, "mailview");
+        enableMailTools();
+
+        mailviewPanel.setFrom("Ohio");
+    }
 
     /**
      * @param args the command line arguments
