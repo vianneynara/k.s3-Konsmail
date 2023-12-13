@@ -48,8 +48,6 @@ public class LoginPage extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(540, 323));
 
-        MAIN_PANEL.setBackground(new java.awt.Color(153, 153, 153));
-
         l_konsmailImage.setIcon(new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/KonsmailMail_logo.png"))).getImage().getScaledInstance(270, 119, Image.SCALE_SMOOTH)));
 
         l_email.setLabelFor(i_email);
@@ -64,7 +62,6 @@ public class LoginPage extends javax.swing.JFrame {
         l_password.setLabelFor(i_password);
         l_password.setText("Password");
 
-        i_password.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         i_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_passwordActionPerformed(evt);
@@ -118,12 +115,12 @@ public class LoginPage extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(l_email)
                 .addGap(0, 0, 0)
-                .addComponent(i_email, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(i_email, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(l_password)
                 .addGap(0, 0, 0)
-                .addComponent(i_password, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addComponent(i_password, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_register, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_login, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
