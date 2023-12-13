@@ -46,6 +46,7 @@ public class RegisterPage extends javax.swing.JDialog {
         b_back = new javax.swing.JButton();
         b_register = new javax.swing.JButton();
         l_header = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Konsmail: Register new account");
@@ -56,6 +57,12 @@ public class RegisterPage extends javax.swing.JDialog {
 
         l_email.setLabelFor(i_email);
         l_email.setText("Email");
+
+        i_email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                i_emailActionPerformed(evt);
+            }
+        });
 
         l_password.setLabelFor(i_password);
         l_password.setText("Password");
@@ -94,6 +101,9 @@ public class RegisterPage extends javax.swing.JDialog {
         l_header.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         l_header.setText("<html>Register a new<br/>account</html>");
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setText("@konsmail.dev");
+
         javax.swing.GroupLayout MAIN_PANELLayout = new javax.swing.GroupLayout(MAIN_PANEL);
         MAIN_PANEL.setLayout(MAIN_PANELLayout);
         MAIN_PANELLayout.setHorizontalGroup(
@@ -101,7 +111,6 @@ public class RegisterPage extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MAIN_PANELLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(i_email)
                     .addComponent(i_password, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MAIN_PANELLayout.createSequentialGroup()
                         .addComponent(b_back, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -109,24 +118,30 @@ public class RegisterPage extends javax.swing.JDialog {
                         .addComponent(b_register, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(i_confirmPassword, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MAIN_PANELLayout.createSequentialGroup()
-                        .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l_email, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(l_confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(l_password, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(MAIN_PANELLayout.createSequentialGroup()
+                        .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(l_email, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l_confirmPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l_password, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MAIN_PANELLayout.createSequentialGroup()
                                 .addComponent(l_konsmailLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(l_header, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(MAIN_PANELLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_lastName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(MAIN_PANELLayout.createSequentialGroup()
+                                .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(l_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(i_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(l_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(i_lastName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(MAIN_PANELLayout.createSequentialGroup()
+                                .addComponent(i_email, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGap(33, 33, 33))
         );
         MAIN_PANELLayout.setVerticalGroup(
@@ -149,8 +164,10 @@ public class RegisterPage extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(l_email)
                 .addGap(0, 0, 0)
-                .addComponent(i_email, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(i_email, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(l_password)
                 .addGap(0, 0, 0)
                 .addComponent(i_password, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,6 +208,10 @@ public class RegisterPage extends javax.swing.JDialog {
     private void i_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_i_passwordActionPerformed
+
+    private void i_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_i_emailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,6 +264,7 @@ public class RegisterPage extends javax.swing.JDialog {
     private javax.swing.JTextField i_firstName;
     private javax.swing.JTextField i_lastName;
     private javax.swing.JPasswordField i_password;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel l_confirmPassword;
     private javax.swing.JLabel l_email;
     private javax.swing.JLabel l_firstName;
