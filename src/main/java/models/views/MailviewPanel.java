@@ -214,6 +214,31 @@ public class MailviewPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // Setters for labels and text areas
+
+    public void setFrom(String from) {
+        this.f_from.setText(from);
+    }
+
+    public void setEmail(String email) {
+        this.f_email.setText(email);
+    }
+
+    public void setAt(String at) {
+        this.f_at.setText(at);
+    }
+
+    public void setTime(String time) {
+        this.f_time.setText(time);
+    }
+
+    public void setMailBody(String mailBody) {
+        this.f_mailBody.setText(mailBody);
+    }
+
+    public void setSubject(String subject) {
+        this.l_subject.setText(subject);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MAIL_BODY;
