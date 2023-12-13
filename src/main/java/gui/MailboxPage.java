@@ -37,10 +37,6 @@ public class MailboxPage extends javax.swing.JFrame {
         b_findMail1 = new javax.swing.JButton();
         INBOX_SCROLLPANE = new javax.swing.JScrollPane();
         MAIL_VIEW = new javax.swing.JPanel();
-        MAIL_HEADER = new javax.swing.JPanel();
-        MAIL_BODY_SCROLLPANE = new javax.swing.JScrollPane();
-        MAIL_FOOTER = new javax.swing.JPanel();
-        l_konsmail = new javax.swing.JLabel();
         MAIL_TOOLS = new javax.swing.JPanel();
         b_mailReply = new javax.swing.JButton();
         b_mailFlag = new javax.swing.JButton();
@@ -112,65 +108,15 @@ public class MailboxPage extends javax.swing.JFrame {
                 .addGap(5, 5, 5))
         );
 
-        MAIL_HEADER.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 2, true));
-
-        javax.swing.GroupLayout MAIL_HEADERLayout = new javax.swing.GroupLayout(MAIL_HEADER);
-        MAIL_HEADER.setLayout(MAIL_HEADERLayout);
-        MAIL_HEADERLayout.setHorizontalGroup(
-            MAIL_HEADERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        MAIL_HEADERLayout.setVerticalGroup(
-            MAIL_HEADERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 97, Short.MAX_VALUE)
-        );
-
-        MAIL_BODY_SCROLLPANE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
-        MAIL_BODY_SCROLLPANE.setForeground(new java.awt.Color(153, 153, 153));
-
-        MAIL_FOOTER.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 2, true));
-
-        javax.swing.GroupLayout MAIL_FOOTERLayout = new javax.swing.GroupLayout(MAIL_FOOTER);
-        MAIL_FOOTER.setLayout(MAIL_FOOTERLayout);
-        MAIL_FOOTERLayout.setHorizontalGroup(
-            MAIL_FOOTERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 507, Short.MAX_VALUE)
-        );
-        MAIL_FOOTERLayout.setVerticalGroup(
-            MAIL_FOOTERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        l_konsmail.setIcon(new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/KonsmailMail_logo.png"))).getImage().getScaledInstance(194, 86, Image.SCALE_SMOOTH)));
-
         javax.swing.GroupLayout MAIL_VIEWLayout = new javax.swing.GroupLayout(MAIL_VIEW);
         MAIL_VIEW.setLayout(MAIL_VIEWLayout);
         MAIL_VIEWLayout.setHorizontalGroup(
             MAIL_VIEWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MAIL_VIEWLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(MAIL_VIEWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(MAIL_VIEWLayout.createSequentialGroup()
-                        .addComponent(MAIL_FOOTER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(l_konsmail, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MAIL_VIEWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(MAIL_BODY_SCROLLPANE, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
-                        .addComponent(MAIL_HEADER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+            .addGap(0, 761, Short.MAX_VALUE)
         );
         MAIL_VIEWLayout.setVerticalGroup(
             MAIL_VIEWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MAIL_VIEWLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(MAIL_HEADER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(MAIL_BODY_SCROLLPANE, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(MAIL_VIEWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(l_konsmail, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                    .addComponent(MAIL_FOOTER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(10, 10, 10))
+            .addGap(0, 691, Short.MAX_VALUE)
         );
 
         b_mailReply.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -450,9 +396,6 @@ public class MailboxPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane INBOX_SCROLLPANE;
     private javax.swing.JPanel MAILBOX_FINDPANE;
-    private javax.swing.JScrollPane MAIL_BODY_SCROLLPANE;
-    private javax.swing.JPanel MAIL_FOOTER;
-    private javax.swing.JPanel MAIL_HEADER;
     private javax.swing.JPanel MAIL_TOOLS;
     private javax.swing.JPanel MAIL_VIEW;
     private javax.swing.JPanel MAIN_CONTAINER;
@@ -469,7 +412,6 @@ public class MailboxPage extends javax.swing.JFrame {
     private javax.swing.JButton b_mailReport;
     private javax.swing.JComboBox<String> i_inboxType;
     private javax.swing.JTextField i_searchBar;
-    private javax.swing.JLabel l_konsmail;
     private javax.swing.JMenuItem m_configureAccount;
     private javax.swing.JMenuItem m_signOut;
     private javax.swing.JMenu m_userMenu;
