@@ -183,6 +183,7 @@ public class LoginPage extends javax.swing.JFrame {
     }// GEN-LAST:event_b_registerActionPerformed
 
     private void b_loginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_b_loginActionPerformed
+        // TODO complete verification once the database is ready
         setVisible(false);
         new MailboxPage().setVisible(true);
     }// GEN-LAST:event_b_loginActionPerformed
