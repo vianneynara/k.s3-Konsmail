@@ -34,18 +34,16 @@ public class MailboxPage extends javax.swing.JFrame {
         TOOL_BAR = new javax.swing.JPanel();
         i_inboxType = new javax.swing.JComboBox<>();
         b_createMail = new javax.swing.JButton();
-        b_findMail1 = new javax.swing.JButton();
+        b_refresh = new javax.swing.JButton();
         INBOX_SCROLLPANE = new javax.swing.JScrollPane();
         MAIL_VIEW = new javax.swing.JPanel();
         MAIL_TOOLS = new javax.swing.JPanel();
         b_mailReply = new javax.swing.JButton();
-        b_mailFlag = new javax.swing.JButton();
-        b_mailMarkUnread = new javax.swing.JButton();
+        b_flag = new javax.swing.JToggleButton();
         b_mailReport = new javax.swing.JButton();
-        b_mailBlock = new javax.swing.JButton();
-        b_mailMarkSpam = new javax.swing.JButton();
+        b_markUnread = new javax.swing.JToggleButton();
         MAILBOX_FINDPANE = new javax.swing.JPanel();
-        i_searchBar = new javax.swing.JTextField();
+        i_findMail = new javax.swing.JTextField();
         b_findMail = new javax.swing.JButton();
         WINDOW_MENU_BAR = new javax.swing.JMenuBar();
         m_userMenu = new javax.swing.JMenu();
@@ -60,7 +58,7 @@ public class MailboxPage extends javax.swing.JFrame {
         MAIN_CONTAINER.setBackground(new java.awt.Color(255, 255, 255));
 
         i_inboxType.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        i_inboxType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Main Inbox", "All Inboxes", "Promotions", "Spam" }));
+        i_inboxType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Main Inbox", "All Inboxes", "Sent", "Flagged", "Promotions" }));
         i_inboxType.setPreferredSize(new java.awt.Dimension(76, 30));
         i_inboxType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,11 +74,11 @@ public class MailboxPage extends javax.swing.JFrame {
             }
         });
 
-        b_findMail1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        b_findMail1.setText("Refresh");
-        b_findMail1.addActionListener(new java.awt.event.ActionListener() {
+        b_refresh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        b_refresh.setText("Refresh");
+        b_refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_findMail1ActionPerformed(evt);
+                b_refreshActionPerformed(evt);
             }
         });
 
@@ -90,7 +88,7 @@ public class MailboxPage extends javax.swing.JFrame {
             TOOL_BARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TOOL_BARLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(b_findMail1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(b_refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addComponent(i_inboxType, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
@@ -104,9 +102,11 @@ public class MailboxPage extends javax.swing.JFrame {
                 .addGroup(TOOL_BARLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_createMail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(i_inboxType, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_findMail1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(b_refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5))
         );
+
+        INBOX_SCROLLPANE.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         javax.swing.GroupLayout MAIL_VIEWLayout = new javax.swing.GroupLayout(MAIL_VIEW);
         MAIL_VIEW.setLayout(MAIL_VIEWLayout);
@@ -116,7 +116,7 @@ public class MailboxPage extends javax.swing.JFrame {
         );
         MAIL_VIEWLayout.setVerticalGroup(
             MAIL_VIEWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 691, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         b_mailReply.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -128,21 +128,12 @@ public class MailboxPage extends javax.swing.JFrame {
             }
         });
 
-        b_mailFlag.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        b_mailFlag.setText("Flag");
-        b_mailFlag.setEnabled(false);
-        b_mailFlag.addActionListener(new java.awt.event.ActionListener() {
+        b_flag.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        b_flag.setText("Flag");
+        b_flag.setEnabled(false);
+        b_flag.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_mailFlagActionPerformed(evt);
-            }
-        });
-
-        b_mailMarkUnread.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        b_mailMarkUnread.setText("Mark Unread");
-        b_mailMarkUnread.setEnabled(false);
-        b_mailMarkUnread.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_mailMarkUnreadActionPerformed(evt);
+                b_flagActionPerformed(evt);
             }
         });
 
@@ -155,23 +146,9 @@ public class MailboxPage extends javax.swing.JFrame {
             }
         });
 
-        b_mailBlock.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        b_mailBlock.setText("Block");
-        b_mailBlock.setEnabled(false);
-        b_mailBlock.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_mailBlockActionPerformed(evt);
-            }
-        });
-
-        b_mailMarkSpam.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        b_mailMarkSpam.setText("Mark Spam");
-        b_mailMarkSpam.setEnabled(false);
-        b_mailMarkSpam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_mailMarkSpamActionPerformed(evt);
-            }
-        });
+        b_markUnread.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        b_markUnread.setText("Mark Unread");
+        b_markUnread.setEnabled(false);
 
         javax.swing.GroupLayout MAIL_TOOLSLayout = new javax.swing.GroupLayout(MAIL_TOOLS);
         MAIL_TOOLS.setLayout(MAIL_TOOLSLayout);
@@ -179,38 +156,32 @@ public class MailboxPage extends javax.swing.JFrame {
             MAIL_TOOLSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MAIL_TOOLSLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(MAIL_TOOLSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(b_mailMarkSpam, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_mailBlock, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_mailReport, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_mailMarkUnread, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_mailFlag, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_mailReply, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                .addGroup(MAIL_TOOLSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(b_flag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(b_mailReport, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                    .addComponent(b_mailReply, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                    .addComponent(b_markUnread, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         MAIL_TOOLSLayout.setVerticalGroup(
             MAIL_TOOLSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MAIL_TOOLSLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(b_mailReply, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(b_flag, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(b_mailFlag, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(b_mailMarkUnread, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(b_mailMarkSpam, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(b_markUnread, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(b_mailBlock, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(b_mailReport, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
-        i_searchBar.setText("Search mail here...");
-        i_searchBar.setPreferredSize(new java.awt.Dimension(77, 30));
-        i_searchBar.addActionListener(new java.awt.event.ActionListener() {
+        i_findMail.setText("Search mail here...");
+        i_findMail.setPreferredSize(new java.awt.Dimension(77, 30));
+        i_findMail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_searchBarActionPerformed(evt);
+                i_findMailActionPerformed(evt);
             }
         });
 
@@ -228,7 +199,7 @@ public class MailboxPage extends javax.swing.JFrame {
             MAILBOX_FINDPANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MAILBOX_FINDPANELayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(i_searchBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(i_findMail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(b_findMail)
                 .addContainerGap())
@@ -238,7 +209,7 @@ public class MailboxPage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MAILBOX_FINDPANELayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(MAILBOX_FINDPANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(i_searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(i_findMail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_findMail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -270,7 +241,7 @@ public class MailboxPage extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MAIN_CONTAINERLayout.createSequentialGroup()
                         .addComponent(MAILBOX_FINDPANE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(INBOX_SCROLLPANE)))
+                        .addComponent(INBOX_SCROLLPANE, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -287,6 +258,11 @@ public class MailboxPage extends javax.swing.JFrame {
 
         m_signOut.setText("Sign Out");
         m_signOut.setIcon(new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/signout_icon.png"))).getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH)));
+        m_signOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m_signOutActionPerformed(evt);
+            }
+        });
         m_userMenu.add(m_signOut);
 
         WINDOW_MENU_BAR.add(m_userMenu);
@@ -314,9 +290,9 @@ public class MailboxPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_m_configureAccountActionPerformed
 
-    private void i_searchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_searchBarActionPerformed
+    private void i_findMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_findMailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_i_searchBarActionPerformed
+    }//GEN-LAST:event_i_findMailActionPerformed
 
     private void i_inboxTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_inboxTypeActionPerformed
         // TODO add your handling code here:
@@ -330,33 +306,25 @@ public class MailboxPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_b_mailReplyActionPerformed
 
-    private void b_mailFlagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_mailFlagActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b_mailFlagActionPerformed
-
-    private void b_mailMarkUnreadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_mailMarkUnreadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b_mailMarkUnreadActionPerformed
-
     private void b_mailReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_mailReportActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_b_mailReportActionPerformed
-
-    private void b_mailBlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_mailBlockActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b_mailBlockActionPerformed
-
-    private void b_mailMarkSpamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_mailMarkSpamActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b_mailMarkSpamActionPerformed
 
     private void b_findMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_findMailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_b_findMailActionPerformed
 
-    private void b_findMail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_findMail1ActionPerformed
+    private void b_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_refreshActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_b_findMail1ActionPerformed
+    }//GEN-LAST:event_b_refreshActionPerformed
+
+    private void m_signOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_signOutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_m_signOutActionPerformed
+
+    private void b_flagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_flagActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_flagActionPerformed
 
     /**
      * @param args the command line arguments
@@ -403,15 +371,13 @@ public class MailboxPage extends javax.swing.JFrame {
     private javax.swing.JMenuBar WINDOW_MENU_BAR;
     private javax.swing.JButton b_createMail;
     private javax.swing.JButton b_findMail;
-    private javax.swing.JButton b_findMail1;
-    private javax.swing.JButton b_mailBlock;
-    private javax.swing.JButton b_mailFlag;
-    private javax.swing.JButton b_mailMarkSpam;
-    private javax.swing.JButton b_mailMarkUnread;
+    private javax.swing.JToggleButton b_flag;
     private javax.swing.JButton b_mailReply;
     private javax.swing.JButton b_mailReport;
+    private javax.swing.JToggleButton b_markUnread;
+    private javax.swing.JButton b_refresh;
+    private javax.swing.JTextField i_findMail;
     private javax.swing.JComboBox<String> i_inboxType;
-    private javax.swing.JTextField i_searchBar;
     private javax.swing.JMenuItem m_configureAccount;
     private javax.swing.JMenuItem m_signOut;
     private javax.swing.JMenu m_userMenu;
