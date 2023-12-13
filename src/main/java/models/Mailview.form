@@ -92,7 +92,7 @@
               <Font name="Segoe UI" size="24" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
-            <Property name="text" type="java.lang.String" value="Welcome to Konsmail mailing system!"/>
+            <Property name="text" type="java.lang.String" value="Welcome to Konsmail!"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -121,26 +121,26 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="l_from" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="l_from9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="l_email" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="f_from9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="f_email" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="f_from" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="343" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="l_time5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="l_time" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="f_time5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="f_time" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="60" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                  <Component id="l_at5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="l_at" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="f_at5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="f_at" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -156,13 +156,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="l_at5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="f_at5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="l_at" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="f_at" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="l_time5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="f_time5" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="l_time" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="f_time" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -172,8 +172,8 @@
                           </Group>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="l_from9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="f_from9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="l_email" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="f_email" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -202,7 +202,7 @@
             <Property name="text" type="java.lang.String" value="from "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="l_from9">
+        <Component class="javax.swing.JLabel" name="l_email">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
@@ -211,7 +211,7 @@
             <Property name="text" type="java.lang.String" value="email "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="f_from9">
+        <Component class="javax.swing.JLabel" name="f_email">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -219,7 +219,7 @@
             <Property name="text" type="java.lang.String" value="system@konsmail.dev"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="l_at5">
+        <Component class="javax.swing.JLabel" name="l_at">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
@@ -228,7 +228,7 @@
             <Property name="text" type="java.lang.String" value="at"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="f_at5">
+        <Component class="javax.swing.JLabel" name="f_at">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -236,7 +236,7 @@
             <Property name="text" type="java.lang.String" value="12 December 2023"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="l_time5">
+        <Component class="javax.swing.JLabel" name="l_time">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
@@ -245,7 +245,7 @@
             <Property name="text" type="java.lang.String" value="time"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="f_time5">
+        <Component class="javax.swing.JLabel" name="f_time">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>

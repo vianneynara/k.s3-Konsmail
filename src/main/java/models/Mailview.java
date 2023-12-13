@@ -35,12 +35,12 @@ public class Mailview extends javax.swing.JPanel {
         MAIL_BODY = new javax.swing.JPanel();
         f_from = new javax.swing.JLabel();
         l_from = new javax.swing.JLabel();
-        l_from9 = new javax.swing.JLabel();
-        f_from9 = new javax.swing.JLabel();
-        l_at5 = new javax.swing.JLabel();
-        f_at5 = new javax.swing.JLabel();
-        l_time5 = new javax.swing.JLabel();
-        f_time5 = new javax.swing.JLabel();
+        l_email = new javax.swing.JLabel();
+        f_email = new javax.swing.JLabel();
+        l_at = new javax.swing.JLabel();
+        f_at = new javax.swing.JLabel();
+        l_time = new javax.swing.JLabel();
+        f_time = new javax.swing.JLabel();
         MAIL_BODY_SCROLLPANE = new javax.swing.JScrollPane();
         f_mailBody = new javax.swing.JTextArea();
         MAIL_FOOTER = new javax.swing.JPanel();
@@ -53,7 +53,7 @@ public class Mailview extends javax.swing.JPanel {
 
         l_subject.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         l_subject.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        l_subject.setText("Welcome to Konsmail mailing system!");
+        l_subject.setText("Welcome to Konsmail!");
 
         javax.swing.GroupLayout MAIL_HEADERLayout = new javax.swing.GroupLayout(MAIL_HEADER);
         MAIL_HEADER.setLayout(MAIL_HEADERLayout);
@@ -81,26 +81,26 @@ public class Mailview extends javax.swing.JPanel {
         l_from.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         l_from.setText("from ");
 
-        l_from9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        l_from9.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        l_from9.setText("email ");
+        l_email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        l_email.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        l_email.setText("email ");
 
-        f_from9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        f_from9.setText("system@konsmail.dev");
+        f_email.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        f_email.setText("system@konsmail.dev");
 
-        l_at5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        l_at5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        l_at5.setText("at");
+        l_at.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        l_at.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        l_at.setText("at");
 
-        f_at5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        f_at5.setText("12 December 2023");
+        f_at.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        f_at.setText("12 December 2023");
 
-        l_time5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        l_time5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        l_time5.setText("time");
+        l_time.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        l_time.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        l_time.setText("time");
 
-        f_time5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        f_time5.setText("12:30 PM");
+        f_time.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        f_time.setText("12:30 PM");
 
         MAIL_BODY_SCROLLPANE.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -125,23 +125,23 @@ public class Mailview extends javax.swing.JPanel {
                     .addGroup(MAIL_BODYLayout.createSequentialGroup()
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(l_from)
-                            .addComponent(l_from9))
+                            .addComponent(l_email))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(f_from9)
+                            .addComponent(f_email)
                             .addComponent(f_from))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 343, Short.MAX_VALUE)
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MAIL_BODYLayout.createSequentialGroup()
-                                .addComponent(l_time5)
+                                .addComponent(l_time)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(f_time5)
+                                .addComponent(f_time)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MAIL_BODYLayout.createSequentialGroup()
                                 .addGap(15, 15, 15)
-                                .addComponent(l_at5)
+                                .addComponent(l_at)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(f_at5)))
+                                .addComponent(f_at)))
                         .addGap(10, 10, 10))))
         );
         MAIL_BODYLayout.setVerticalGroup(
@@ -151,20 +151,20 @@ public class Mailview extends javax.swing.JPanel {
                 .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MAIL_BODYLayout.createSequentialGroup()
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(l_at5)
-                            .addComponent(f_at5))
+                            .addComponent(l_at)
+                            .addComponent(f_at))
                         .addGap(0, 0, 0)
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(l_time5)
-                            .addComponent(f_time5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(l_time)
+                            .addComponent(f_time, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(MAIL_BODYLayout.createSequentialGroup()
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(l_from)
                             .addComponent(f_from))
                         .addGap(0, 0, 0)
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(l_from9)
-                            .addComponent(f_from9))))
+                            .addComponent(l_email)
+                            .addComponent(f_email))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MAIL_BODY_SCROLLPANE, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
                 .addContainerGap())
@@ -231,17 +231,17 @@ public class Mailview extends javax.swing.JPanel {
     private javax.swing.JScrollPane MAIL_BODY_SCROLLPANE;
     private javax.swing.JPanel MAIL_FOOTER;
     private javax.swing.JPanel MAIL_HEADER;
-    private javax.swing.JLabel f_at5;
+    private javax.swing.JLabel f_at;
+    private javax.swing.JLabel f_email;
     private javax.swing.JLabel f_from;
-    private javax.swing.JLabel f_from9;
     private javax.swing.JTextArea f_mailBody;
-    private javax.swing.JLabel f_time5;
-    private javax.swing.JLabel l_at5;
+    private javax.swing.JLabel f_time;
+    private javax.swing.JLabel l_at;
     private javax.swing.JLabel l_attachments;
+    private javax.swing.JLabel l_email;
     private javax.swing.JLabel l_from;
-    private javax.swing.JLabel l_from9;
     private javax.swing.JLabel l_konsmail;
     private javax.swing.JLabel l_subject;
-    private javax.swing.JLabel l_time5;
+    private javax.swing.JLabel l_time;
     // End of variables declaration//GEN-END:variables
 }
