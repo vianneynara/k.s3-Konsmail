@@ -42,10 +42,10 @@ public class RegisterPage extends javax.swing.JDialog {
         i_confirmPassword = new javax.swing.JPasswordField();
         l_lastName = new javax.swing.JLabel();
         i_lastName = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        l_konsmailLogo = new javax.swing.JLabel();
         b_back = new javax.swing.JButton();
         b_register = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        l_header = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Konsmail: Register new account");
@@ -75,7 +75,7 @@ public class RegisterPage extends javax.swing.JDialog {
         l_lastName.setLabelFor(i_lastName);
         l_lastName.setText("Last Name");
 
-        jLabel1.setIcon(new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/KonsmailMail_logo.png"))).getImage().getScaledInstance(194, 86, Image.SCALE_SMOOTH)));
+        l_konsmailLogo.setIcon(new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/KonsmailMail_logo.png"))).getImage().getScaledInstance(194, 86, Image.SCALE_SMOOTH)));
 
         b_back.setText("Back");
         b_back.addActionListener(new java.awt.event.ActionListener() {
@@ -91,8 +91,8 @@ public class RegisterPage extends javax.swing.JDialog {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setText("<html>Register a new<br/>account</html>");
+        l_header.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        l_header.setText("<html>Register a new<br/>account</html>");
 
         javax.swing.GroupLayout MAIN_PANELLayout = new javax.swing.GroupLayout(MAIN_PANEL);
         MAIN_PANEL.setLayout(MAIN_PANELLayout);
@@ -114,9 +114,9 @@ public class RegisterPage extends javax.swing.JDialog {
                             .addComponent(l_confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(l_password, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(MAIN_PANELLayout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(l_konsmailLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(l_header, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(MAIN_PANELLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -134,8 +134,8 @@ public class RegisterPage extends javax.swing.JDialog {
             .addGroup(MAIN_PANELLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
+                    .addComponent(l_konsmailLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(l_header, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
                 .addGap(35, 35, 35)
                 .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(MAIN_PANELLayout.createSequentialGroup()
@@ -243,11 +243,11 @@ public class RegisterPage extends javax.swing.JDialog {
     private javax.swing.JTextField i_firstName;
     private javax.swing.JTextField i_lastName;
     private javax.swing.JPasswordField i_password;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel l_confirmPassword;
     private javax.swing.JLabel l_email;
     private javax.swing.JLabel l_firstName;
+    private javax.swing.JLabel l_header;
+    private javax.swing.JLabel l_konsmailLogo;
     private javax.swing.JLabel l_lastName;
     private javax.swing.JLabel l_password;
     // End of variables declaration//GEN-END:variables

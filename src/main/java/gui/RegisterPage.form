@@ -59,9 +59,9 @@
                               <Component id="l_confirmPassword" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                               <Component id="l_password" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel1" min="-2" pref="194" max="-2" attributes="0"/>
+                                  <Component id="l_konsmailLogo" min="-2" pref="194" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="l_header" min="-2" pref="200" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -88,8 +88,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel1" max="32767" attributes="0"/>
-                      <Component id="jLabel2" pref="86" max="32767" attributes="0"/>
+                      <Component id="l_konsmailLogo" max="32767" attributes="0"/>
+                      <Component id="l_header" pref="86" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -190,7 +190,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="i_lastName">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="l_konsmailLogo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource(&quot;/images/KonsmailMail_logo.png&quot;))).getImage().getScaledInstance(194, 86, Image.SCALE_SMOOTH))" type="code"/>
@@ -213,7 +213,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_registerActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="l_header">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="1"/>
