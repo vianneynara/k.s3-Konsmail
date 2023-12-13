@@ -170,11 +170,11 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void i_emailActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_i_emailActionPerformed
-        // TODO add your handling code here:
+        // TODO unused:
     }// GEN-LAST:event_i_emailActionPerformed
 
     private void i_passwordActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_i_passwordActionPerformed
-        // TODO add your handling code here:
+        // TODO unused:
     }// GEN-LAST:event_i_passwordActionPerformed
 
     private void b_registerActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_b_registerActionPerformed

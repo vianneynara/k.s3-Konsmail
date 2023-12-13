@@ -258,6 +258,7 @@ public class RegisterPage extends javax.swing.JDialog {
         }
         resetField();
         // DatabaseConnector.insertAccount(new Account(fName, lName, email, pass, "x"));
+        b_backActionPerformed(evt);
         return true;
 
     }// GEN-LAST:event_b_registerActionPerformed
@@ -275,11 +276,11 @@ public class RegisterPage extends javax.swing.JDialog {
     }// GEN-LAST:event_b_backActionPerformed
 
     private void i_passwordActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_i_passwordActionPerformed
-        // TODO add your handling code here:
+        // TODO unused:
     }//GEN-LAST:event_i_passwordActionPerformed
 
     private void i_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_emailActionPerformed
-        // TODO add your handling code here:
+        // TODO unused:
     }//GEN-LAST:event_i_emailActionPerformed
 
     /**

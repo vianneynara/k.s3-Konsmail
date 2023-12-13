@@ -150,7 +150,7 @@ public class NewMailDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_b_sendActionPerformed
 
     private void b_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cancelActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_b_cancelActionPerformed
 
     private void b_previewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_previewActionPerformed

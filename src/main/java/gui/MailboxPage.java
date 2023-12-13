@@ -287,19 +287,20 @@ public class MailboxPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void m_configureAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_configureAccountActionPerformed
-        // TODO add your handling code here:
+        new ConfigureAccountPage(this, true).setVisible(true);
     }//GEN-LAST:event_m_configureAccountActionPerformed
 
     private void i_findMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_findMailActionPerformed
-        // TODO add your handling code here:
+        // TODO unused:
     }//GEN-LAST:event_i_findMailActionPerformed
 
     private void i_inboxTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_inboxTypeActionPerformed
-        // TODO add your handling code here:
+        // TODO unused:
     }//GEN-LAST:event_i_inboxTypeActionPerformed
 
     private void b_createMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_createMailActionPerformed
         // TODO add your handling code here:
+        new NewMailDialog(this, true).setVisible(true);
     }//GEN-LAST:event_b_createMailActionPerformed
 
     private void b_mailReplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_mailReplyActionPerformed
@@ -319,7 +320,8 @@ public class MailboxPage extends javax.swing.JFrame {
     }//GEN-LAST:event_b_refreshActionPerformed
 
     private void m_signOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_signOutActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        new LoginPage().setVisible(true);;
     }//GEN-LAST:event_m_signOutActionPerformed
 
     private void b_flagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_flagActionPerformed

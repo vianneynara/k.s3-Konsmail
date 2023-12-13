@@ -192,15 +192,15 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
     }//GEN-LAST:event_b_saveActionPerformed
 
     private void b_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cancelActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_b_cancelActionPerformed
 
     private void i_oldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_oldPasswordActionPerformed
-        // TODO add your handling code here:
+        // TODO unused:
     }//GEN-LAST:event_i_oldPasswordActionPerformed
 
     private void i_firstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_firstNameActionPerformed
-        // TODO add your handling code here:
+        // TODO unused:
     }//GEN-LAST:event_i_firstNameActionPerformed
 
     /**
