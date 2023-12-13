@@ -54,6 +54,12 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
         l_firstName.setLabelFor(i_firstName);
         l_firstName.setText("First Name");
 
+        i_firstName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                i_firstNameActionPerformed(evt);
+            }
+        });
+
         l_email.setLabelFor(i_email);
         l_email.setText("Email");
 
@@ -192,6 +198,10 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
     private void i_oldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_oldPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_i_oldPasswordActionPerformed
+
+    private void i_firstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_firstNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_i_firstNameActionPerformed
 
     /**
      * @param args the command line arguments
