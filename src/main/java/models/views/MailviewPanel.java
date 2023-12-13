@@ -44,7 +44,6 @@ public class MailviewPanel extends javax.swing.JPanel {
         MAIL_BODY_SCROLLPANE = new javax.swing.JScrollPane();
         f_mailBody = new javax.swing.JTextArea();
         MAIL_FOOTER = new javax.swing.JPanel();
-        l_attachments = new javax.swing.JLabel();
         l_konsmail = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(753, 374));
@@ -172,25 +171,15 @@ public class MailviewPanel extends javax.swing.JPanel {
 
         MAIL_FOOTER.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 2, true));
 
-        l_attachments.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        l_attachments.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        l_attachments.setText("attachments:");
-
         javax.swing.GroupLayout MAIL_FOOTERLayout = new javax.swing.GroupLayout(MAIL_FOOTER);
         MAIL_FOOTER.setLayout(MAIL_FOOTERLayout);
         MAIL_FOOTERLayout.setHorizontalGroup(
             MAIL_FOOTERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MAIL_FOOTERLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(l_attachments)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         MAIL_FOOTERLayout.setVerticalGroup(
             MAIL_FOOTERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MAIL_FOOTERLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(l_attachments)
-                .addContainerGap(56, Short.MAX_VALUE))
+            .addGap(0, 82, Short.MAX_VALUE)
         );
 
         l_konsmail.setIcon(new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/KonsmailMail_logo.png"))).getImage().getScaledInstance(194, 86, Image.SCALE_SMOOTH)));
@@ -237,7 +226,6 @@ public class MailviewPanel extends javax.swing.JPanel {
     private javax.swing.JTextArea f_mailBody;
     private javax.swing.JLabel f_time;
     private javax.swing.JLabel l_at;
-    private javax.swing.JLabel l_attachments;
     private javax.swing.JLabel l_email;
     private javax.swing.JLabel l_from;
     private javax.swing.JLabel l_konsmail;
