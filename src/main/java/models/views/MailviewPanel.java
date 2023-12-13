@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package models;
+package models.views;
 
 import java.awt.Image;
 import java.util.Objects;
@@ -12,12 +12,12 @@ import javax.swing.ImageIcon;
  *
  * @author narwa
  */
-public class Mailview extends javax.swing.JPanel {
+public class MailviewPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form Mailview
      */
-    public Mailview() {
+    public MailviewPanel() {
         initComponents();
     }
 
