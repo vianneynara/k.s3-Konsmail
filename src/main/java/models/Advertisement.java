@@ -10,9 +10,7 @@ import java.time.LocalDate;
 public class Advertisement extends Email {
 
     public Advertisement(String source, String destination, String subject, String email, LocalDate date) {
-        // Parent constructor
         super(source, destination, subject, email, date);
-        // TODO
     }
 
     

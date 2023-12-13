@@ -20,8 +20,18 @@ public class Checker {
 
     public static boolean containsNonAlphanumeric(String input) {
         for (char c : input.toCharArray()) {
-            if (!Character.isLetterOrDigit(c))
+            if (!Character.isLetterOrDigit(c)) {
                 return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean containsNonAlpha(String input) {
+        for (char c : input.toCharArray()) {
+            if (!Character.isLetter(c)) {
+                return true;
+            }
         }
         return false;
     }
