@@ -33,8 +33,8 @@ public class Mailview extends javax.swing.JPanel {
         MAIL_HEADER = new javax.swing.JPanel();
         l_subject = new javax.swing.JLabel();
         MAIL_BODY = new javax.swing.JPanel();
-        f_from8 = new javax.swing.JLabel();
-        l_from8 = new javax.swing.JLabel();
+        f_from = new javax.swing.JLabel();
+        l_from = new javax.swing.JLabel();
         l_from9 = new javax.swing.JLabel();
         f_from9 = new javax.swing.JLabel();
         l_at5 = new javax.swing.JLabel();
@@ -74,12 +74,12 @@ public class Mailview extends javax.swing.JPanel {
 
         MAIL_BODY.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
 
-        f_from8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        f_from8.setText("Konsmail System Delivery");
+        f_from.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        f_from.setText("Konsmail System Delivery");
 
-        l_from8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        l_from8.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        l_from8.setText("from ");
+        l_from.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        l_from.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        l_from.setText("from ");
 
         l_from9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         l_from9.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -124,12 +124,12 @@ public class Mailview extends javax.swing.JPanel {
                         .addContainerGap())
                     .addGroup(MAIL_BODYLayout.createSequentialGroup()
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l_from8)
+                            .addComponent(l_from)
                             .addComponent(l_from9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(f_from9)
-                            .addComponent(f_from8))
+                            .addComponent(f_from))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 334, Short.MAX_VALUE)
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MAIL_BODYLayout.createSequentialGroup()
@@ -159,14 +159,14 @@ public class Mailview extends javax.swing.JPanel {
                             .addComponent(f_time5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(MAIL_BODYLayout.createSequentialGroup()
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(l_from8)
-                            .addComponent(f_from8))
+                            .addComponent(l_from)
+                            .addComponent(f_from))
                         .addGap(0, 0, 0)
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(l_from9)
                             .addComponent(f_from9))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MAIL_BODY_SCROLLPANE, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                .addComponent(MAIL_BODY_SCROLLPANE, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -214,7 +214,7 @@ public class Mailview extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 628, Short.MAX_VALUE)
+            .addGap(0, 714, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(23, 23, 23)
@@ -236,13 +236,13 @@ public class Mailview extends javax.swing.JPanel {
     private javax.swing.JPanel MAIL_FOOTER;
     private javax.swing.JPanel MAIL_HEADER;
     private javax.swing.JLabel f_at5;
-    private javax.swing.JLabel f_from8;
+    private javax.swing.JLabel f_from;
     private javax.swing.JLabel f_from9;
     private javax.swing.JTextArea f_mailBody;
     private javax.swing.JLabel f_time5;
     private javax.swing.JLabel l_at5;
     private javax.swing.JLabel l_attachments;
-    private javax.swing.JLabel l_from8;
+    private javax.swing.JLabel l_from;
     private javax.swing.JLabel l_from9;
     private javax.swing.JLabel l_konsmail;
     private javax.swing.JLabel l_subject;
