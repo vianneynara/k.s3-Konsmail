@@ -7,6 +7,7 @@
     <Property name="iconImage" type="java.awt.Image" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
       <Connection code="new ImageIcon(Objects.requireNonNull(getClass().getResource(&quot;/images/konsmail_icon.png&quot;))).getImage()" type="code"/>
     </Property>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -53,15 +54,6 @@
                           <Component id="b_save" min="-2" pref="105" max="-2" attributes="0"/>
                       </Group>
                       <Component id="i_newPassword" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="l_email" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="l_newPassword" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="l_oldPassword" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="l_confirmNewPassword" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -77,6 +69,15 @@
                           </Group>
                       </Group>
                       <Component id="i_confirmNewPassword" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="l_email" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
+                              <Component id="l_newPassword" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
+                              <Component id="l_oldPassword" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
+                              <Component id="l_confirmNewPassword" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
@@ -243,7 +244,7 @@
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="i_newPassword"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="New Password"/>
+            <Property name="text" type="java.lang.String" value="Confirm New Password"/>
           </Properties>
         </Component>
       </SubComponents>

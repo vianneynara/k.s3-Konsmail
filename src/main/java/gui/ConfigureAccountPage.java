@@ -60,6 +60,7 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Konsmail: Configuring account");
         setIconImage(new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/konsmail_icon.png"))).getImage());
+        setResizable(false);
 
         l_firstName.setLabelFor(i_firstName);
         l_firstName.setText("First Name");
@@ -69,10 +70,8 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
                 i_firstNameActionPerformed(evt);
             }
         });
-        i_firstName.setText(session.getAccountFirstName());
 
         l_email.setLabelFor(i_email);
-        i_email.setText(session.getAccountEmailAddress());
         l_email.setText("Email");
 
         i_email.setEditable(false);
@@ -94,7 +93,6 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
 
         l_lastName.setLabelFor(i_lastName);
         l_lastName.setText("Last Name");
-        i_lastName.setText(session.getAccountLastName());
 
         b_cancel.setText("Cancel");
         b_cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +117,7 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
         i_confirmNewPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         l_confirmNewPassword.setLabelFor(i_newPassword);
-        l_confirmNewPassword.setText("New Password");
+        l_confirmNewPassword.setText("Confirm New Password");
 
         javax.swing.GroupLayout MAIN_PANELLayout = new javax.swing.GroupLayout(MAIN_PANEL);
         MAIN_PANEL.setLayout(MAIN_PANELLayout);
@@ -135,13 +133,6 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(b_save, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(i_newPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MAIN_PANELLayout.createSequentialGroup()
-                        .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l_email, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(l_newPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(l_oldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(l_confirmNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(MAIN_PANELLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -153,7 +144,14 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
                             .addComponent(l_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(i_lastName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(l_konsmailLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(i_confirmNewPassword, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(i_confirmNewPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MAIN_PANELLayout.createSequentialGroup()
+                        .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(l_email, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l_newPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l_oldPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l_confirmNewPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(33, 33, 33))
         );
         MAIN_PANELLayout.setVerticalGroup(
