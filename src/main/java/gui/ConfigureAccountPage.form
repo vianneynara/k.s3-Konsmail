@@ -58,6 +58,7 @@
                               <Component id="l_email" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                               <Component id="l_newPassword" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                               <Component id="l_oldPassword" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
+                              <Component id="l_confirmNewPassword" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -75,6 +76,7 @@
                               <Component id="l_konsmailLogo" min="-2" pref="194" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Component id="i_confirmNewPassword" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
@@ -88,7 +90,7 @@
                       <Component id="l_header" pref="86" max="32767" attributes="0"/>
                       <Component id="l_konsmailLogo" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="35" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="l_lastName" min="-2" max="-2" attributes="0"/>
@@ -113,6 +115,10 @@
                   <Component id="l_newPassword" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="i_newPassword" min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="l_confirmNewPassword" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Component id="i_confirmNewPassword" min="-2" pref="28" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="b_save" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
@@ -223,6 +229,21 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource(&quot;/images/KonsmailMail_logo.png&quot;))).getImage().getScaledInstance(194, 86, Image.SCALE_SMOOTH))" type="code"/>
             </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="i_confirmNewPassword">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="l_confirmNewPassword">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="i_newPassword"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="New Password"/>
           </Properties>
         </Component>
       </SubComponents>
