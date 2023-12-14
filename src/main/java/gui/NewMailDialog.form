@@ -44,22 +44,22 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="l_subject" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                               <Component id="MAIL_BODY_SCROLLPANE" min="-2" pref="721" max="-2" attributes="0"/>
-                              <Component id="l_subject1" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="l_subject2" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
+                              <Component id="l_body" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
+                              <Component id="l_subject" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="b_cancel" min="-2" pref="105" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="b_preview" min="-2" pref="105" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="l_recipientEmailAddress" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="i_firstName" alignment="1" min="-2" pref="721" max="-2" attributes="0"/>
-                              <Component id="i_firstName1" min="-2" pref="721" max="-2" attributes="0"/>
+                              <Component id="i_recipientAddress" alignment="1" min="-2" pref="721" max="-2" attributes="0"/>
+                              <Component id="i_subject" min="-2" pref="721" max="-2" attributes="0"/>
                               <Component id="b_send" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -72,15 +72,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Component id="l_recipientEmailAddress" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Component id="i_recipientAddress" min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                   <Component id="l_subject" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="i_firstName" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="i_subject" min="-2" pref="28" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                  <Component id="l_subject2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="i_firstName1" min="-2" pref="28" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                  <Component id="l_subject1" min="-2" max="-2" attributes="0"/>
+                  <Component id="l_body" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="MAIL_BODY_SCROLLPANE" min="-2" pref="290" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
@@ -95,16 +95,16 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="i_firstName">
+        <Component class="javax.swing.JTextField" name="i_recipientAddress">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="l_subject">
+        <Component class="javax.swing.JLabel" name="l_recipientEmailAddress">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Receipient Email"/>
+            <Property name="text" type="java.lang.String" value="Receipient Email Address"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="MAIL_BODY_SCROLLPANE">
@@ -130,17 +130,17 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="l_subject1">
+        <Component class="javax.swing.JLabel" name="l_body">
           <Properties>
             <Property name="text" type="java.lang.String" value="Body"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="l_subject2">
+        <Component class="javax.swing.JLabel" name="l_subject">
           <Properties>
             <Property name="text" type="java.lang.String" value="Subject"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="i_firstName1">
+        <Component class="javax.swing.JTextField" name="i_subject">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>

@@ -30,13 +30,13 @@ public class NewMailDialog extends javax.swing.JDialog {
     private void initComponents() {
 
         MAIN_PANEL = new javax.swing.JPanel();
-        i_firstName = new javax.swing.JTextField();
-        l_subject = new javax.swing.JLabel();
+        i_recipientAddress = new javax.swing.JTextField();
+        l_recipientEmailAddress = new javax.swing.JLabel();
         MAIL_BODY_SCROLLPANE = new javax.swing.JScrollPane();
         f_mailBody = new javax.swing.JTextArea();
-        l_subject1 = new javax.swing.JLabel();
-        l_subject2 = new javax.swing.JLabel();
-        i_firstName1 = new javax.swing.JTextField();
+        l_body = new javax.swing.JLabel();
+        l_subject = new javax.swing.JLabel();
+        i_subject = new javax.swing.JTextField();
         b_send = new javax.swing.JButton();
         b_cancel = new javax.swing.JButton();
         b_preview = new javax.swing.JButton();
@@ -44,9 +44,9 @@ public class NewMailDialog extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Konsmail: New mail");
 
-        i_firstName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        i_recipientAddress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        l_subject.setText("Receipient Email");
+        l_recipientEmailAddress.setText("Receipient Email Address");
 
         MAIL_BODY_SCROLLPANE.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -57,11 +57,11 @@ public class NewMailDialog extends javax.swing.JDialog {
         f_mailBody.setText("...");
         MAIL_BODY_SCROLLPANE.setViewportView(f_mailBody);
 
-        l_subject1.setText("Body");
+        l_body.setText("Body");
 
-        l_subject2.setText("Subject");
+        l_subject.setText("Subject");
 
-        i_firstName1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        i_subject.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         b_send.setText("Send");
         b_send.addActionListener(new java.awt.event.ActionListener() {
@@ -93,19 +93,19 @@ public class NewMailDialog extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MAIN_PANELLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(MAIL_BODY_SCROLLPANE, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(l_subject1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(l_subject2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l_body, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(MAIN_PANELLayout.createSequentialGroup()
                                 .addComponent(b_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(b_preview, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(b_preview, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(l_recipientEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(MAIN_PANELLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(i_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i_firstName1, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_recipientAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(b_send, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
@@ -113,15 +113,15 @@ public class NewMailDialog extends javax.swing.JDialog {
             MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MAIN_PANELLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
+                .addComponent(l_recipientEmailAddress)
+                .addGap(0, 0, 0)
+                .addComponent(i_recipientAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
                 .addComponent(l_subject)
                 .addGap(0, 0, 0)
-                .addComponent(i_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(i_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addComponent(l_subject2)
-                .addGap(0, 0, 0)
-                .addComponent(i_firstName1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(l_subject1)
+                .addComponent(l_body)
                 .addGap(0, 0, 0)
                 .addComponent(MAIL_BODY_SCROLLPANE, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
@@ -188,10 +188,10 @@ public class NewMailDialog extends javax.swing.JDialog {
     private javax.swing.JButton b_preview;
     private javax.swing.JButton b_send;
     private javax.swing.JTextArea f_mailBody;
-    private javax.swing.JTextField i_firstName;
-    private javax.swing.JTextField i_firstName1;
+    private javax.swing.JTextField i_recipientAddress;
+    private javax.swing.JTextField i_subject;
+    private javax.swing.JLabel l_body;
+    private javax.swing.JLabel l_recipientEmailAddress;
     private javax.swing.JLabel l_subject;
-    private javax.swing.JLabel l_subject1;
-    private javax.swing.JLabel l_subject2;
     // End of variables declaration//GEN-END:variables
 }
