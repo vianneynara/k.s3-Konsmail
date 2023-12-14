@@ -60,9 +60,9 @@ public class DatabaseConnector {
 				String dest = rs.getString("destination");
 				String subj = rs.getString("subject");
 				String email = rs.getString("email");
-				Date date = rs.getDate("date");
+				Timestamp date = rs.getTimestamp("date");
 
-				mailbox.add(new Email(src, dest, subj, email, date.toLocalDate()));
+				mailbox.add(new Email(src, dest, subj, email, date.toLocalDateTime()));
 			}
 
 		} catch (SQLException e) {
@@ -102,11 +102,11 @@ public class DatabaseConnector {
 		try (Connection conn = getConnection();
 				PreparedStatement ps = conn.prepareStatement(query)) {
 
-			ps.setString(1, mail.getSource());
-			ps.setString(2, mail.getDestination());
+			ps.setString(1, mail.getSender());
+			ps.setString(2, mail.getRecipient());
 			ps.setString(3, mail.getSubject());
-			ps.setString(4, mail.getEmail());
-			ps.setString(5, mail.getDate().toString());
+			ps.setString(4, mail.getContent());
+			ps.setString(5, mail.getDateTime().toString());
 
 			ps.executeUpdate();
 		} catch (SQLException e) {

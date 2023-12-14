@@ -213,7 +213,7 @@ public class RegisterPage extends javax.swing.JDialog {
         String pass = String.valueOf(i_password.getPassword());
         String confPass = String.valueOf(i_confirmPassword.getPassword());
 
-        if (fName.length() == 0 || lName.length() == 0 || email.length() == 0 || pass.length() == 0){
+        if (fName.length() == 0 || email.length() == 0 || pass.length() == 0){
             JOptionPane.showMessageDialog(
                     this,
                     "Please fill all the fields!",
@@ -231,6 +231,14 @@ public class RegisterPage extends javax.swing.JDialog {
             return false;
         }
 
+        if (!Checker.emailAddressValidation(email)) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Email address must be between 4 and 30 characters long!",
+                    "Attention!",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+
         if (Checker.containsNonAlphanumeric(email)) {
             JOptionPane.showMessageDialog(
                     this,
@@ -240,10 +248,10 @@ public class RegisterPage extends javax.swing.JDialog {
             return false;
         }
 
-        if (Checker.passwordLengthValidation(pass)) {
+        if (!Checker.passwordLengthValidation(pass)) {
             JOptionPane.showMessageDialog(
                     this,
-                    "Password length must be 8 or more!",
+                    "Password length must be between 8 and 128 characters long!",
                     "Attention!",
                     JOptionPane.INFORMATION_MESSAGE);
             return false;
