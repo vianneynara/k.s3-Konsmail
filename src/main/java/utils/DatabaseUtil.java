@@ -7,13 +7,12 @@ import models.objects.Account;
 import models.objects.Email;
 
 public class DatabaseUtil {
+
     public static ArrayList<Email> getMailbox() {
         ArrayList<Email> mailbox = new ArrayList<Email>();
         String query = "SELECT * FROM MAILBOX";
 
-        try (Connection conn = DatabaseConnector.getConnection();
-                PreparedStatement ps = conn.prepareStatement(query);
-                ResultSet rs = ps.executeQuery()) {
+        try (Connection conn = DatabaseConnector.getConnection(); PreparedStatement ps = conn.prepareStatement(query); ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 String src = rs.getString("source");
@@ -35,9 +34,7 @@ public class DatabaseUtil {
         ArrayList<Account> accounts = new ArrayList<Account>();
         String query = "SELECT * FROM ACCOUNTS";
 
-        try (Connection conn = DatabaseConnector.getConnection();
-                PreparedStatement ps = conn.prepareStatement(query);
-                ResultSet rs = ps.executeQuery()) {
+        try (Connection conn = DatabaseConnector.getConnection(); PreparedStatement ps = conn.prepareStatement(query); ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 String fName = rs.getString("first_name");
@@ -56,11 +53,10 @@ public class DatabaseUtil {
     }
 
     public static void insertEmail(Email mail) {
-        String query = "INSERT INTO MAILBOX" +
-                "VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO MAILBOX"
+                + "VALUES (?, ?, ?, ?, ?)";
 
-        try (Connection conn = DatabaseConnector.getConnection();
-                PreparedStatement ps = conn.prepareStatement(query)) {
+        try (Connection conn = DatabaseConnector.getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
 
             ps.setString(1, mail.getSender());
             ps.setString(2, mail.getRecipient());
@@ -75,11 +71,10 @@ public class DatabaseUtil {
     }
 
     public static void insertAccount(Account acct) {
-        String query = "INSERT INTO ACCOUNTS " +
-                "VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO ACCOUNTS "
+                + "VALUES (?, ?, ?, ?, ?)";
 
-        try (Connection conn = DatabaseConnector.getConnection();
-                PreparedStatement ps = conn.prepareStatement(query)) {
+        try (Connection conn = DatabaseConnector.getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
 
             ps.setString(1, acct.getUuid());
             ps.setString(2, acct.getEmailAddress());
@@ -96,14 +91,35 @@ public class DatabaseUtil {
     public static boolean accountExists(String address) {
         String query = "SELECT email_address FROM ACCOUNTS WHERE email_address = ?";
 
-        try (Connection conn = DatabaseConnector.getConnection();
-                PreparedStatement ps = conn.prepareStatement(query)) {
+        try (Connection conn = DatabaseConnector.getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
 
             ps.setString(1, address);
 
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     System.out.println("Account exists");
+                    return true;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    public static boolean emailAndPasswordMatches(String address, String password) {
+        String query = "SELECT email_address FROM ACCOUNTS "
+                + "WHERE email_address = ? AND password = ?";
+
+        try (Connection conn = DatabaseConnector.getConnection(); 
+                PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, address);
+            ps.setString(2, password);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    System.out.println("email and password matches");
                     return true;
                 }
             }
