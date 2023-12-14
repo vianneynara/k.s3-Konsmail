@@ -1,10 +1,9 @@
 package utils;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import models.Account;
-import models.Email;
+import models.objects.Account;
+import models.objects.Email;
 
 /**
  * Database Connector class that handles the connection to the database.

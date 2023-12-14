@@ -16,10 +16,13 @@ src
     │   ├── archives        # Contains unused files
     │   ├── backend         # Contains backend files
     │   ├── gui             # Contains GUI files
-    │   ├── models          # Contains models/objects used in the app
+    │   ├── models
+    │   │   ├── objects     # Contains objects used in the app
+    │   │   └── views       # Contains views used in the app
     │   ├── utils           # Contains utility files
-    │   └── Konsmail.java
-    └── resources           # Contains resources used in the app (images, icons, etc.)
+    │   └── Konsmail.java   # Main runner class
+    └── resources           
+        └── images          # Contains images used in the app
 ```
 
 ## GUI Preview
@@ -28,21 +31,33 @@ The main window is not resizable, the resolution is fixed at 1366x768.
 
 ### Login Page
 
-<p align="center">
+<div style="text-align: center">
   <img src="images/login_page.png" alt="Login Page" width="400"/>
-</p>
+</div>
 
 ### Registration Page
 
-<p align="center">
+<div style="text-align: center">
   <img src="images/registration_page.png" alt="Login Page" width="400"/>
-</p>
+</div>
 
 ### Mailbox Page
 
-<p align="center">
-  <img src="images/mailbox_page.png" alt="Login Page"/>
-</p>
+<div style="text-align: center">
+  <img src="images/mailbox_page.png" alt="Login Page" width="650"/>
+</div>
+
+### Configure Account Page
+
+<div style="text-align: center">
+  <img src="images/configure_account_page.png" alt="Login Page" width="400"/>
+</div>
+
+### New Mail Page
+
+<div style="text-align: center">
+  <img src="images/new_mail_page.png" alt="Login Page" width="400"/>
+</div>
 
 ## Contributors
 

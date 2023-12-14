@@ -30,7 +30,7 @@ public class LoginPage extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         MAIN_PANEL = new javax.swing.JPanel();
@@ -39,22 +39,19 @@ public class LoginPage extends javax.swing.JFrame {
         i_email = new javax.swing.JTextField();
         l_password = new javax.swing.JLabel();
         i_password = new javax.swing.JPasswordField();
-        b_login = new javax.swing.JButton();
+        b_signIn = new javax.swing.JButton();
         b_register = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Konsmail: Login");
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        setIconImage(
-                new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/konsmail_icon.png"))).getImage());
+        setIconImage(new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/konsmail_icon.png"))).getImage());
         setMaximumSize(null);
         setMinimumSize(null);
         setResizable(false);
         setSize(new java.awt.Dimension(540, 323));
 
-        l_konsmailImage.setIcon(new ImageIcon(new javax.swing.ImageIcon(
-                Objects.requireNonNull(getClass().getResource("/images/KonsmailMail_logo.png"))).getImage()
-                .getScaledInstance(270, 119, Image.SCALE_SMOOTH)));
+        l_konsmailImage.setIcon(new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/KonsmailMail_logo.png"))).getImage().getScaledInstance(270, 119, Image.SCALE_SMOOTH)));
 
         l_email.setLabelFor(i_email);
         l_email.setText("Email");
@@ -74,10 +71,10 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
-        b_login.setText("Login");
-        b_login.addActionListener(new java.awt.event.ActionListener() {
+        b_signIn.setText("SIgn In");
+        b_signIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_loginActionPerformed(evt);
+                b_signInActionPerformed(evt);
             }
         });
 
@@ -91,85 +88,70 @@ public class LoginPage extends javax.swing.JFrame {
         javax.swing.GroupLayout MAIN_PANELLayout = new javax.swing.GroupLayout(MAIN_PANEL);
         MAIN_PANEL.setLayout(MAIN_PANELLayout);
         MAIN_PANELLayout.setHorizontalGroup(
-                MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(MAIN_PANELLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(MAIN_PANELLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(MAIN_PANELLayout.createSequentialGroup()
-                                                .addGap(43, 43, 43)
-                                                .addComponent(l_konsmailImage, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(49, 49, 49))
-                                        .addGroup(MAIN_PANELLayout
-                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(l_password, javax.swing.GroupLayout.PREFERRED_SIZE, 105,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(MAIN_PANELLayout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(i_email)
-                                                        .addComponent(i_password,
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING,
-                                                                MAIN_PANELLayout.createSequentialGroup()
-                                                                        .addComponent(l_email,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                105,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addGap(0, 0, Short.MAX_VALUE))
-                                                        .addGroup(MAIN_PANELLayout.createSequentialGroup()
-                                                                .addComponent(b_register,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 105,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(152, 152, 152)
-                                                                .addComponent(b_login,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 105,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(20, 20, 20)));
+            MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MAIN_PANELLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MAIN_PANELLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(l_konsmailImage, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49))
+                    .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(l_password, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(i_email)
+                            .addComponent(i_password, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MAIN_PANELLayout.createSequentialGroup()
+                                .addComponent(l_email, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(MAIN_PANELLayout.createSequentialGroup()
+                                .addComponent(b_register, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(152, 152, 152)
+                                .addComponent(b_signIn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(20, 20, 20))
+        );
         MAIN_PANELLayout.setVerticalGroup(
-                MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(MAIN_PANELLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(l_konsmailImage, javax.swing.GroupLayout.PREFERRED_SIZE, 119,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(l_email)
-                                .addGap(0, 0, 0)
-                                .addComponent(i_email, javax.swing.GroupLayout.PREFERRED_SIZE, 28,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(l_password)
-                                .addGap(0, 0, 0)
-                                .addComponent(i_password, javax.swing.GroupLayout.PREFERRED_SIZE, 28,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16,
-                                        Short.MAX_VALUE)
-                                .addGroup(
-                                        MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(b_register, javax.swing.GroupLayout.PREFERRED_SIZE, 36,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(b_login, javax.swing.GroupLayout.PREFERRED_SIZE, 36,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(16, Short.MAX_VALUE)));
+            MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MAIN_PANELLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(l_konsmailImage, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(l_email)
+                .addGap(0, 0, 0)
+                .addComponent(i_email, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(l_password)
+                .addGap(0, 0, 0)
+                .addComponent(i_password, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_register, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_signIn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(MAIN_PANEL, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(MAIN_PANEL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(MAIN_PANEL, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(MAIN_PANEL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void b_signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_signInActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_signInActionPerformed
 
     private void i_emailActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_i_emailActionPerformed
         // TODO unused:
@@ -183,12 +165,6 @@ public class LoginPage extends javax.swing.JFrame {
         RegisterPage dialog = new RegisterPage(this, true);
         dialog.setVisible(true);
     }// GEN-LAST:event_b_registerActionPerformed
-
-    private void b_loginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_b_loginActionPerformed
-        // TODO complete verification once the database is ready
-        setVisible(false);
-        new MailboxPage().setVisible(true);
-    }// GEN-LAST:event_b_loginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,8 +183,8 @@ public class LoginPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MAIN_PANEL;
-    private javax.swing.JButton b_login;
     private javax.swing.JButton b_register;
+    private javax.swing.JButton b_signIn;
     private javax.swing.JTextField i_email;
     private javax.swing.JPasswordField i_password;
     private javax.swing.JLabel l_email;

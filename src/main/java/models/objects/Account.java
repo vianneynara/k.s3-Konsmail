@@ -1,4 +1,4 @@
-package models;
+package models.objects;
 
 /**
  * This class will be used to store the user's account information at a state.

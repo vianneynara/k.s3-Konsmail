@@ -1,7 +1,7 @@
 package utils;
 
-import models.Advertisement;
-import models.Email;
+import models.objects.Advertisement;
+import models.objects.Email;
 
 /**
  * This class will be used to validate inputs.
