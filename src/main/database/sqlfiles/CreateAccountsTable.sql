@@ -1,3 +1,4 @@
+-- script to create table Accounts
 CREATE TABLE Accounts
 (
     uuid          VARCHAR2(36)
@@ -10,6 +11,4 @@ CREATE TABLE Accounts
         CONSTRAINT accounts_first_name_NN NOT NULL,
     last_name     VARCHAR2(50)
         CONSTRAINT accounts_last_name_NN NOT NULL
-)
-
-DROP TABLE Accounts;
+);

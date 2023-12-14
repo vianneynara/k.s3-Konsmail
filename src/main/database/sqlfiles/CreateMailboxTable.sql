@@ -1,3 +1,4 @@
+-- script to create tabele Mailbox 
 CREATE TABLE Mailbox
 (
     uuid            VARCHAR2(36)
@@ -13,5 +14,3 @@ CREATE TABLE Mailbox
     is_flagged      NUMBER(1, 0) NOT NULL,
     is_read         NUMBER(1, 0) NOT NULL
 );
-
-SELECT * FROM Mailbox;
