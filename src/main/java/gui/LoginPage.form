@@ -81,7 +81,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="b_register" min="-2" pref="105" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
-                                  <Component id="b_login" min="-2" pref="105" max="-2" attributes="0"/>
+                                  <Component id="b_signIn" min="-2" pref="105" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -106,7 +106,7 @@
                   <EmptySpace pref="16" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="b_register" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="b_login" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="b_signIn" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="16" max="32767" attributes="0"/>
               </Group>
@@ -147,12 +147,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_passwordActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="b_login">
+        <Component class="javax.swing.JButton" name="b_signIn">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Login"/>
+            <Property name="text" type="java.lang.String" value="SIgn In"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_loginActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_signInActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b_register">
