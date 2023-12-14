@@ -3,10 +3,10 @@ CREATE TABLE Mailbox
 (
     uuid            VARCHAR2(36)
         CONSTRAINT mailbox_PK PRIMARY KEY NOT NULL,
-    sender_uuid     VARCHAR2(36) 
-        CONSTRAINT mailbox_sender_uuid_NN REFERENCES Accounts (uuid) NOT NULL,
-    recipient_uuid  VARCHAR2(36) 
-        CONSTRAINT mailbox_recipient_uuid_NN REFERENCES Accounts (uuid) NOT NULL,
+    sender_uuid     VARCHAR2(36)
+        REFERENCES Accounts (uuid) NOT NULL,
+    recipient_uuid  VARCHAR2(36)
+        REFERENCES Accounts (uuid) NOT NULL,
     subject         VARCHAR2(128) ,
     content         VARCHAR2(1024), 
     timestamp       TIMESTAMP 
