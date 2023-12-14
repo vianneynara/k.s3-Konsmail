@@ -28,21 +28,33 @@ The main window is not resizable, the resolution is fixed at 1366x768.
 
 ### Login Page
 
-<p align="center">
+<div style="text-align: center">
   <img src="images/login_page.png" alt="Login Page" width="400"/>
-</p>
+</div>
 
 ### Registration Page
 
-<p align="center">
+<div style="text-align: center">
   <img src="images/registration_page.png" alt="Login Page" width="400"/>
-</p>
+</div>
 
 ### Mailbox Page
 
-<p align="center">
-  <img src="images/mailbox_page.png" alt="Login Page"/>
-</p>
+<div style="text-align: center">
+  <img src="images/mailbox_page.png" alt="Login Page" width="650"/>
+</div>
+
+### Configure Account Page
+
+<div style="text-align: center">
+  <img src="images/configure_account_page.png" alt="Login Page" width="400"/>
+</div>
+
+### New Mail Page
+
+<div style="text-align: center">
+  <img src="images/new_mail_page.png" alt="Login Page" width="400"/>
+</div>
 
 ## Contributors
 
