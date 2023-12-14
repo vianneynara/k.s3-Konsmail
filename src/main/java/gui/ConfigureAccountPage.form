@@ -47,7 +47,7 @@
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="i_email" max="32767" attributes="0"/>
-                      <Component id="i_oldPassword" alignment="0" max="32767" attributes="0"/>
+                      <Component id="i_currentPassword" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="b_cancel" min="-2" pref="105" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -73,7 +73,7 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="l_email" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                               <Component id="l_newPassword" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="l_oldPassword" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
+                              <Component id="l_currentPassword" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                               <Component id="l_confirmNewPassword" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -109,9 +109,9 @@
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="i_email" min="-2" pref="28" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="l_oldPassword" min="-2" max="-2" attributes="0"/>
+                  <Component id="l_currentPassword" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="i_oldPassword" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="i_currentPassword" min="-2" pref="28" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="l_newPassword" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -157,22 +157,22 @@
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="l_oldPassword">
+        <Component class="javax.swing.JLabel" name="l_currentPassword">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="i_oldPassword"/>
+              <ComponentRef name="i_currentPassword"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Old Password"/>
+            <Property name="text" type="java.lang.String" value="Current Password"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="i_oldPassword">
+        <Component class="javax.swing.JPasswordField" name="i_currentPassword">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_oldPasswordActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_currentPasswordActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="l_newPassword">

@@ -44,8 +44,8 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
         i_firstName = new javax.swing.JTextField();
         l_email = new javax.swing.JLabel();
         i_email = new javax.swing.JTextField();
-        l_oldPassword = new javax.swing.JLabel();
-        i_oldPassword = new javax.swing.JPasswordField();
+        l_currentPassword = new javax.swing.JLabel();
+        i_currentPassword = new javax.swing.JPasswordField();
         l_newPassword = new javax.swing.JLabel();
         i_newPassword = new javax.swing.JPasswordField();
         l_lastName = new javax.swing.JLabel();
@@ -76,13 +76,13 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
 
         i_email.setEditable(false);
 
-        l_oldPassword.setLabelFor(i_oldPassword);
-        l_oldPassword.setText("Old Password");
+        l_currentPassword.setLabelFor(i_currentPassword);
+        l_currentPassword.setText("Current Password");
 
-        i_oldPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        i_oldPassword.addActionListener(new java.awt.event.ActionListener() {
+        i_currentPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        i_currentPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_oldPasswordActionPerformed(evt);
+                i_currentPasswordActionPerformed(evt);
             }
         });
 
@@ -127,7 +127,7 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
                 .addGap(33, 33, 33)
                 .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(i_email)
-                    .addComponent(i_oldPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(i_currentPassword, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MAIN_PANELLayout.createSequentialGroup()
                         .addComponent(b_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -149,7 +149,7 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
                         .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(l_email, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(l_newPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(l_oldPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l_currentPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(l_confirmNewPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(33, 33, 33))
@@ -176,9 +176,9 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
                 .addGap(0, 0, 0)
                 .addComponent(i_email, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(l_oldPassword)
+                .addComponent(l_currentPassword)
                 .addGap(0, 0, 0)
-                .addComponent(i_oldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(i_currentPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(l_newPassword)
                 .addGap(0, 0, 0)
@@ -233,7 +233,7 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
             return false;
         }
 
-        if (!DatabaseUtils.emailAndPasswordMatches(address, String.valueOf(i_oldPassword.getPassword()))) {
+        if (!DatabaseUtils.emailAndPasswordMatches(address, String.valueOf(i_currentPassword.getPassword()))) {
             JOptionPane.showMessageDialog(
                     this,
                     "Incorrect password!",
@@ -260,9 +260,9 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_b_cancelActionPerformed
 
-    private void i_oldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_oldPasswordActionPerformed
+    private void i_currentPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_currentPasswordActionPerformed
         // TODO unused:
-    }//GEN-LAST:event_i_oldPasswordActionPerformed
+    }//GEN-LAST:event_i_currentPasswordActionPerformed
 
     private void i_firstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_firstNameActionPerformed
         // TODO unused:
@@ -295,18 +295,18 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
     private javax.swing.JButton b_cancel;
     private javax.swing.JButton b_save;
     private javax.swing.JPasswordField i_confirmNewPassword;
+    private javax.swing.JPasswordField i_currentPassword;
     private javax.swing.JTextField i_email;
     private javax.swing.JTextField i_firstName;
     private javax.swing.JTextField i_lastName;
     private javax.swing.JPasswordField i_newPassword;
-    private javax.swing.JPasswordField i_oldPassword;
     private javax.swing.JLabel l_confirmNewPassword;
+    private javax.swing.JLabel l_currentPassword;
     private javax.swing.JLabel l_email;
     private javax.swing.JLabel l_firstName;
     private javax.swing.JLabel l_header;
     private javax.swing.JLabel l_konsmailLogo;
     private javax.swing.JLabel l_lastName;
     private javax.swing.JLabel l_newPassword;
-    private javax.swing.JLabel l_oldPassword;
     // End of variables declaration//GEN-END:variables
 }
