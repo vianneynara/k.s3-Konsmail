@@ -1,4 +1,4 @@
--- script to create tabele Mailbox 
+-- script to create tabele Mailbox
 CREATE TABLE Mailbox
 (
     uuid            VARCHAR2(36)
