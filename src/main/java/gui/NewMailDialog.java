@@ -4,6 +4,7 @@
  */
 package gui;
 
+import models.objects.Session;
 import utils.USwingAppearance;
 
 /**
@@ -11,12 +12,13 @@ import utils.USwingAppearance;
  * @author narwa
  */
 public class NewMailDialog extends javax.swing.JDialog {
-
+    Session session;
     /**
      * Creates new form NewMailDialog
      */
-    public NewMailDialog(java.awt.Frame parent, boolean modal) {
+    public NewMailDialog(java.awt.Frame parent, boolean modal, Session session) {
         super(parent, modal);
+        this.session = session;
         initComponents();
     }
 
@@ -159,27 +161,27 @@ public class NewMailDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_b_previewActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        USwingAppearance.setLooksAndFeel();
+    // /**
+    //  * @param args the command line arguments
+    //  */
+    // public static void main(String args[]) {
+    //     /* Set the Nimbus look and feel */
+    //     USwingAppearance.setLooksAndFeel();
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                NewMailDialog dialog = new NewMailDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+    //     /* Create and display the dialog */
+    //     java.awt.EventQueue.invokeLater(new Runnable() {
+    //         public void run() {
+    //             NewMailDialog dialog = new NewMailDialog(new javax.swing.JFrame(), true);
+    //             dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+    //                 @Override
+    //                 public void windowClosing(java.awt.event.WindowEvent e) {
+    //                     System.exit(0);
+    //                 }
+    //             });
+    //             dialog.setVisible(true);
+    //         }
+    //     });
+    // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane MAIL_BODY_SCROLLPANE;

@@ -4,11 +4,14 @@
  */
 package gui;
 
+import utils.DatabaseUtils;
 import utils.USwingAppearance;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
+import models.objects.Account;
+import models.objects.Session;
 
 /**
  *
@@ -149,8 +152,30 @@ public class LoginPage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void b_signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_signInActionPerformed
-        // TODO add your handling code here:
+    private boolean b_signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_signInActionPerformed
+        String address = i_email.getText();
+
+        if (!DatabaseUtils.emailExists(address)) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Email does not exist!",
+                    "Attention!",
+                    JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+
+        if (!DatabaseUtils.emailAndPasswordMatches(address, String.valueOf(i_password.getPassword()))) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Incorrect password!",
+                    "Attention!",
+                    JOptionPane.WARNING_MESSAGE);
+            return false;
+            
+        }
+        setVisible(false);
+        new MailboxPage(new Session(DatabaseUtils.getAccount(address))).setVisible(true);
+        return true;
     }//GEN-LAST:event_b_signInActionPerformed
 
     private void i_emailActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_i_emailActionPerformed

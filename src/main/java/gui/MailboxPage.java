@@ -12,19 +12,23 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
+import models.objects.Session;
+
 /**
  *
  * @author narwa
  */
 public class MailboxPage extends javax.swing.JFrame {
-
+    private Session session;
     private final CardLayout cardSwitcher;
     private MailviewPanel mailviewPanel = new MailviewPanel();
 
     /**
      * Creates new form MailboxPage
      */
-    public MailboxPage() {
+    public MailboxPage(Session session) {
+        this.session = session;
+        System.out.println(session.getAccountUuid()+"\n"+session.getAccountEmailAddress());
         initComponents();
         cardSwitcher = (CardLayout) MAIL_VIEW.getLayout();
         initForms();
@@ -339,7 +343,7 @@ public class MailboxPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void m_configureAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_configureAccountActionPerformed
-        new ConfigureAccountPage(this, true).setVisible(true);
+        new ConfigureAccountPage(this, true, session).setVisible(true);
     }//GEN-LAST:event_m_configureAccountActionPerformed
 
     private void i_findMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_findMailActionPerformed
@@ -352,7 +356,7 @@ public class MailboxPage extends javax.swing.JFrame {
 
     private void b_createMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_createMailActionPerformed
         // TODO add your handling code here:
-        new NewMailDialog(this, true).setVisible(true);
+        new NewMailDialog(this, true, session).setVisible(true);
     }//GEN-LAST:event_b_createMailActionPerformed
 
     private void b_mailReplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_mailReplyActionPerformed
@@ -407,20 +411,20 @@ public class MailboxPage extends javax.swing.JFrame {
         mailviewPanel.setFrom("Ohio");
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        /* Set the Nimbus look and feel */
-        USwingAppearance.setLooksAndFeel();
+    // /**
+    //  * @param args the command line arguments
+    //  */
+    // public static void main(String[] args) {
+    //     /* Set the Nimbus look and feel */
+    //     USwingAppearance.setLooksAndFeel();
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MailboxPage().setVisible(true);
-            }
-        });
-    }
+    //     /* Create and display the form */
+    //     java.awt.EventQueue.invokeLater(new Runnable() {
+    //         public void run() {
+    //             new MailboxPage().setVisible(true);
+    //         }
+    //     });
+    // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane INBOX_SCROLLPANE;
