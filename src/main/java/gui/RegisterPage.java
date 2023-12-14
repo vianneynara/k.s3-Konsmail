@@ -8,8 +8,11 @@ import java.awt.Image;
 import java.util.Objects;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import java.util.UUID;
 
+import models.objects.Account;
 import utils.Checker;
+import utils.DatabaseUtil;
 import utils.USwingAppearance;
 
 /**
@@ -228,16 +231,16 @@ public class RegisterPage extends javax.swing.JDialog {
         // TODO incomplete:
         String fName = i_firstName.getText();
         String lName = i_lastName.getText();
-        String email = i_email.getText();
+        String address = i_email.getText().toLowerCase();
         String pass = String.valueOf(i_password.getPassword());
         String confPass = String.valueOf(i_confirmPassword.getPassword());
 
-        if (fName.length() == 0 || email.length() == 0 || pass.length() == 0){
+        if (fName.length() == 0 || address.length() == 0 || pass.length() == 0){
             JOptionPane.showMessageDialog(
                     this,
                     "Please fill all the fields!",
                     "Attention!",
-                    JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.WARNING_MESSAGE);
             return false;
         }
 
@@ -246,33 +249,33 @@ public class RegisterPage extends javax.swing.JDialog {
                     this,
                     "Name can not contains non alpha!",
                     "Attention!",
-                    JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.WARNING_MESSAGE);
             return false;
         }
 
-        if (!Checker.emailAddressValidation(email)) {
+        if (!Checker.isEmailAddressValid(address)) {
             JOptionPane.showMessageDialog(
                     this,
                     "Email address must be between 4 and 30 characters long!",
                     "Attention!",
-                    JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.WARNING_MESSAGE);
         }
 
-        if (Checker.containsNonAlphanumeric(email)) {
+        if (Checker.containsNonAlphanumeric(address)) {
             JOptionPane.showMessageDialog(
                     this,
                     "Email can not contain symbols!",
                     "Attention!",
-                    JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.WARNING_MESSAGE);
             return false;
         }
 
-        if (!Checker.passwordLengthValidation(pass)) {
+        if (!Checker.isPasswordLengthValid(pass)) {
             JOptionPane.showMessageDialog(
                     this,
                     "Password length must be between 8 and 128 characters long!",
                     "Attention!",
-                    JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.WARNING_MESSAGE);
             return false;
         }
 
@@ -281,11 +284,21 @@ public class RegisterPage extends javax.swing.JDialog {
                     this,
                     "Passowrd and Password confirmation does not match!",
                     "Attention!",
-                    JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.WARNING_MESSAGE);
             return false;
         }
+
+        if (DatabaseUtil.accountExists(address)) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Email already exists!",
+                    "Attention!",
+                    JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+
         resetField();
-        // DatabaseConnector.insertAccount(new Account(fName, lName, email, pass, "x"));
+        DatabaseUtil.insertAccount(new Account(fName, lName, address, pass, UUID.randomUUID().toString()));
         b_backActionPerformed(evt);
         return true;
 

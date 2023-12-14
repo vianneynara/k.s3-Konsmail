@@ -11,15 +11,15 @@ import models.objects.Email;
 
 public class Checker {
 
-    public static boolean passwordLengthValidation(String password) {
+    public static boolean isPasswordLengthValid(String password) {
         if (password.length() >= 8 && password.length()<=128) {
             return true;
         }
         return false;
     }
 
-    public static boolean emailAddressValidation(String email) {
-        if (email.length() == 4 && email.length() <=30) {
+    public static boolean isEmailAddressValid(String email) {
+        if (email.length() >= 4 && email.length() <=30) {
             return true;
         }
         return false;
@@ -56,7 +56,7 @@ public class Checker {
         return false;
     }
 
-    public static boolean subjectLengthValidation(String subject) {
+    public static boolean isSubjectLengthValid(String subject) {
         if (subject.length()<=128) {
             return true;
         }
