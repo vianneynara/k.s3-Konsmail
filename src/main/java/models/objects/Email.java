@@ -1,15 +1,15 @@
 package models.objects;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * This class will be used to store emails.
  * The attributes of this class as follows:
  * <ul>
- *     <li>{@link #source}: Account</li>
- *     <li>{@link #destination}: Account</li>
+ *     <li>{@link #sender}: Account</li>
+ *     <li>{@link #recipient}: Account</li>
  *     <li>{@link #subject}: String</li>
- *     <li>{@link #email}: String</li>
+ *     <li>{@link #content}: String</li>
  *     <li>{@link #date}: LocalDate</li>
  * </ul>
  *
@@ -18,57 +18,57 @@ import java.time.LocalDate;
 
 public class Email {
     //Attribute declarations
-    private String source;
-    private String destination;
+    private String sender;
+    private String recipient;
     private String subject;
-    private String email;
-    private LocalDate date;
+    private String content;
+    private LocalDateTime date;
 
-    public Email(String source, String destination, String subject, String email, LocalDate date) {
-        this.source = source;
-        this.destination = destination;
+    public Email(String sender, String recipient, String subject, String content, LocalDateTime date) {
+        this.sender = sender;
+        this.recipient = recipient;
         this.subject = subject;
-        this.email = email;
+        this.content = content;
         this.date = date;
     }
 
-    public void setSource(String source) {
-        this.source = source;
+    public void setSender(String source) {
+        this.sender = source;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setRecipient(String destination) {
+        this.recipient = destination;
     }
 
     public void setSubject(String subject) {
         this.subject = subject;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setContent(String email) {
+        this.content = email;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
-    public String getSource() {
-        return source;
+    public String getSender() {
+        return sender;
     }
 
-    public String getDestination() {
-        return destination;
+    public String getRecipient() {
+        return recipient;
     }
 
     public String getSubject() {
         return subject;
     }
 
-    public String getEmail() {
-        return email;
+    public String getContent() {
+        return content;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDateTime() {
         return date;
     }
 }

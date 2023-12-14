@@ -1,6 +1,6 @@
 package models.objects;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * This class will be used to store Ads, this class extends Email class.
@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 public class Advertisement extends Email {
 
-    public Advertisement(String source, String destination, String subject, String email, LocalDate date) {
+    public Advertisement(String source, String destination, String subject, String email, LocalDateTime date) {
         super(source, destination, subject, email, date);
     }
 
