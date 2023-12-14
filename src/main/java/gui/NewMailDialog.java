@@ -46,14 +46,11 @@ public class NewMailDialog extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Konsmail: New mail");
 
-        i_recipientAddress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
         l_recipientEmailAddress.setText("Receipient Email Address");
 
         MAIL_BODY_SCROLLPANE.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         f_mailBody.setColumns(20);
-        f_mailBody.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         f_mailBody.setLineWrap(true);
         f_mailBody.setRows(5);
         f_mailBody.setText("...");
@@ -62,8 +59,6 @@ public class NewMailDialog extends javax.swing.JDialog {
         l_body.setText("Body");
 
         l_subject.setText("Subject");
-
-        i_subject.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         b_send.setText("Send");
         b_send.addActionListener(new java.awt.event.ActionListener() {

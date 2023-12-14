@@ -96,11 +96,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="i_recipientAddress">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="0"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="l_recipientEmailAddress">
           <Properties>
@@ -120,9 +115,6 @@
             <Component class="javax.swing.JTextArea" name="f_mailBody">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
-                </Property>
                 <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
                 <Property name="text" type="java.lang.String" value="..."/>
@@ -141,11 +133,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="i_subject">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="0"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="b_send">
           <Properties>
