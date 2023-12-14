@@ -380,6 +380,19 @@ public class MailboxPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_b_flagActionPerformed
 
+    /**
+     * Disables the mail tools.
+     * */
+    public void disableMailTools() {
+        b_mailReply.setEnabled(false);
+        b_flag.setEnabled(false);
+        b_mailReport.setEnabled(false);
+        b_markUnread.setEnabled(false);
+    }
+
+    /**
+     * Enables the mail tools.
+     * */
     public void enableMailTools() {
         b_mailReply.setEnabled(true);
         b_flag.setEnabled(true);
