@@ -12,7 +12,7 @@ import java.util.UUID;
 
 import models.objects.Account;
 import utils.Checker;
-import utils.DatabaseUtil;
+import utils.DatabaseUtils;
 import utils.USwingAppearance;
 
 /**
@@ -293,7 +293,7 @@ public class RegisterPage extends javax.swing.JDialog {
         // Adds default domain
         address += DEFAULT_DOMAIN;
 
-        if (DatabaseUtil.accountExists(address)) {
+        if (DatabaseUtils.emailExists(address)) {
             JOptionPane.showMessageDialog(
                     this,
                     "Email already exist!",
@@ -303,7 +303,7 @@ public class RegisterPage extends javax.swing.JDialog {
         }
 
         resetField();
-        DatabaseUtil.insertAccount(new Account(fName, lName, address, pass, UUID.randomUUID().toString()));
+        DatabaseUtils.insertAccount(new Account(fName, lName, address, pass, UUID.randomUUID().toString()));
         b_backActionPerformed(evt);
         return true;
 

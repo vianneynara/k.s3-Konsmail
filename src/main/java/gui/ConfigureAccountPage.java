@@ -4,23 +4,29 @@
  */
 package gui;
 
+import utils.Checker;
+import utils.DatabaseUtils;
 import utils.USwingAppearance;
 
 import java.awt.Image;
 import java.util.Objects;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
+import models.objects.Session;
 
 /**
  *
  * @author narwa
  */
 public class ConfigureAccountPage extends javax.swing.JDialog {
-
+    Session session;
     /**
      * Creates new form RegisterPage
      */
-    public ConfigureAccountPage(java.awt.Frame parent, boolean modal) {
+    public ConfigureAccountPage(java.awt.Frame parent, boolean modal, Session session) {
         super(parent, modal);
+        this.session = session;
         initComponents();
     }
 
@@ -63,8 +69,10 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
                 i_firstNameActionPerformed(evt);
             }
         });
+        i_firstName.setText(session.getAccountFirstName());
 
         l_email.setLabelFor(i_email);
+        i_email.setText(session.getAccountEmailAddress());
         l_email.setText("Email");
 
         i_email.setEditable(false);
@@ -86,6 +94,7 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
 
         l_lastName.setLabelFor(i_lastName);
         l_lastName.setText("Last Name");
+        i_lastName.setText(session.getAccountLastName());
 
         b_cancel.setText("Cancel");
         b_cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -202,8 +211,51 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void b_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_saveActionPerformed
+    private boolean b_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_saveActionPerformed
         // TODO add your handling code here:
+        String address = session.getAccountEmailAddress();
+        String fName = i_firstName.getText();
+        String lName = i_lastName.getText();
+
+        if (fName.isEmpty()){
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Are you sure that your name is right?",
+                    "Attention!",
+                    JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+
+        if (Checker.containsNonAlpha(fName) || Checker.containsNonAlpha(lName)) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Name can not contain non alpha!",
+                    "Attention!",
+                    JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+
+        if (!DatabaseUtils.emailAndPasswordMatches(address, String.valueOf(i_oldPassword.getPassword()))) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Incorrect password!",
+                    "Attention!",
+                    JOptionPane.WARNING_MESSAGE);
+                return false;
+        }
+
+        if (!Checker.isPasswordLengthValid(String.valueOf(i_newPassword.getPassword()))) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Password length must be between 8 and 128 characters long!",
+                    "Attention!",
+                    JOptionPane.WARNING_MESSAGE);
+            return false;
+        }   
+
+        DatabaseUtils.updateAccount(fName, lName, address, String.valueOf(i_newPassword.getPassword()));
+        dispose();
+        return true;
     }//GEN-LAST:event_b_saveActionPerformed
 
     private void b_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cancelActionPerformed
@@ -218,27 +270,27 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
         // TODO unused:
     }//GEN-LAST:event_i_firstNameActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        /* Set the Nimbus look and feel */
-        USwingAppearance.setLooksAndFeel();
+    // /**
+    //  * @param args the command line arguments
+    //  */
+    // public static void main(String[] args) {
+    //     /* Set the Nimbus look and feel */
+    //     USwingAppearance.setLooksAndFeel();
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                ConfigureAccountPage dialog = new ConfigureAccountPage(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+    //     /* Create and display the dialog */
+    //     java.awt.EventQueue.invokeLater(new Runnable() {
+    //         public void run() {
+    //             ConfigureAccountPage dialog = new ConfigureAccountPage(new javax.swing.JFrame(), true);
+    //             dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+    //                 @Override
+    //                 public void windowClosing(java.awt.event.WindowEvent e) {
+    //                     System.exit(0);
+    //                 }
+    //             });
+    //             dialog.setVisible(true);
+    //         }
+    //     });
+    // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MAIN_PANEL;
