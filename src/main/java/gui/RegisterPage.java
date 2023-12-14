@@ -21,6 +21,8 @@ import utils.USwingAppearance;
  */
 public class RegisterPage extends javax.swing.JDialog {
 
+    private final String DEFAULT_DOMAIN = "@konsmail.dev";
+
     /**
      * Creates new form RegisterPage
      */
@@ -247,7 +249,7 @@ public class RegisterPage extends javax.swing.JDialog {
         if (Checker.containsNonAlpha(fName) || Checker.containsNonAlpha(lName)) {
             JOptionPane.showMessageDialog(
                     this,
-                    "Name can not contains non alpha!",
+                    "Name can not contain non alpha!",
                     "Attention!",
                     JOptionPane.WARNING_MESSAGE);
             return false;
@@ -288,10 +290,13 @@ public class RegisterPage extends javax.swing.JDialog {
             return false;
         }
 
+        // Adds default domain
+        address += DEFAULT_DOMAIN;
+
         if (DatabaseUtil.accountExists(address)) {
             JOptionPane.showMessageDialog(
                     this,
-                    "Email already exists!",
+                    "Email already exist!",
                     "Attention!",
                     JOptionPane.WARNING_MESSAGE);
             return false;
