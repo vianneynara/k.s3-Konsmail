@@ -9,9 +9,7 @@ import java.util.Objects;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-import models.Account;
 import utils.Checker;
-import utils.DatabaseConnector;
 import utils.USwingAppearance;
 
 /**
