@@ -60,12 +60,18 @@ public class RegisterPage extends javax.swing.JDialog {
         l_firstName.setLabelFor(i_firstName);
         l_firstName.setText("First Name");
 
+        i_firstName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                i_firstNameFocusLost(evt);
+            }
+        });
+
         l_email.setLabelFor(i_email);
         l_email.setText("Email");
 
-        i_email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_emailActionPerformed(evt);
+        i_email.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                i_emailFocusLost(evt);
             }
         });
 
@@ -73,6 +79,11 @@ public class RegisterPage extends javax.swing.JDialog {
         l_password.setText("Password");
 
         i_password.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        i_password.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                i_passwordFocusLost(evt);
+            }
+        });
         i_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_passwordActionPerformed(evt);
@@ -83,9 +94,20 @@ public class RegisterPage extends javax.swing.JDialog {
         l_confirmPassword.setText("Confirm Password");
 
         i_confirmPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        i_confirmPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                i_confirmPasswordFocusLost(evt);
+            }
+        });
 
         l_lastName.setLabelFor(i_lastName);
         l_lastName.setText("Last Name (optional)");
+
+        i_lastName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                i_lastNameFocusLost(evt);
+            }
+        });
 
         l_konsmailLogo.setIcon(new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/KonsmailMail_logo.png"))).getImage().getScaledInstance(194, 86, Image.SCALE_SMOOTH)));
 
@@ -104,7 +126,7 @@ public class RegisterPage extends javax.swing.JDialog {
         });
 
         l_header.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        l_header.setText("<html>Register a new<br/>account</html>");
+        l_header.setText("<html>Register a new<br/>Konsmail account</html>");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("@konsmail.dev");
@@ -283,11 +305,27 @@ public class RegisterPage extends javax.swing.JDialog {
 
     private void i_passwordActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_i_passwordActionPerformed
         // TODO unused:
-    }//GEN-LAST:event_i_passwordActionPerformed
+    }                                          
 
-    private void i_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_emailActionPerformed
-        // TODO unused:
-    }//GEN-LAST:event_i_emailActionPerformed
+    private void i_firstNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_firstNameFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_i_firstNameFocusLost
+
+    private void i_lastNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_lastNameFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_i_lastNameFocusLost
+
+    private void i_passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_passwordFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_i_passwordFocusLost
+
+    private void i_confirmPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_confirmPasswordFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_i_confirmPasswordFocusLost
+
+    private void i_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_emailFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_i_emailFocusLost
 
     /**
      * @param args the command line arguments
