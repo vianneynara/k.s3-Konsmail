@@ -235,7 +235,7 @@ public class RegisterPage extends javax.swing.JDialog {
         String pass = String.valueOf(i_password.getPassword());
         String confPass = String.valueOf(i_confirmPassword.getPassword());
 
-        if (fName.length() == 0 || address.length() == 0 || pass.length() == 0){
+        if (fName.isEmpty() || address.isEmpty() || pass.isEmpty() ){
             JOptionPane.showMessageDialog(
                     this,
                     "Please fill all the fields!",
