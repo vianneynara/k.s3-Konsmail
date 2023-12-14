@@ -74,15 +74,15 @@
                                       <Component id="i_firstName" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="l_lastName" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                                      <Component id="i_lastName" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="i_lastName" pref="200" max="32767" attributes="0"/>
+                                      <Component id="l_lastName" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="i_email" min="-2" pref="281" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel1" max="32767" attributes="0"/>
+                                  <Component id="jLabel1" pref="125" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -199,7 +199,7 @@
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="i_lastName"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Last Name"/>
+            <Property name="text" type="java.lang.String" value="Last Name (optional)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="i_lastName">
