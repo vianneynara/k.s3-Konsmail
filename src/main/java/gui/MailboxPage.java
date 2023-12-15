@@ -34,10 +34,12 @@ import utils.ULogger;
 public class MailboxPage extends javax.swing.JFrame {
 
     private ArrayList<Email> emails;
+    private ArrayList<Email> promotionEmails;
     private final Session session;
     private final CardLayout cardSwitcher;
     private final MailviewPanel mailviewPanel = new MailviewPanel();
     private int currentEmailIndex = -1;
+    private ArrayList<Email> currentEmailType;
     private final TableActionCellRender renderer = new TableActionCellRender();
 
     /**
@@ -46,6 +48,7 @@ public class MailboxPage extends javax.swing.JFrame {
     public MailboxPage(Session session) {
         this.session = session;
         emails = DatabaseUtils.getMailbox(session.getAccountUuid());
+        currentEmailType = emails;
         System.out.println(emails.size());
 
         initComponents();
@@ -53,12 +56,10 @@ public class MailboxPage extends javax.swing.JFrame {
         cardSwitcher = (CardLayout) MAIL_VIEW.getLayout();
         initForms();
         m_userMenu.setText(session.getAccountEmailAddress());
-//        enablePreview();
         updateTable(DatabaseUtils.getMailbox(session.getAccountUuid()));
     }
 
     private void initForms() {
-//        MailviewEmptyPanel mailviewEmptyPanel = new MailviewEmptyPanel(); // please ignore this for now
         MAIL_VIEW.add(mailviewPanel, "mailview");
         MAIL_VIEW.add(new JPanel(), "emptyview");
         cardSwitcher.show(MAIL_VIEW, "emptyview");
@@ -370,10 +371,6 @@ public class MailboxPage extends javax.swing.JFrame {
         // TODO unused:
     }//GEN-LAST:event_i_findMailActionPerformed
 
-    private void i_inboxTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_inboxTypeActionPerformed
-        // TODO unused:
-    }//GEN-LAST:event_i_inboxTypeActionPerformed
-
     private void b_createMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_createMailActionPerformed
         new NewMailDialog(this, true, session).setVisible(true);
     }//GEN-LAST:event_b_createMailActionPerformed
@@ -399,6 +396,38 @@ public class MailboxPage extends javax.swing.JFrame {
         this.dispose();
         new LoginPage().setVisible(true);
     }//GEN-LAST:event_m_signOutActionPerformed
+
+    private void i_inboxTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_inboxTypeActionPerformed
+        // TODO add your handling code here:
+        String inboxType = (String)Objects.requireNonNull(i_inboxType.getSelectedItem());
+        switch (inboxType) {
+            case "Promotions" -> {
+                // filter ads email in emails by using the .filter() when email is an instance of Advertisement
+                promotionEmails = emails
+                    .stream()
+                    .filter(email -> email instanceof models.objects.Advertisement)
+                    .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+                currentEmailType = promotionEmails;
+                currentEmailIndex = -1;
+                updateTable(currentEmailType);
+            }
+            case "Sent" -> {
+                // filter ads email in emails by using the .filter() when email has the same senderUuid as the current session accountUuid
+                promotionEmails = emails
+                    .stream()
+                    .filter(email -> email.getSenderUuid().equals(session.getAccountUuid()))
+                    .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+                currentEmailType = promotionEmails;
+                currentEmailIndex = -1;
+                updateTable(currentEmailType);
+            }
+            default -> {
+                currentEmailType = emails;
+                currentEmailIndex = -1;
+                updateTable(currentEmailType);
+            }
+        }
+    }//GEN-LAST:event_i_inboxTypeActionPerformed
 
     /**
      * Disables the mail tools.
@@ -454,6 +483,7 @@ public class MailboxPage extends javax.swing.JFrame {
         System.out.println(rowIndex);
         this.currentEmailIndex = rowIndex;
         mailviewPanel.setCurrentEmail(emails.get(currentEmailIndex));
+        System.out.println(emails.get(currentEmailIndex).toString());
         cardSwitcher.show(MAIL_VIEW, "mailview");
     }
 

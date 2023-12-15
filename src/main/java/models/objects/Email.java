@@ -128,4 +128,18 @@ public class Email implements Emailable {
 				.toFormatter(Locale.US);
 		return date.format(format);
 	}
+
+	@Override
+	public String toString() {
+		// make a toString with JSON like style
+		return "{\n" +
+				"\t\"uuid\":\"" + uuid + "\"," +
+				"\n\t\"senderUuid\":\"" + senderUuid + "\"," +
+				"\n\t\"recipientUuid\":\"" + recipientUuid + "\"," +
+				"\n\t\"subject\":\"" + subject + "\"," +
+				"\n\t\"content\":\"" + content + "\"," +
+				"\n\t\"datetime\":\"" + date + "\"," +
+				"\n\t\"isRead\":\"" + isRead + "\"" +
+				"\n}";
+	}
 }
