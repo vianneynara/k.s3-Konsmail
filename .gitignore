@@ -2,3 +2,4 @@
 # Project exclude paths
 /target/
 src/main/java/Konsmail.java
+/src/main/java/TesterClass.java
