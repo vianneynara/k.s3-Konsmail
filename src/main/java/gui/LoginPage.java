@@ -152,7 +152,7 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private boolean b_signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_signInActionPerformed
-        String address = i_email.getText();
+        String address = i_email.getText().trim();
 
         if (!DatabaseUtils.emailAddressExists(address)) {
             JOptionPane.showMessageDialog(
@@ -163,7 +163,7 @@ public class LoginPage extends javax.swing.JFrame {
             return false;
         }
 
-        if (!DatabaseUtils.emailAddressAndPasswordMatches(address, String.valueOf(i_password.getPassword()))) {
+        if (!DatabaseUtils.emailAddressAndPasswordMatches(address, String.valueOf(i_password.getPassword()).trim())) {
             JOptionPane.showMessageDialog(
                     this,
                     "Incorrect password!",

@@ -178,7 +178,7 @@ public class NewMailDialog extends javax.swing.JDialog {
         String uuid = UUID.randomUUID().toString();
         String recipient = DatabaseUtils.getUuid(i_recipientAddress.getText());
         String sender = session.getAccountUuid();
-        String subject = i_subject.getText();
+        String subject = i_subject.getText().trim();
         String content = f_mailBody.getText();
 
         if (i_isAdvertisement.isSelected()) {

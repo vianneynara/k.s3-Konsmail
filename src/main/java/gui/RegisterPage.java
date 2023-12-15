@@ -231,11 +231,11 @@ public class RegisterPage extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private boolean b_registerActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_b_registerActionPerformed
-        String fName = i_firstName.getText();
-        String lName = i_lastName.getText();
-        String address = i_email.getText().toLowerCase();
-        String pass = String.valueOf(i_password.getPassword());
-        String confPass = String.valueOf(i_confirmPassword.getPassword());
+        String fName = i_firstName.getText().trim();
+        String lName = i_lastName.getText().trim();
+        String address = i_email.getText().trim().toLowerCase();
+        String pass = String.valueOf(i_password.getPassword()).trim();
+        String confPass = String.valueOf(i_confirmPassword.getPassword()).trim();
 
         if (fName.isEmpty() || address.isEmpty() || pass.isEmpty() ){
             JOptionPane.showMessageDialog(
@@ -340,7 +340,7 @@ public class RegisterPage extends javax.swing.JDialog {
             l_firstName.setText("First Name (Required!)");
             ComponentUtils.setForegroundColor(0xdc143c, l_firstName);
         }
-        if (Checker.containsNonAlpha(i_firstName.getText())) {
+        if (Checker.containsNonAlpha(i_firstName.getText().trim())) {
             l_firstName.setText("First Name (Invalid!)");
             ComponentUtils.setForegroundColor(0xdc143c, l_firstName);
         }
@@ -350,7 +350,7 @@ public class RegisterPage extends javax.swing.JDialog {
         l_lastName.setText("Last Name (optional)");
         ComponentUtils.setForegroundColor(0x000000, l_lastName);
 
-        if (Checker.containsNonAlpha(i_lastName.getText())) {
+        if (Checker.containsNonAlpha(i_lastName.getText().trim())) {
             l_lastName.setText("Last Name (Invalid!)");
             ComponentUtils.setForegroundColor(0xdc143c, l_lastName);
         }
