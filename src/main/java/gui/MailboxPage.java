@@ -4,10 +4,8 @@
  */
 package gui;
 
-import models.views.MailviewEmptyPanel;
 import models.views.MailviewPanel;
 import utils.DatabaseUtils;
-import utils.USwingAppearance;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,7 +35,8 @@ public class MailboxPage extends javax.swing.JFrame {
         initComponents();
         cardSwitcher = (CardLayout) MAIL_VIEW.getLayout();
         initForms();
-        enablePreview();
+        m_userMenu.setText(session.getAccountEmailAddress());
+//        enablePreview();
     }
 
     private void initForms() {
@@ -61,8 +60,6 @@ public class MailboxPage extends javax.swing.JFrame {
         i_inboxType = new javax.swing.JComboBox<>();
         b_createMail = new javax.swing.JButton();
         b_refresh = new javax.swing.JButton();
-        INBOX_SCROLLPANE = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         MAIL_VIEW = new javax.swing.JPanel();
         MAIL_TOOLS = new javax.swing.JPanel();
         b_mailReply = new javax.swing.JButton();
@@ -72,6 +69,7 @@ public class MailboxPage extends javax.swing.JFrame {
         MAILBOX_FINDPANE = new javax.swing.JPanel();
         i_findMail = new javax.swing.JTextField();
         b_findMail = new javax.swing.JButton();
+        INBOX_PANEL = new javax.swing.JPanel();
         WINDOW_MENU_BAR = new javax.swing.JMenuBar();
         m_userMenu = new javax.swing.JMenu();
         m_configureAccount = new javax.swing.JMenuItem();
@@ -132,21 +130,6 @@ public class MailboxPage extends javax.swing.JFrame {
                     .addComponent(b_refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5))
         );
-
-        INBOX_SCROLLPANE.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        INBOX_SCROLLPANE.setViewportView(jTable1);
 
         MAIL_VIEW.setPreferredSize(new java.awt.Dimension(761, 713));
         MAIL_VIEW.setLayout(new java.awt.CardLayout());
@@ -231,7 +214,7 @@ public class MailboxPage extends javax.swing.JFrame {
             MAILBOX_FINDPANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MAILBOX_FINDPANELayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(i_findMail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(i_findMail, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(b_findMail)
                 .addContainerGap())
@@ -246,6 +229,17 @@ public class MailboxPage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        javax.swing.GroupLayout INBOX_PANELLayout = new javax.swing.GroupLayout(INBOX_PANEL);
+        INBOX_PANEL.setLayout(INBOX_PANELLayout);
+        INBOX_PANELLayout.setHorizontalGroup(
+            INBOX_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 403, Short.MAX_VALUE)
+        );
+        INBOX_PANELLayout.setVerticalGroup(
+            INBOX_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 642, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout MAIN_CONTAINERLayout = new javax.swing.GroupLayout(MAIN_CONTAINER);
         MAIN_CONTAINER.setLayout(MAIN_CONTAINERLayout);
         MAIN_CONTAINERLayout.setHorizontalGroup(
@@ -254,8 +248,8 @@ public class MailboxPage extends javax.swing.JFrame {
             .addGroup(MAIN_CONTAINERLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(MAIN_CONTAINERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(INBOX_SCROLLPANE, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MAILBOX_FINDPANE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(MAILBOX_FINDPANE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(INBOX_PANEL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MAIL_VIEW, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -272,7 +266,7 @@ public class MailboxPage extends javax.swing.JFrame {
                     .addGroup(MAIN_CONTAINERLayout.createSequentialGroup()
                         .addComponent(MAILBOX_FINDPANE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(INBOX_SCROLLPANE))
+                        .addComponent(INBOX_PANEL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(MAIL_TOOLS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -405,7 +399,7 @@ public class MailboxPage extends javax.swing.JFrame {
     // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane INBOX_SCROLLPANE;
+    private javax.swing.JPanel INBOX_PANEL;
     private javax.swing.JPanel MAILBOX_FINDPANE;
     private javax.swing.JPanel MAIL_TOOLS;
     private javax.swing.JPanel MAIL_VIEW;
@@ -421,7 +415,6 @@ public class MailboxPage extends javax.swing.JFrame {
     private javax.swing.JButton b_refresh;
     private javax.swing.JTextField i_findMail;
     private javax.swing.JComboBox<String> i_inboxType;
-    private javax.swing.JTable jTable1;
     private javax.swing.JMenuItem m_configureAccount;
     private javax.swing.JMenuItem m_signOut;
     private javax.swing.JMenu m_userMenu;
