@@ -118,7 +118,7 @@ public class MailboxPage extends javax.swing.JFrame {
         MAIN_CONTAINER.setBackground(new java.awt.Color(255, 255, 255));
 
         i_inboxType.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        i_inboxType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Main Inbox", "All Inboxes", "Sent", "Flagged", "Promotions" }));
+        i_inboxType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Main Inbox", "Sent", "Promotions" }));
         i_inboxType.setPreferredSize(new java.awt.Dimension(76, 30));
         i_inboxType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
