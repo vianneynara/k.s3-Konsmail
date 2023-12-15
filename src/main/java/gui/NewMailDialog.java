@@ -4,7 +4,12 @@
  */
 package gui;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+import models.objects.Email;
 import models.objects.Session;
+import utils.DatabaseUtils;
 import utils.USwingAppearance;
 
 /**
@@ -145,7 +150,14 @@ public class NewMailDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void b_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_sendActionPerformed
-        // TODO add your handling code here:
+        // TODO need to test this:
+        String uuid = UUID.randomUUID().toString();
+        String recipient = DatabaseUtils.getUuid(i_recipientAddress.getText());
+        String sender = session.getAccountUuid();
+        String subject = i_subject.getText();
+        String content = f_mailBody.getText();
+
+        DatabaseUtils.insertMail(new Email(uuid, sender, recipient, subject, content, LocalDateTime.now(), false, false));
     }//GEN-LAST:event_b_sendActionPerformed
 
     private void b_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cancelActionPerformed

@@ -6,30 +6,41 @@ import java.time.LocalDateTime;
  * This class will be used to store emails.
  * The attributes of this class as follows:
  * <ul>
- *     <li>{@link #sender}: Account</li>
- *     <li>{@link #recipient}: Account</li>
- *     <li>{@link #subject}: String</li>
- *     <li>{@link #content}: String</li>
- *     <li>{@link #date}: LocalDate</li>
+ * <li>{@link #sender}: Account</li>
+ * <li>{@link #recipient}: Account</li>
+ * <li>{@link #subject}: String</li>
+ * <li>{@link #content}: String</li>
+ * <li>{@link #date}: LocalDate</li>
  * </ul>
  *
  * @author <a href="https://github.com/Trustacean">Edward</a>
- * */
+ */
 
 public class Email {
-    //Attribute declarations
+    // Attribute declarations
+    private String uuid;
     private String sender;
     private String recipient;
     private String subject;
     private String content;
     private LocalDateTime date;
+    private boolean isFlagged;
+    private boolean isRead;
 
-    public Email(String sender, String recipient, String subject, String content, LocalDateTime date) {
+    public Email(String uuid, String sender, String recipient, String subject, String content, LocalDateTime date,
+            boolean isFlagged, boolean isRead) {
+        this.uuid = uuid;
         this.sender = sender;
         this.recipient = recipient;
         this.subject = subject;
         this.content = content;
         this.date = date;
+        this.isFlagged = isFlagged;
+        this.isRead = isRead;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public void setSender(String source) {
@@ -52,6 +63,18 @@ public class Email {
         this.date = date;
     }
 
+    public void setFlagged(boolean isFlagged) {
+        this.isFlagged = isFlagged;
+    }
+
+    public void setRead(boolean isRead) {
+        this.isRead = isRead;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
     public String getSender() {
         return sender;
     }
@@ -70,5 +93,13 @@ public class Email {
 
     public LocalDateTime getDateTime() {
         return date;
+    }
+
+    public boolean getFlag() {
+        return isFlagged;
+    }
+
+    public boolean getRead() {
+        return isRead;
     }
 }

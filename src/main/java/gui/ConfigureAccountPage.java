@@ -64,6 +64,7 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
 
         l_firstName.setLabelFor(i_firstName);
         l_firstName.setText("First Name");
+        i_firstName.setText(session.getAccountFirstName());
 
         i_firstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +74,7 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
 
         l_email.setLabelFor(i_email);
         l_email.setText("Email");
+        i_email.setText(session.getAccountEmailAddress());
 
         i_email.setEditable(false);
 
@@ -93,6 +95,7 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
 
         l_lastName.setLabelFor(i_lastName);
         l_lastName.setText("Last Name");
+        i_lastName.setText(session.getAccountLastName());
 
         b_cancel.setText("Cancel");
         b_cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -210,7 +213,6 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private boolean b_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_saveActionPerformed
-        // TODO add your handling code here:
         String address = session.getAccountEmailAddress();
         String fName = i_firstName.getText();
         String lName = i_lastName.getText();
@@ -233,7 +235,7 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
             return false;
         }
 
-        if (!DatabaseUtils.emailAndPasswordMatches(address, String.valueOf(i_currentPassword.getPassword()))) {
+        if (!DatabaseUtils.emailAddressAndPasswordMatches(address, String.valueOf(i_currentPassword.getPassword()))) {
             JOptionPane.showMessageDialog(
                     this,
                     "Incorrect password!",
@@ -250,6 +252,15 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
                     JOptionPane.WARNING_MESSAGE);
             return false;
         }   
+
+        if (!String.valueOf(i_newPassword.getPassword()).equals(String.valueOf(i_confirmNewPassword.getPassword()))) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Passowrd and Password confirmation does not match!",
+                    "Attention!",
+                    JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
 
         DatabaseUtils.updateAccount(fName, lName, address, String.valueOf(i_newPassword.getPassword()));
         dispose();
