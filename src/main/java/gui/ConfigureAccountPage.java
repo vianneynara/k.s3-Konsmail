@@ -263,6 +263,12 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
         }
 
         DatabaseUtils.updateAccount(fName, lName, address, String.valueOf(i_newPassword.getPassword()));
+        DatabaseUtils.commitChanges();
+        JOptionPane.showMessageDialog(
+                    this,
+                    "Changes saved successfuly.",
+                    "Information",
+                    JOptionPane.INFORMATION_MESSAGE);
         dispose();
         return true;
     }//GEN-LAST:event_b_saveActionPerformed

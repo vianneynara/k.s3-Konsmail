@@ -8,6 +8,8 @@ import java.awt.Image;
 import java.util.Objects;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.xml.crypto.Data;
+
 import java.util.UUID;
 
 import models.objects.Account;
@@ -230,7 +232,6 @@ public class RegisterPage extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private boolean b_registerActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_b_registerActionPerformed
-        // TODO incomplete:
         String fName = i_firstName.getText();
         String lName = i_lastName.getText();
         String address = i_email.getText().toLowerCase();
@@ -302,8 +303,14 @@ public class RegisterPage extends javax.swing.JDialog {
             return false;
         }
 
-        resetField();
         DatabaseUtils.insertAccount(new Account(fName, lName, address, pass, UUID.randomUUID().toString()));
+        DatabaseUtils.commitChanges();
+        resetField();
+        JOptionPane.showMessageDialog(
+                    this,
+                    "Account created successfully.",
+                    "Congratulations!",
+                    JOptionPane.INFORMATION_MESSAGE);
         b_backActionPerformed(evt);
         return true;
 
@@ -327,6 +334,7 @@ public class RegisterPage extends javax.swing.JDialog {
 
     private void i_firstNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_firstNameFocusLost
         // TODO add your handling code here:
+        System.out.println("a");
     }//GEN-LAST:event_i_firstNameFocusLost
 
     private void i_lastNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_lastNameFocusLost
