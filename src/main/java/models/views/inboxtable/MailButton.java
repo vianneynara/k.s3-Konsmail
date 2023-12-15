@@ -20,7 +20,7 @@ import java.util.Objects;
  * */
 
 public class MailButton extends JButton {
-
+    // These attributes store the icons for the button.
     public static Icon mailRead = new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull
         (MailButton.class.getResource("/images/mailRead.png"))).getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH));
     public static Icon mailUnread = new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull
@@ -30,6 +30,7 @@ public class MailButton extends JButton {
     
     public MailButton() {
         setUnread();
+
         setContentAreaFilled(false);
         setBorder(new EmptyBorder(3, 3, 3, 3));
         addMouseListener(new MouseAdapter(){
@@ -53,6 +54,7 @@ public class MailButton extends JButton {
             DatabaseUtils.getFirstLastName(email.getSenderUuid()),
             email.getFormattedDate() + " " + email.getFormattedTime()
         ));
+
         checkRead();
         setContentAreaFilled(false);
         setBorder(new EmptyBorder(3, 3, 3, 3));

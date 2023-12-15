@@ -1,5 +1,11 @@
 package utils;
 
+/**
+ * Utility class to store looks and feel methods.
+ *
+ * @author <a href="https://github.com/vianneynara">Nara</a>
+ * */
+
 public class USwingAppearance {
 	/**
 	 * Sets the look and feel of the application to Nimbus.
