@@ -53,8 +53,6 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="b_cancel" min="-2" pref="105" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="b_preview" min="-2" pref="105" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="i_isAdvertisement" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -64,10 +62,7 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="i_recipientAddress" alignment="1" min="-2" pref="721" max="-2" attributes="0"/>
                                   <Component id="i_subject" min="-2" pref="721" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="343" max="-2" attributes="0"/>
-                                      <Component id="b_send" min="-2" pref="105" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="b_send" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -95,7 +90,6 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="b_send" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="b_cancel" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="b_preview" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="i_isAdvertisement" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="16" max="32767" attributes="0"/>
@@ -157,14 +151,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_cancelActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="b_preview">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Preview"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_previewActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="i_isAdvertisement">

@@ -51,7 +51,6 @@ public class NewMailDialog extends javax.swing.JDialog {
         i_subject = new javax.swing.JTextField();
         b_send = new javax.swing.JButton();
         b_cancel = new javax.swing.JButton();
-        b_preview = new javax.swing.JButton();
         i_isAdvertisement = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -86,13 +85,6 @@ public class NewMailDialog extends javax.swing.JDialog {
             }
         });
 
-        b_preview.setText("Preview");
-        b_preview.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_previewActionPerformed(evt);
-            }
-        });
-
         i_isAdvertisement.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         i_isAdvertisement.setText("This is an advertisement");
         i_isAdvertisement.addActionListener(new java.awt.event.ActionListener() {
@@ -118,17 +110,13 @@ public class NewMailDialog extends javax.swing.JDialog {
                                 .addGroup(MAIN_PANELLayout.createSequentialGroup()
                                     .addComponent(b_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(b_preview, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(i_isAdvertisement))))
                         .addGroup(MAIN_PANELLayout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(i_recipientAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(i_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(MAIN_PANELLayout.createSequentialGroup()
-                                    .addGap(343, 343, 343)
-                                    .addComponent(b_send, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addComponent(b_send, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         MAIN_PANELLayout.setVerticalGroup(
@@ -150,7 +138,6 @@ public class NewMailDialog extends javax.swing.JDialog {
                 .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_send, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_preview, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(i_isAdvertisement))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
@@ -243,7 +230,6 @@ public class NewMailDialog extends javax.swing.JDialog {
     private javax.swing.JScrollPane MAIL_BODY_SCROLLPANE;
     private javax.swing.JPanel MAIN_PANEL;
     private javax.swing.JButton b_cancel;
-    private javax.swing.JButton b_preview;
     private javax.swing.JButton b_send;
     private javax.swing.JTextArea f_mailBody;
     private javax.swing.JCheckBox i_isAdvertisement;
