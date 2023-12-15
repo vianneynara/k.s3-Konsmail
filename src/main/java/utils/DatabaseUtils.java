@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import models.objects.Account;
+import models.objects.Advertisement;
 import models.objects.Email;
 
 /**
@@ -42,11 +43,13 @@ public class DatabaseUtils {
                     String subj = rs.getString("subject");
                     String content = rs.getString("content");
                     Timestamp date = rs.getTimestamp("timestamp");
-                    boolean isFlagged = rs.getBoolean("is_flagged");
                     boolean isRead = rs.getBoolean("is_read");
-
-                    mailbox.add(new Email(uuid, sender, recipient, subj, content, date.toLocalDateTime(), isFlagged,
-                            isRead));
+                    boolean isAd = rs.getBoolean("is_ad");
+                    if (isAd) {
+                        mailbox.add(new Advertisement(uuid, sender, recipient, subj, content, date.toLocalDateTime(), isRead));
+                    } else {
+                        mailbox.add(new Email(uuid, sender, recipient, subj, content, date.toLocalDateTime(), isRead));
+                    }
                 }
             }
 
@@ -108,7 +111,7 @@ public class DatabaseUtils {
         }
         return null;
     }
-    
+
     public static String getEmailAddress(String emailUuid) {
         String query = "SELECT email_address FROM ACCOUNTS WHERE uuid = ?";
 
@@ -142,7 +145,8 @@ public class DatabaseUtils {
 
             // Check if the ResultSet has any rows
             if (rs.next()) {
-                // Retrieve the "last_name" then check if it's empty, then add it after the "first_name".
+                // Retrieve the "last_name" then check if it's empty, then add it after the
+                // "first_name".
                 String lName = rs.getString("last_name").equals("") ? "" : " " + rs.getString("last_name");
                 return rs.getString("first_name") + lName;
             }
@@ -173,8 +177,12 @@ public class DatabaseUtils {
             ps.setString(4, mail.getSubject());
             ps.setString(5, mail.getContent());
             ps.setTimestamp(6, Timestamp.valueOf(mail.getDateTime()));
-            ps.setInt(7, mail.getFlag() ? 1 : 0);
-            ps.setInt(8, mail.getRead() ? 1 : 0);
+            ps.setInt(7, mail.getRead() ? 1 : 0);
+            if (mail instanceof Advertisement) {
+                ps.setInt(8, 1);
+            } else {
+                ps.setInt(8,0);
+            }
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -280,9 +288,9 @@ public class DatabaseUtils {
             conn.commit();
         } catch (SQLException e) {
             System.out.println("Error committing transaction: " + e.getMessage());
-            // You might want to log the exception using a logging framework like log4j or java.util.logging
+            // You might want to log the exception using a logging framework like log4j or
+            // java.util.logging
         }
     }
-    
 
 }
