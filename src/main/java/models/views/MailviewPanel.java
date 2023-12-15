@@ -4,6 +4,8 @@
  */
 package models.views;
 
+import models.interfaces.Emailable;
+import models.objects.Advertisement;
 import models.objects.Email;
 import models.objects.Session;
 import utils.DatabaseUtils;
@@ -20,7 +22,7 @@ import javax.swing.ImageIcon;
  */
 public class MailviewPanel extends javax.swing.JPanel {
 
-    private Email email;
+    private Emailable email;
 
     public MailviewPanel() {
         initComponents();
@@ -262,22 +264,36 @@ public class MailviewPanel extends javax.swing.JPanel {
     public void setAt(String at) {
         this.f_at.setText(at);
     }
-
+    
     public void setTime(String time) {
         this.f_time.setText(time);
     }
-
+    
     public void setMailBody(String mailBody) {
         this.f_mailBody.setText(mailBody);
     }
-
+    
     public void setSubject(String subject) {
-        this.l_subject.setText(subject);
+        this.l_subject.setText(subject == null ? "(No Subject)" : subject);
+    }
+    
+    public void setCurrentEmail(Emailable email) {
+        this.email = email;
+        setFrom(DatabaseUtils.getFirstLastName(email.getSenderUuid()));
+        setEmail(DatabaseUtils.getEmailAddress(email.getSenderUuid()));
+        setAt(email.getFormattedDate());
+        setTime(email.getFormattedTime());
+        setMailBody(email.getContent());
+        if (email instanceof Advertisement) {
+            setSubject("[Advertisement] " + email.getSubject());
+        } else {
+            setSubject(email.getSubject());
+        }
     }
 
     // Getter email
 
-    public Email getEmail() {
+    public Emailable getEmail() {
         return email;
     }
 
