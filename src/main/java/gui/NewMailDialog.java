@@ -188,7 +188,7 @@ public class NewMailDialog extends javax.swing.JDialog {
             DatabaseUtils
                 .insertMail(new Email(uuid, sender, recipient, subject, content, LocalDateTime.now(), false));
         }
-        DatabaseUtils.commitChanges();
+        
         resetFields();
         JOptionPane.showMessageDialog(
                 this,
