@@ -293,7 +293,7 @@ public class RegisterPage extends javax.swing.JDialog {
         // Adds default domain
         address += DEFAULT_DOMAIN;
 
-        if (DatabaseUtils.emailExists(address)) {
+        if (DatabaseUtils.emailAddressExists(address)) {
             JOptionPane.showMessageDialog(
                     this,
                     "Email already exist!",

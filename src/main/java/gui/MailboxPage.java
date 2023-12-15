@@ -6,19 +6,23 @@ package gui;
 
 import models.views.MailviewEmptyPanel;
 import models.views.MailviewPanel;
+import utils.DatabaseUtils;
 import utils.USwingAppearance;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
+import java.util.ArrayList;
 
 import models.objects.Session;
+import models.objects.Email;
 
 /**
  *
  * @author narwa
  */
 public class MailboxPage extends javax.swing.JFrame {
+    private ArrayList<Email> emails = new ArrayList<Email>();
     private Session session;
     private final CardLayout cardSwitcher;
     private MailviewPanel mailviewPanel = new MailviewPanel();
@@ -28,7 +32,8 @@ public class MailboxPage extends javax.swing.JFrame {
      */
     public MailboxPage(Session session) {
         this.session = session;
-        System.out.println(session.getAccountUuid()+"\n"+session.getAccountEmailAddress());
+        emails = DatabaseUtils.getMailbox(session.getAccountUuid());
+        System.out.println(emails.size());
         initComponents();
         cardSwitcher = (CardLayout) MAIL_VIEW.getLayout();
         initForms();
@@ -299,7 +304,7 @@ public class MailboxPage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        m_userMenu.setText("usr: nara@konsmail.dev");
+        m_userMenu.setText("usr: "+session.getAccountEmailAddress());
 
         m_configureAccount.setText("Configure Account");
         m_configureAccount.addActionListener(new java.awt.event.ActionListener() {

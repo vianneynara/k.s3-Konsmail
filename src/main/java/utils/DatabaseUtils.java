@@ -23,32 +23,38 @@ public class DatabaseUtils {
      */
     // TODO: make a getSentMailbox method
 
-    public static ArrayList<Email> getMailbox() {
+    public static ArrayList<Email> getMailbox(String userUuid) {
         ArrayList<Email> mailbox = new ArrayList<>();
-        String query = "SELECT * FROM MAILBOX";
-
-        // Tries to connect to the database and execute the query using
-        // try-with-resources
+        String query = "SELECT * FROM MAILBOX WHERE RECIPIENT_UUID = ?";
+    
         try (Connection conn = DatabaseConnector.getConnection();
-                PreparedStatement ps = conn.prepareStatement(query);
-                ResultSet rs = ps.executeQuery()) {
-
-            // iterates through the result set and adds the emails to the mailbox
-            while (rs.next()) {
-                String src = rs.getString("source");
-                String dest = rs.getString("destination");
-                String subj = rs.getString("subject");
-                String email = rs.getString("email");
-                Timestamp date = rs.getTimestamp("date");
-
-                mailbox.add(new Email(src, dest, subj, email, date.toLocalDateTime()));
+             PreparedStatement ps = conn.prepareStatement(query)) {
+    
+            // Set the userUuid in the PreparedStatement
+            ps.setString(1, userUuid);
+    
+            try (ResultSet rs = ps.executeQuery()) {
+                // iterates through the result set and adds the emails to the mailbox
+                while (rs.next()) {
+                    String uuid = rs.getString("uuid");
+                    String sender = rs.getString("sender_uuid");
+                    String recipient = rs.getString("recipient_uuid");
+                    String subj = rs.getString("subject");
+                    String content = rs.getString("content");
+                    Timestamp date = rs.getTimestamp("timestamp");
+                    boolean isFlagged = rs.getBoolean("is_flagged");
+                    boolean isRead = rs.getBoolean("is_read");
+    
+                    mailbox.add(new Email(uuid, sender, recipient, subj, content, date.toLocalDateTime(), isFlagged, isRead));
+                }
             }
-
+    
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace(); 
         }
         return mailbox;
     }
+    
 
     /**
      * Grabs all the accounts from the database.
@@ -82,14 +88,36 @@ public class DatabaseUtils {
         return account;
     }
 
+    public static String getUuid(String emailAddress) {
+        String query = "SELECT uuid FROM ACCOUNTS WHERE email_address = ?";
+    
+        try (Connection conn = DatabaseConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+    
+            ps.setString(1, emailAddress);
+    
+            ResultSet rs = ps.executeQuery();
+    
+            // Check if the ResultSet has any rows
+            if (rs.next()) {
+                // Retrieve the "uuid" column value
+                return rs.getString("uuid");
+            }
+        } catch (SQLException e) {
+            ULogger.logError(e, "Failed to check if account exists.");
+        }
+        return null;
+    }
+    
+
     /**
      * Inserts an email into the database.
      *
-     * @param email The email to be inserted.
+     * @param mail The email to be inserted.
      */
-    public static void insertEmail(Email email) {
+    public static void insertMail(Email mail) {
         String query = "INSERT INTO MAILBOX " +
-                "VALUES (?, ?, ?, ?, ?)";
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         // Tries to connect to the database and execute the query using
         // try-with-resources
@@ -97,11 +125,14 @@ public class DatabaseUtils {
                 PreparedStatement ps = conn.prepareStatement(query)) {
 
             // Sets the question marks to the email's corresponding attributes
-            ps.setString(1, email.getSender());
-            ps.setString(2, email.getRecipient());
-            ps.setString(3, email.getSubject());
-            ps.setString(4, email.getContent());
-            ps.setString(5, email.getDateTime().toString());
+            ps.setString(1, mail.getUuid());
+            ps.setString(2, mail.getSender());
+            ps.setString(3, mail.getRecipient());
+            ps.setString(4, mail.getSubject());
+            ps.setString(5, mail.getContent());
+            ps.setString(6, mail.getDateTime().toString());
+            ps.setString(7, Boolean.toString(mail.getFlag()));
+            ps.setString(8, Boolean.toString(mail.getRead()));
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -139,7 +170,7 @@ public class DatabaseUtils {
      *
      * @param address The email address to be checked.
      */
-    public static boolean emailExists(String address) {
+    public static boolean emailAddressExists(String address) {
         String query = "SELECT email_address FROM ACCOUNTS WHERE email_address = ?";
 
         try (Connection conn = DatabaseConnector.getConnection();
@@ -162,7 +193,7 @@ public class DatabaseUtils {
      * @param address  The email address to be checked.
      * @param password The password to be checked.
      */
-    public static boolean emailAndPasswordMatches(String address, String password) {
+    public static boolean emailAddressAndPasswordMatches(String address, String password) {
         String query = "SELECT email_address FROM ACCOUNTS WHERE email_address = ? AND password = ?";
 
         try (Connection conn = DatabaseConnector.getConnection();
@@ -180,20 +211,20 @@ public class DatabaseUtils {
         }
     }
 
-    public static boolean updateAccount(String fname, String lname, String address, String password) {
+    public static boolean updateAccount(String fname, String lname, String emailAddress, String password) {
         String query = "UPDATE ACCOUNTS " +
                 "SET FIRST_NAME = ?, LAST_NAME = ?, PASSWORD = ? " +
                 "WHERE EMAIL_ADDRESS = ?";
-
+    
         try (Connection conn = DatabaseConnector.getConnection();
-                PreparedStatement ps = conn.prepareStatement(query)) {
-
-            // Sets the question marks to the email's corresponding attributes
+             PreparedStatement ps = conn.prepareStatement(query)) {
+    
+            // Sets the question marks to the corresponding attributes
             ps.setString(1, fname);
             ps.setString(2, lname);
             ps.setString(3, password);
-            ps.setString(4, address);
-
+            ps.setString(4, emailAddress);
+    
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -201,5 +232,6 @@ public class DatabaseUtils {
         }
         return true;
     }
+    
 
 }
