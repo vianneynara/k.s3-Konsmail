@@ -335,39 +335,47 @@ public class RegisterPage extends javax.swing.JDialog {
 
     private void i_firstNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_firstNameFocusLost
         l_firstName.setText("First Name");
+        ComponentUtils.setForegroundColor(0x000000, l_firstName);
 
         if (i_firstName.getText().isEmpty()) {
             l_firstName.setText("First Name (Required!)");
+            ComponentUtils.setForegroundColor(0xdc143c, l_firstName);
         }
         if (Checker.containsNonAlpha(i_firstName.getText())) {
             l_firstName.setText("First Name (Invalid!)");
+            ComponentUtils.setForegroundColor(0xdc143c, l_firstName);
         }
     }//GEN-LAST:event_i_firstNameFocusLost
 
     private void i_lastNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_lastNameFocusLost
         l_lastName.setText("Last Name (optional)");
+        ComponentUtils.setForegroundColor(0x000000, l_lastName);
 
         if (Checker.containsNonAlpha(i_lastName.getText())) {
             l_lastName.setText("Last Name (Invalid!)");
+            ComponentUtils.setForegroundColor(0xdc143c, l_lastName);
         }
     }//GEN-LAST:event_i_lastNameFocusLost
 
     private void i_passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_passwordFocusLost
-        // TODO add your handling code here:
+        // TODO unused:
     }//GEN-LAST:event_i_passwordFocusLost
 
     private void i_confirmPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_confirmPasswordFocusLost
-        // TODO add your handling code here:
+        // TODO unused:
     }//GEN-LAST:event_i_confirmPasswordFocusLost
 
     private void i_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_emailFocusLost
         l_email.setText("Email");
+        ComponentUtils.setForegroundColor(0x000000, l_email);
 
         if (i_email.getText().isEmpty()) {
             l_email.setText("Email (Required!)");
+            ComponentUtils.setForegroundColor(0xdc143c, l_email);
         }
         if (Checker.containsNonAlphanumeric(i_email.getText())) {
             l_email.setText("Email (Invalid!)");
+            ComponentUtils.setForegroundColor(0xdc143c, l_email);
         }
     }//GEN-LAST:event_i_emailFocusLost
 

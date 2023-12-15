@@ -1,6 +1,7 @@
 package models.views.inboxtable;
 
 import models.objects.Email;
+import utils.DatabaseUtils;
 
 import javax.security.auth.Subject;
 import javax.swing.*;
@@ -46,6 +47,11 @@ public class MailButton extends JButton {
 
     public MailButton(Email email) {
         this.isRead = email.getRead();
+        setText(String.format("<html>%s<br>%s<br>%s",
+            email.getSubject(),
+            DatabaseUtils.getFirstLastName(email.getSenderUuid()),
+            email.getFormattedDate() + " " + email.getFormattedTime()
+        ));
         checkRead();
         setContentAreaFilled(false);
         setBorder(new EmptyBorder(3, 3, 3, 3));
@@ -78,6 +84,11 @@ public class MailButton extends JButton {
         } else {
             setUnread();
         }
+    }
+
+        
+    public String getText() {
+        return super.getText();
     }
 
     @Override

@@ -22,7 +22,7 @@ import java.util.Locale;
 
 public class Email {
 
-	public static final String DATE_FORMATTER = "DD MMMM YYYY";
+	public static final String DATE_FORMATTER = "dd MMMM YYYY";
 	public static final String TIME_FORMATTER = "HH:mm a";
 
 	// Attribute declarations
