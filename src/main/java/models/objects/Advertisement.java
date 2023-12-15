@@ -9,8 +9,14 @@ import java.time.LocalDateTime;
  */
 
 public class Advertisement extends Email {
+
     public Advertisement(String uuid, String sender, String recipient, String subject, String content,
             LocalDateTime date, boolean isRead) {
         super(uuid, sender, recipient, subject, content, date, isRead);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " -> [Advertisement]";
     }
 }

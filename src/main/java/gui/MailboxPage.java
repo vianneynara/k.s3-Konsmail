@@ -1,64 +1,66 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package gui;
 
+import models.interfaces.Emailable;
+import models.objects.Advertisement;
+import models.objects.Session;
 import models.views.MailviewPanel;
 import models.views.inboxtable.CellsActionable;
 import models.views.inboxtable.MailButton;
 import models.views.inboxtable.TableActionCellEditor;
 import models.views.inboxtable.TableActionCellRender;
 import utils.DatabaseUtils;
+import utils.ULogger;
 
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.ArrayList;
-
-import models.objects.Session;
-import models.objects.Email;
-import utils.ULogger;
 
 /**
  * This class holds the main application window. This is where the user can view, create, and manage emails.
  * This class is also responsible for handling the inbox table. These class has attributes such as:
  *
  * @author <a href="https://github.com/vianneynara">Nara</a>
+ * @author <a href="https://github.com/trustacean">Edward</a>
+ *
  * */
 
 public class MailboxPage extends javax.swing.JFrame {
 
-    private ArrayList<Email> emails;
+    private ArrayList<Emailable> emails;
+    private ArrayList<Emailable> promotionEmails;
+    private ArrayList<Emailable> sentEmails;
     private final Session session;
     private final CardLayout cardSwitcher;
     private final MailviewPanel mailviewPanel = new MailviewPanel();
     private int currentEmailIndex = -1;
+    private ArrayList<Emailable> currentEmailType;
     private final TableActionCellRender renderer = new TableActionCellRender();
 
     /**
-     * Creates new form MailboxPage
+     * Creates new form MailboxPage, this does it all initializations.
      */
     public MailboxPage(Session session) {
         this.session = session;
         emails = DatabaseUtils.getMailbox(session.getAccountUuid());
-        System.out.println(emails.size());
+        currentEmailType = emails;
 
+        // Initializes the components and sets the inbox table renderer.
         initComponents();
         initInboxTable();
         cardSwitcher = (CardLayout) MAIL_VIEW.getLayout();
         initForms();
         m_userMenu.setText(session.getAccountEmailAddress());
-//        enablePreview();
+
+        // Updates the table with the latest emails.
         updateTable(DatabaseUtils.getMailbox(session.getAccountUuid()));
     }
 
     private void initForms() {
-//        MailviewEmptyPanel mailviewEmptyPanel = new MailviewEmptyPanel(); // please ignore this for now
         MAIL_VIEW.add(mailviewPanel, "mailview");
         MAIL_VIEW.add(new JPanel(), "emptyview");
         cardSwitcher.show(MAIL_VIEW, "emptyview");
@@ -98,7 +100,7 @@ public class MailboxPage extends javax.swing.JFrame {
             @Override
             public TableCellRenderer getCellRenderer(int row, int column) {
                 // Get the email corresponding to the current row
-                Email email = emails.get(row);
+                Emailable email = currentEmailType.get(row);
                 // Update the current email of the renderer
                 renderer.setCurrentEmail(email);
                 // Return the renderer
@@ -265,7 +267,6 @@ public class MailboxPage extends javax.swing.JFrame {
                 int rowIndex = inboxTable.rowAtPoint(e.getPoint());
                 int colIndex = inboxTable.columnAtPoint(e.getPoint());
                 if (rowIndex >= 0 && colIndex >= 0) {
-                    ULogger.log("clicked!");
                     tableButtonCallback(rowIndex);
                 }
             }
@@ -370,10 +371,6 @@ public class MailboxPage extends javax.swing.JFrame {
         // TODO unused:
     }//GEN-LAST:event_i_findMailActionPerformed
 
-    private void i_inboxTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_inboxTypeActionPerformed
-        // TODO unused:
-    }//GEN-LAST:event_i_inboxTypeActionPerformed
-
     private void b_createMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_createMailActionPerformed
         new NewMailDialog(this, true, session).setVisible(true);
     }//GEN-LAST:event_b_createMailActionPerformed
@@ -392,6 +389,10 @@ public class MailboxPage extends javax.swing.JFrame {
 
     private void b_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_refreshActionPerformed
         emails = DatabaseUtils.getMailbox(session.getAccountUuid());
+        i_inboxType.setSelectedIndex(0);
+        cardSwitcher.show(MAIL_VIEW, "emptyview");
+        currentEmailIndex = -1;
+        currentEmailType = emails;
         updateTable(emails);
     }//GEN-LAST:event_b_refreshActionPerformed
 
@@ -399,6 +400,35 @@ public class MailboxPage extends javax.swing.JFrame {
         this.dispose();
         new LoginPage().setVisible(true);
     }//GEN-LAST:event_m_signOutActionPerformed
+
+    private void i_inboxTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_inboxTypeActionPerformed
+        String inboxType = (String)Objects.requireNonNull(i_inboxType.getSelectedItem());
+        switch (inboxType) {
+            case "Promotions" -> {
+                // Filter ads email in emails by using the .filter() when email is an instance of Advertisement
+                // then puts it into a new ArrayList.
+                promotionEmails = emails
+                    .stream()
+                    .filter(email -> email instanceof Advertisement)
+                    .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+                currentEmailType = promotionEmails;
+            }
+            case "Sent" -> {
+                // Filter ads email in emails by using the .filter() when email has the same senderUuid as the current
+                // session accountUuid then puts it into a new ArrayList.
+                sentEmails = emails
+                    .stream()
+                    .filter(email -> email.getSenderUuid().equals(session.getAccountUuid()))
+                    .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+                currentEmailType = sentEmails;
+            }
+            default -> {
+                currentEmailType = emails;
+            }
+        }
+        currentEmailIndex = -1;
+        updateTable(currentEmailType);
+    }//GEN-LAST:event_i_inboxTypeActionPerformed
 
     /**
      * Disables the mail tools.
@@ -426,9 +456,10 @@ public class MailboxPage extends javax.swing.JFrame {
     }
 
     /**
-     * Updates the table rows using a List of Email objects.
+     * Updates the table rows using a List of Email objects. Each row is filled with a {@link MailButton} object that
+     * contains the iterated email information.
      * */
-    public void updateTable(List<Email> emails) {
+    public void updateTable(List<Emailable> emails) {
         Object[][] data = new Object[emails.size()][1];
         String[] columns = {"Inbox"};
         for (int i = 0; i < emails.size(); i++) {
@@ -448,12 +479,12 @@ public class MailboxPage extends javax.swing.JFrame {
     }
 
     /**
-     * Callback to handle which row is being clicked in the inbox table.
+     * Callback to handle which row is being clicked in the inbox table. This method sets the {@link #currentEmailIndex}
+     * to the row index and sets the current email in the {@link MailviewPanel} and shows the {@link #MAIL_VIEW} panel.
      * */
     private void tableButtonCallback(int rowIndex) {
-        System.out.println(rowIndex);
         this.currentEmailIndex = rowIndex;
-        mailviewPanel.setCurrentEmail(emails.get(currentEmailIndex));
+        mailviewPanel.setCurrentEmail(currentEmailType.get(currentEmailIndex));
         cardSwitcher.show(MAIL_VIEW, "mailview");
     }
 

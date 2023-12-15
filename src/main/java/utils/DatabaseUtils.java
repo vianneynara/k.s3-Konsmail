@@ -3,6 +3,7 @@ package utils;
 import java.sql.*;
 import java.util.ArrayList;
 
+import models.interfaces.Emailable;
 import models.objects.Account;
 import models.objects.Advertisement;
 import models.objects.Email;
@@ -24,9 +25,9 @@ public class DatabaseUtils {
      */
     // TODO: make a getSentMailbox method
 
-    public static ArrayList<Email> getMailbox(String userUuid) {
-        ArrayList<Email> mailbox = new ArrayList<>();
-        String query = "SELECT * FROM MAILBOX WHERE RECIPIENT_UUID = ?";
+    public static ArrayList<Emailable> getMailbox(String userUuid) {
+        ArrayList<Emailable> mailbox = new ArrayList<>();
+        String query = "SELECT * FROM MAILBOX WHERE RECIPIENT_UUID = ? ORDER BY TIMESTAMP DESC";
 
         try (Connection conn = DatabaseConnector.getConnection();
                 PreparedStatement ps = conn.prepareStatement(query)) {
@@ -159,9 +160,9 @@ public class DatabaseUtils {
     /**
      * Inserts an email into the database.
      *
-     * @param mail The email to be inserted.
+     * @param email The email to be inserted.
      */
-    public static void insertMail(Email mail) {
+    public static void insertMail(Emailable email) {
         String query = "INSERT INTO MAILBOX " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -171,20 +172,21 @@ public class DatabaseUtils {
                 PreparedStatement ps = conn.prepareStatement(query)) {
 
             // Sets the question marks to the email's corresponding attributes
-            ps.setString(1, mail.getUuid());
-            ps.setString(2, mail.getSenderUuid());
-            ps.setString(3, mail.getRecipientUuid());
-            ps.setString(4, mail.getSubject());
-            ps.setString(5, mail.getContent());
-            ps.setTimestamp(6, Timestamp.valueOf(mail.getDateTime()));
-            ps.setInt(7, mail.getRead() ? 1 : 0);
-            if (mail instanceof Advertisement) {
+            ps.setString(1, email.getUuid());
+            ps.setString(2, email.getSenderUuid());
+            ps.setString(3, email.getRecipientUuid());
+            ps.setString(4, email.getSubject());
+            ps.setString(5, email.getContent());
+            ps.setTimestamp(6, Timestamp.valueOf(email.getDateTime()));
+            ps.setInt(7, email.getRead() ? 1 : 0);
+            if (email instanceof Advertisement) {
                 ps.setInt(8, 1);
             } else {
                 ps.setInt(8,0);
             }
 
             ps.executeUpdate();
+            conn.commit();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -210,6 +212,7 @@ public class DatabaseUtils {
             ps.setString(5, account.getLastName());
 
             ps.executeUpdate();
+            conn.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -276,6 +279,7 @@ public class DatabaseUtils {
             ps.setString(4, emailAddress);
 
             ps.executeUpdate();
+            conn.commit();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;

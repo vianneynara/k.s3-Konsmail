@@ -304,7 +304,7 @@ public class RegisterPage extends javax.swing.JDialog {
         }
 
         DatabaseUtils.insertAccount(new Account(fName, lName, address, pass, UUID.randomUUID().toString()));
-        DatabaseUtils.commitChanges();
+        
         resetField();
         JOptionPane.showMessageDialog(
                     this,

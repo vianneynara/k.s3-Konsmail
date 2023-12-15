@@ -1,5 +1,7 @@
 package models.views.inboxtable;
 
+import models.interfaces.Emailable;
+import models.objects.Advertisement;
 import models.objects.Email;
 import utils.DatabaseUtils;
 
@@ -23,15 +25,23 @@ public class PanelAction extends javax.swing.JPanel {
     /**
      * Creates new form PanelAction using an {@link Email} object.
      */
-    public PanelAction(Email email) {
+    public PanelAction(Emailable email) {
         initComponents();
         // Sets the renderer text if email is not null
         if (email != null) {
-            cmdView.setText(String.format("<html>%s<br>%s<br>%s",
-                email.getSubject(),
-                DatabaseUtils.getFirstLastName(email.getSenderUuid()),
-                email.getFormattedDate() + " " + email.getFormattedTime()
-            ));
+            if (email instanceof Advertisement) {
+                cmdView.setText(String.format("<html>[Ad] %s<br>%s<br>%s",
+                    email.getSubject(),
+                    DatabaseUtils.getFirstLastName(email.getSenderUuid()),
+                    email.getFormattedDate() + " " + email.getFormattedTime()
+                ));
+            } else {
+                cmdView.setText(String.format("<html>%s<br>%s<br>%s",
+                    email.getSubject(),
+                    DatabaseUtils.getFirstLastName(email.getSenderUuid()),
+                    email.getFormattedDate() + " " + email.getFormattedTime()
+                ));
+            }
         }
     }
     

@@ -374,7 +374,7 @@
                     </Property>
                   </Properties>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable() {&#xa;            @Override&#xa;            public TableCellRenderer getCellRenderer(int row, int column) {&#xa;                // Get the email corresponding to the current row&#xa;                Email email = emails.get(row);&#xa;                // Update the current email of the renderer&#xa;                renderer.setCurrentEmail(email);&#xa;                // Return the renderer&#xa;                return renderer;&#xa;            }&#xa;        }"/>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable() {&#xa;    @Override&#xa;    public TableCellRenderer getCellRenderer(int row, int column) {&#xa;        // Get the email corresponding to the current row&#xa;        Emailable email = currentEmailType.get(row);&#xa;        // Update the current email of the renderer&#xa;        renderer.setCurrentEmail(email);&#xa;        // Return the renderer&#xa;        return renderer;&#xa;    }&#xa;}"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
