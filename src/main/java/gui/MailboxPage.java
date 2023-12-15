@@ -434,7 +434,7 @@ public class MailboxPage extends javax.swing.JFrame {
      * Updates the table rows using a List of Email objects.
      * */
     public void updateTable(List<Email> emails) {
-        Object[][] data = new Object[emails.size()][];
+        Object[][] data = new Object[emails.size()][1];
         String[] columns = {"Inbox"};
         for (int i = 0; i < emails.size(); i++) {
             final var currentEmail = emails.get(i);
