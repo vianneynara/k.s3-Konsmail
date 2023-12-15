@@ -261,6 +261,7 @@ public class RegisterPage extends javax.swing.JDialog {
                     "Email address must be between 4 and 30 characters long!",
                     "Attention!",
                     JOptionPane.WARNING_MESSAGE);
+            return false;
         }
 
         if (Checker.containsNonAlphanumeric(address)) {
@@ -372,6 +373,10 @@ public class RegisterPage extends javax.swing.JDialog {
             ComponentUtils.setForegroundColor(0xdc143c, l_email);
         }
         if (Checker.containsNonAlphanumeric(i_email.getText())) {
+            l_email.setText("Email (Invalid!)");
+            ComponentUtils.setForegroundColor(0xdc143c, l_email);
+        }
+        if (!Checker.isEmailAddressValid(i_email.getText())) {
             l_email.setText("Email (Invalid!)");
             ComponentUtils.setForegroundColor(0xdc143c, l_email);
         }
