@@ -1,5 +1,8 @@
 package models.views.inboxtable;
 
+import models.objects.Email;
+import utils.DatabaseUtils;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,11 +14,26 @@ import java.awt.event.ActionListener;
 
 public class PanelAction extends javax.swing.JPanel {
 
+    private final String DEFAULT_TEXT = "<html> Subject <br> Konsmail System <br> system@konsmail.dev";
+
     /**
      * Creates new form PanelAction
      */
     public PanelAction() {
         initComponents();
+    }
+
+    /**
+     * Creates new form PanelAction using an {@link Email} object.
+     */
+    public PanelAction(Email email) {
+        initComponents();
+        // Sets the renderer text
+        cmdView.setText(String.format("<html>%s<br>%s<br>%s",
+            email.getSubject(),
+            DatabaseUtils.getFirstLastName(email.getSenderUuid()),
+            email.getFormattedDate() + " " + email.getFormattedTime()
+        ));
     }
     
     public void initEvents(CellsActionable event, int row) {
@@ -34,8 +52,8 @@ public class PanelAction extends javax.swing.JPanel {
         cmdView = new models.views.inboxtable.MailButton();
 
         cmdView.setForeground(new java.awt.Color(0, 0, 0));
-        cmdView.setIcon(MailButton.mailRead);
-        cmdView.setText("<html> Subject <br> Konsmail System <br> system@konsmail.dev");
+        cmdView.setIcon(MailButton.mailUnread);
+        cmdView.setText(DEFAULT_TEXT);
         cmdView.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cmdView.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         cmdView.addActionListener(new java.awt.event.ActionListener() {
@@ -57,7 +75,7 @@ public class PanelAction extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cmdView)
+                .addComponent(cmdView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

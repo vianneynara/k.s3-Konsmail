@@ -40,9 +40,11 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="MailButton.mailRead" type="code"/>
+          <Connection code="MailButton.mailUnread" type="code"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt; Subject &lt;br&gt; Konsmail System &lt;br&gt; system@konsmail.dev"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="DEFAULT_TEXT" type="code"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
