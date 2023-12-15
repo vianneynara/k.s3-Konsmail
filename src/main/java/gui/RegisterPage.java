@@ -345,7 +345,7 @@ public class RegisterPage extends javax.swing.JDialog {
     }//GEN-LAST:event_i_firstNameFocusLost
 
     private void i_lastNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_lastNameFocusLost
-        l_lastName.setText("Last Name (Optional)");
+        l_lastName.setText("Last Name (optional)");
 
         if (Checker.containsNonAlpha(i_lastName.getText())) {
             l_lastName.setText("Last Name (Invalid!)");
