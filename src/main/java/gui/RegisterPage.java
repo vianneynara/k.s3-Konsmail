@@ -234,7 +234,7 @@ public class RegisterPage extends javax.swing.JDialog {
         String fName = i_firstName.getText().trim();
         String lName = i_lastName.getText().trim();
         String address = i_email.getText().trim().toLowerCase();
-        String pass = String.valueOf(i_password.getPassword()).trim();
+        String pass = String.valueOf(i_password.getPassword());
         String confPass = String.valueOf(i_confirmPassword.getPassword()).trim();
 
         if (fName.isEmpty() || address.isEmpty() || pass.isEmpty() ){

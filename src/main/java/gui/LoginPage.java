@@ -152,9 +152,9 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private boolean b_signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_signInActionPerformed
-        String address = i_email.getText().trim();
+        String emailAddress = i_email.getText().trim();
 
-        if (!DatabaseUtils.emailAddressExists(address)) {
+        if (!DatabaseUtils.emailAddressExists(emailAddress)) {
             JOptionPane.showMessageDialog(
                     this,
                     "Email does not exist!",
@@ -163,7 +163,7 @@ public class LoginPage extends javax.swing.JFrame {
             return false;
         }
 
-        if (!DatabaseUtils.emailAddressAndPasswordMatches(address, String.valueOf(i_password.getPassword()).trim())) {
+        if (!DatabaseUtils.emailAddressAndPasswordMatches(emailAddress, String.valueOf(i_password.getPassword()))) {
             JOptionPane.showMessageDialog(
                     this,
                     "Incorrect password!",
@@ -173,7 +173,7 @@ public class LoginPage extends javax.swing.JFrame {
             
         }
         setVisible(false);
-        new MailboxPage(new Session(DatabaseUtils.getAccount(address))).setVisible(true);
+        new MailboxPage(new Session(DatabaseUtils.getAccount(emailAddress))).setVisible(true);
         return true;
     }//GEN-LAST:event_b_signInActionPerformed
 
