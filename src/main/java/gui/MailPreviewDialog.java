@@ -48,6 +48,7 @@ public class MailPreviewDialog extends javax.swing.JDialog {
         b_ok = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         javax.swing.GroupLayout MAIL_VIEWLayout = new javax.swing.GroupLayout(MAIL_VIEW);
         MAIL_VIEW.setLayout(MAIL_VIEWLayout);

@@ -37,7 +37,7 @@ public class NewMailDialog extends javax.swing.JDialog {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         MAIN_PANEL = new javax.swing.JPanel();
@@ -54,6 +54,7 @@ public class NewMailDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Konsmail: New mail");
+        setResizable(false);
 
         l_recipientEmailAddress.setText("Receipient Email Address");
 
@@ -93,85 +94,61 @@ public class NewMailDialog extends javax.swing.JDialog {
         javax.swing.GroupLayout MAIN_PANELLayout = new javax.swing.GroupLayout(MAIN_PANEL);
         MAIN_PANEL.setLayout(MAIN_PANELLayout);
         MAIN_PANELLayout.setHorizontalGroup(
-                MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(MAIN_PANELLayout.createSequentialGroup()
-                                .addGroup(MAIN_PANELLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MAIN_PANELLayout
-                                                .createSequentialGroup()
-                                                .addGap(20, 20, 20)
-                                                .addGroup(MAIN_PANELLayout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(MAIL_BODY_SCROLLPANE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 721,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(l_body, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(l_subject, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(MAIN_PANELLayout.createSequentialGroup()
-                                                                .addComponent(b_cancel,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 105,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(b_preview,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 105,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addComponent(l_recipientEmailAddress,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 195,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(MAIN_PANELLayout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addGroup(MAIN_PANELLayout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(i_recipientAddress,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 721,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(i_subject, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                721, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(b_send, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                105, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addContainerGap(20, Short.MAX_VALUE)));
+            MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MAIN_PANELLayout.createSequentialGroup()
+                .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MAIN_PANELLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(MAIL_BODY_SCROLLPANE, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l_body, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(MAIN_PANELLayout.createSequentialGroup()
+                                .addComponent(b_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(b_preview, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(l_recipientEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(MAIN_PANELLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(i_recipientAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(i_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b_send, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
         MAIN_PANELLayout.setVerticalGroup(
-                MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(MAIN_PANELLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(l_recipientEmailAddress)
-                                .addGap(0, 0, 0)
-                                .addComponent(i_recipientAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 28,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(l_subject)
-                                .addGap(0, 0, 0)
-                                .addComponent(i_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 28,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(l_body)
-                                .addGap(0, 0, 0)
-                                .addComponent(MAIL_BODY_SCROLLPANE, javax.swing.GroupLayout.PREFERRED_SIZE, 290,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(16, 16, 16)
-                                .addGroup(
-                                        MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(b_send, javax.swing.GroupLayout.PREFERRED_SIZE, 36,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(b_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 36,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(b_preview, javax.swing.GroupLayout.PREFERRED_SIZE, 36,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(16, Short.MAX_VALUE)));
+            MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MAIN_PANELLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(l_recipientEmailAddress)
+                .addGap(0, 0, 0)
+                .addComponent(i_recipientAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(l_subject)
+                .addGap(0, 0, 0)
+                .addComponent(i_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(l_body)
+                .addGap(0, 0, 0)
+                .addComponent(MAIL_BODY_SCROLLPANE, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_send, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_preview, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(MAIN_PANEL, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(MAIN_PANEL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(MAIN_PANEL, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(MAIN_PANEL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
         setLocationRelativeTo(null);
