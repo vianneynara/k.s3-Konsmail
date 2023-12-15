@@ -121,8 +121,30 @@ public class DatabaseUtils {
 
             // Check if the ResultSet has any rows
             if (rs.next()) {
-                // Retrieve the "uuid" column value
+                // Retrieve the "email_address" column value
                 return rs.getString("email_address");
+            }
+        } catch (SQLException e) {
+            ULogger.logError(e, "Failed to check if account exists.");
+        }
+        return null;
+    }
+
+    public static String getFirstLastName(String accountUuid) {
+        String query = "SELECT first_name, last_name FROM ACCOUNTS WHERE uuid = ?";
+
+        try (Connection conn = DatabaseConnector.getConnection();
+                PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, accountUuid);
+
+            ResultSet rs = ps.executeQuery();
+
+            // Check if the ResultSet has any rows
+            if (rs.next()) {
+                // Retrieve the "last_name" then check if it's empty, then add it after the "first_name".
+                String lName = rs.getString("last_name").equals("") ? "" : " " + rs.getString("last_name");
+                return rs.getString("first_name") + lName;
             }
         } catch (SQLException e) {
             ULogger.logError(e, "Failed to check if account exists.");
