@@ -12,6 +12,7 @@ import models.views.inboxtable.TableActionCellRender;
 import utils.DatabaseUtils;
 
 import javax.swing.*;
+import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -28,11 +29,13 @@ import utils.ULogger;
  * @author narwa
  */
 public class MailboxPage extends javax.swing.JFrame {
-    private ArrayList<Email> emails = new ArrayList<Email>();
-    private Session session;
+
+    private ArrayList<Email> emails;
+    private final Session session;
     private final CardLayout cardSwitcher;
-    private MailviewPanel mailviewPanel = new MailviewPanel();
+    private final MailviewPanel mailviewPanel = new MailviewPanel();
     private int currentEmailIndex = -1;
+    private final TableActionCellRender renderer = new TableActionCellRender();
 
     /**
      * Creates new form MailboxPage
@@ -88,7 +91,17 @@ public class MailboxPage extends javax.swing.JFrame {
         b_findMail = new javax.swing.JButton();
         INBOX_PANEL = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        inboxTable = new javax.swing.JTable();
+        inboxTable = new javax.swing.JTable() {
+            @Override
+            public TableCellRenderer getCellRenderer(int row, int column) {
+                // Get the email corresponding to the current row
+                Email email = emails.get(row);
+                // Update the current email of the renderer
+                renderer.setCurrentEmail(email);
+                // Return the renderer
+                return renderer;
+            }
+        };
         WINDOW_MENU_BAR = new javax.swing.JMenuBar();
         m_userMenu = new javax.swing.JMenu();
         m_configureAccount = new javax.swing.JMenuItem();
@@ -250,10 +263,7 @@ public class MailboxPage extends javax.swing.JFrame {
 
         inboxTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
                 "Inbox"
@@ -391,7 +401,7 @@ public class MailboxPage extends javax.swing.JFrame {
     }//GEN-LAST:event_b_findMailActionPerformed
 
     private void b_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_refreshActionPerformed
-        // TODO add your handling code here:
+        updateTable(DatabaseUtils.getMailbox(session.getAccountUuid()));
     }//GEN-LAST:event_b_refreshActionPerformed
 
     private void m_signOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_signOutActionPerformed
@@ -449,6 +459,7 @@ public class MailboxPage extends javax.swing.JFrame {
         inboxTable.setModel(model);
         inboxTable.repaint();
         inboxTable.revalidate();
+        initInboxTable();
     }
 
     /**
