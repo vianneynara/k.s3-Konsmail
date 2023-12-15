@@ -25,9 +25,12 @@ import models.objects.Email;
 import utils.ULogger;
 
 /**
+ * This class holds the main application window. This is where the user can view, create, and manage emails.
+ * This class is also responsible for handling the inbox table. These class has attributes such as:
  *
- * @author narwa
- */
+ * @author <a href="https://github.com/vianneynara">Nara</a>
+ * */
+
 public class MailboxPage extends javax.swing.JFrame {
 
     private ArrayList<Email> emails;
@@ -83,7 +86,6 @@ public class MailboxPage extends javax.swing.JFrame {
         MAIL_VIEW = new javax.swing.JPanel();
         MAIL_TOOLS = new javax.swing.JPanel();
         b_mailReply = new javax.swing.JButton();
-        b_flag = new javax.swing.JToggleButton();
         b_mailReport = new javax.swing.JButton();
         b_markUnread = new javax.swing.JToggleButton();
         MAILBOX_FINDPANE = new javax.swing.JPanel();
@@ -175,15 +177,6 @@ public class MailboxPage extends javax.swing.JFrame {
             }
         });
 
-        b_flag.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        b_flag.setText("Flag");
-        b_flag.setEnabled(false);
-        b_flag.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_flagActionPerformed(evt);
-            }
-        });
-
         b_mailReport.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         b_mailReport.setText("Report");
         b_mailReport.setEnabled(false);
@@ -204,7 +197,6 @@ public class MailboxPage extends javax.swing.JFrame {
             .addGroup(MAIL_TOOLSLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(MAIL_TOOLSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(b_flag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(b_mailReport, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
                     .addComponent(b_mailReply, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
                     .addComponent(b_markUnread, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -215,11 +207,9 @@ public class MailboxPage extends javax.swing.JFrame {
             .addGroup(MAIL_TOOLSLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(b_mailReply, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(b_flag, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(15, 15, 15)
                 .addComponent(b_markUnread, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 467, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(b_mailReport, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -409,16 +399,11 @@ public class MailboxPage extends javax.swing.JFrame {
         new LoginPage().setVisible(true);
     }//GEN-LAST:event_m_signOutActionPerformed
 
-    private void b_flagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_flagActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b_flagActionPerformed
-
     /**
      * Disables the mail tools.
      * */
     public void disableMailTools() {
         b_mailReply.setEnabled(false);
-        b_flag.setEnabled(false);
         b_mailReport.setEnabled(false);
         b_markUnread.setEnabled(false);
     }
@@ -428,7 +413,6 @@ public class MailboxPage extends javax.swing.JFrame {
      * */
     public void enableMailTools() {
         b_mailReply.setEnabled(true);
-        b_flag.setEnabled(true);
         b_mailReport.setEnabled(true);
         b_markUnread.setEnabled(true);
     }
@@ -495,7 +479,6 @@ public class MailboxPage extends javax.swing.JFrame {
     private javax.swing.JMenuBar WINDOW_MENU_BAR;
     private javax.swing.JButton b_createMail;
     private javax.swing.JButton b_findMail;
-    private javax.swing.JToggleButton b_flag;
     private javax.swing.JButton b_mailReply;
     private javax.swing.JButton b_mailReport;
     private javax.swing.JToggleButton b_markUnread;
