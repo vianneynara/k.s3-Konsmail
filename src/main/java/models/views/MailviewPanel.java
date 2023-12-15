@@ -97,7 +97,7 @@ public class MailviewPanel extends javax.swing.JPanel {
             MAIL_HEADERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MAIL_HEADERLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(l_subject, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+                .addComponent(l_subject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(10, 10, 10))
         );
         MAIL_HEADERLayout.setVerticalGroup(
@@ -155,9 +155,7 @@ public class MailviewPanel extends javax.swing.JPanel {
             .addGroup(MAIL_BODYLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MAIL_BODYLayout.createSequentialGroup()
-                        .addComponent(MAIL_BODY_SCROLLPANE)
-                        .addGap(10, 10, 10))
+                    .addComponent(MAIL_BODY_SCROLLPANE)
                     .addGroup(MAIL_BODYLayout.createSequentialGroup()
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(l_from)
@@ -166,7 +164,7 @@ public class MailviewPanel extends javax.swing.JPanel {
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(f_email)
                             .addComponent(f_from))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 343, Short.MAX_VALUE)
+                        .addGap(343, 343, 343)
                         .addGroup(MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MAIL_BODYLayout.createSequentialGroup()
                                 .addComponent(l_time)
@@ -177,8 +175,8 @@ public class MailviewPanel extends javax.swing.JPanel {
                                 .addGap(15, 15, 15)
                                 .addComponent(l_at)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(f_at)))
-                        .addGap(10, 10, 10))))
+                                .addComponent(f_at)))))
+                .addGap(10, 10, 10))
         );
         MAIL_BODYLayout.setVerticalGroup(
             MAIL_BODYLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +200,7 @@ public class MailviewPanel extends javax.swing.JPanel {
                             .addComponent(l_email)
                             .addComponent(f_email))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MAIL_BODY_SCROLLPANE, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
+                .addComponent(MAIL_BODY_SCROLLPANE)
                 .addContainerGap())
         );
 
@@ -229,12 +227,11 @@ public class MailviewPanel extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(MAIL_BODY, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(MAIL_HEADER, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(MAIL_FOOTER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(18, 18, 18)
-                            .addComponent(l_konsmail, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(MAIL_HEADER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(MAIL_FOOTER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(l_konsmail, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
