@@ -40,6 +40,9 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="MAIL_VIEW">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="mail_view"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">

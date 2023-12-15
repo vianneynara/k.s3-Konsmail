@@ -4,6 +4,8 @@
  */
 package gui;
 
+import models.objects.Email;
+import models.views.MailviewPanel;
 import utils.USwingAppearance;
 
 /**
@@ -12,11 +14,23 @@ import utils.USwingAppearance;
  */
 public class MailPreviewDialog extends javax.swing.JDialog {
 
+    private final MailviewPanel mail_view;
+
     /**
      * Creates new form MailPreviewDialog
      */
     public MailPreviewDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        mail_view = new MailviewPanel();
+        initComponents();
+    }
+
+    /**
+     * Creates new form MailPreviewDialog using an {@link Email} object.
+     */
+    public MailPreviewDialog(java.awt.Frame parent, boolean modal, Email email) {
+        super(parent, modal);
+        mail_view = new MailviewPanel(email);
         initComponents();
     }
 
@@ -29,7 +43,7 @@ public class MailPreviewDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        MAIL_VIEW = new javax.swing.JPanel();
+        MAIL_VIEW = mail_view;
         BUTTON_CONTAINER = new javax.swing.JPanel();
         b_ok = new javax.swing.JButton();
 
