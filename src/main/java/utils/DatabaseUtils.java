@@ -108,6 +108,27 @@ public class DatabaseUtils {
         }
         return null;
     }
+    
+    public static String getEmailAddress(String emailUuid) {
+        String query = "SELECT email_address FROM ACCOUNTS WHERE uuid = ?";
+
+        try (Connection conn = DatabaseConnector.getConnection();
+                PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, emailUuid);
+
+            ResultSet rs = ps.executeQuery();
+
+            // Check if the ResultSet has any rows
+            if (rs.next()) {
+                // Retrieve the "uuid" column value
+                return rs.getString("email_address");
+            }
+        } catch (SQLException e) {
+            ULogger.logError(e, "Failed to check if account exists.");
+        }
+        return null;
+    }
 
     /**
      * Inserts an email into the database.
@@ -125,8 +146,8 @@ public class DatabaseUtils {
 
             // Sets the question marks to the email's corresponding attributes
             ps.setString(1, mail.getUuid());
-            ps.setString(2, mail.getSender());
-            ps.setString(3, mail.getRecipient());
+            ps.setString(2, mail.getSenderUuid());
+            ps.setString(3, mail.getRecipientUuid());
             ps.setString(4, mail.getSubject());
             ps.setString(5, mail.getContent());
             ps.setTimestamp(6, Timestamp.valueOf(mail.getDateTime()));
