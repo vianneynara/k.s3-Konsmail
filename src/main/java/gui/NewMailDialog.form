@@ -40,28 +40,35 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="MAIL_BODY_SCROLLPANE" min="-2" pref="721" max="-2" attributes="0"/>
-                              <Component id="l_body" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="l_subject" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="b_cancel" min="-2" pref="105" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="b_preview" min="-2" pref="105" max="-2" attributes="0"/>
+                      <Component id="l_recipientEmailAddress" alignment="1" min="-2" pref="721" max="-2" attributes="0"/>
+                      <Component id="l_subject" alignment="1" min="-2" pref="721" max="-2" attributes="0"/>
+                      <Component id="l_body" alignment="1" min="-2" pref="721" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="MAIL_BODY_SCROLLPANE" min="-2" pref="721" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="b_cancel" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="b_preview" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="i_isAdvertisement" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Component id="l_recipientEmailAddress" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
                           </Group>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="i_recipientAddress" alignment="1" min="-2" pref="721" max="-2" attributes="0"/>
-                              <Component id="i_subject" min="-2" pref="721" max="-2" attributes="0"/>
-                              <Component id="b_send" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="i_recipientAddress" alignment="1" min="-2" pref="721" max="-2" attributes="0"/>
+                                  <Component id="i_subject" min="-2" pref="721" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="343" max="-2" attributes="0"/>
+                                      <Component id="b_send" min="-2" pref="105" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -89,6 +96,7 @@
                       <Component id="b_send" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="b_cancel" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="b_preview" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="i_isAdvertisement" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="16" max="32767" attributes="0"/>
               </Group>
@@ -157,6 +165,17 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_previewActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="i_isAdvertisement">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="2"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="This is an advertisement"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_isAdvertisementActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
