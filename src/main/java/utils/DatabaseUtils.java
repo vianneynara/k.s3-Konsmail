@@ -160,7 +160,7 @@ public class DatabaseUtils {
     /**
      * Inserts an email into the database.
      *
-     * @param mail The email to be inserted.
+     * @param email The email to be inserted.
      */
     public static void insertMail(Emailable email) {
         String query = "INSERT INTO MAILBOX " +
