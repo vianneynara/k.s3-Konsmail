@@ -5,15 +5,23 @@
 package gui;
 
 import models.views.MailviewPanel;
+import models.views.inboxtable.CellsActionable;
+import models.views.inboxtable.MailButton;
+import models.views.inboxtable.TableActionCellEditor;
+import models.views.inboxtable.TableActionCellRender;
 import utils.DatabaseUtils;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.List;
 import java.util.Objects;
 import java.util.ArrayList;
 
 import models.objects.Session;
 import models.objects.Email;
+import utils.ULogger;
 
 /**
  *
@@ -24,6 +32,7 @@ public class MailboxPage extends javax.swing.JFrame {
     private Session session;
     private final CardLayout cardSwitcher;
     private MailviewPanel mailviewPanel = new MailviewPanel();
+    private int currentEmailIndex = -1;
 
     /**
      * Creates new form MailboxPage
@@ -32,7 +41,9 @@ public class MailboxPage extends javax.swing.JFrame {
         this.session = session;
         emails = DatabaseUtils.getMailbox(session.getAccountUuid());
         System.out.println(emails.size());
+
         initComponents();
+        initInboxTable();
         cardSwitcher = (CardLayout) MAIL_VIEW.getLayout();
         initForms();
         m_userMenu.setText(session.getAccountEmailAddress());
@@ -44,6 +55,12 @@ public class MailboxPage extends javax.swing.JFrame {
         MAIL_VIEW.add(mailviewPanel, "mailview");
         MAIL_VIEW.add(new JPanel(), "emptyview");
         cardSwitcher.show(MAIL_VIEW, "emptyview");
+    }
+
+    private void initInboxTable() {
+        CellsActionable event = row -> row;
+        inboxTable.getColumnModel().getColumn(0).setCellRenderer(new TableActionCellRender());
+        inboxTable.getColumnModel().getColumn(0).setCellEditor(new TableActionCellEditor(event));
     }
 
     /**
@@ -70,6 +87,8 @@ public class MailboxPage extends javax.swing.JFrame {
         i_findMail = new javax.swing.JTextField();
         b_findMail = new javax.swing.JButton();
         INBOX_PANEL = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        inboxTable = new javax.swing.JTable();
         WINDOW_MENU_BAR = new javax.swing.JMenuBar();
         m_userMenu = new javax.swing.JMenu();
         m_configureAccount = new javax.swing.JMenuItem();
@@ -229,15 +248,43 @@ public class MailboxPage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        inboxTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Inbox"
+            }
+        ));
+        inboxTable.addMouseListener(new MouseAdapter() {
+            public void mouseReleased(MouseEvent e) {
+                int rowIndex = inboxTable.rowAtPoint(e.getPoint());
+                int colIndex = inboxTable.columnAtPoint(e.getPoint());
+                if (rowIndex >= 0 && colIndex >= 0) {
+                    ULogger.log("clicked!");
+                    tableButtonCallback(rowIndex);
+                }
+            }
+        });
+        inboxTable.setRowHeight(82);
+        inboxTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(inboxTable);
+        if (inboxTable.getColumnModel().getColumnCount() > 0) {
+            inboxTable.getColumnModel().getColumn(0).setResizable(false);
+        }
+
         javax.swing.GroupLayout INBOX_PANELLayout = new javax.swing.GroupLayout(INBOX_PANEL);
         INBOX_PANEL.setLayout(INBOX_PANELLayout);
         INBOX_PANELLayout.setHorizontalGroup(
             INBOX_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
         );
         INBOX_PANELLayout.setVerticalGroup(
             INBOX_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout MAIN_CONTAINERLayout = new javax.swing.GroupLayout(MAIN_CONTAINER);
@@ -383,6 +430,33 @@ public class MailboxPage extends javax.swing.JFrame {
         mailviewPanel.setFrom("Ohio");
     }
 
+    /**
+     * Updates the table rows using a List of Email objects.
+     * */
+
+    public void updateTable(List<Email> emails) {
+        Object[][] data = new Object[emails.size()][];
+        String[] columns = {"Inbox"};
+        for (int i = 0; i < emails.size(); i++) {
+            final var currentEmail = emails.get(i);
+            data[i][0] = new MailButton(currentEmail);
+        }
+        var model = new javax.swing.table.DefaultTableModel(data, columns) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        inboxTable.setModel(model);
+        inboxTable.repaint();
+        inboxTable.revalidate();
+    }
+
+    private void tableButtonCallback(int rowIndex) {
+        System.out.println(rowIndex);
+        this.currentEmailIndex = rowIndex;
+    }
+
     // /**
     //  * @param args the command line arguments
     //  */
@@ -415,6 +489,8 @@ public class MailboxPage extends javax.swing.JFrame {
     private javax.swing.JButton b_refresh;
     private javax.swing.JTextField i_findMail;
     private javax.swing.JComboBox<String> i_inboxType;
+    private javax.swing.JTable inboxTable;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem m_configureAccount;
     private javax.swing.JMenuItem m_signOut;
     private javax.swing.JMenu m_userMenu;
