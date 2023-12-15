@@ -12,5 +12,5 @@ CREATE TABLE Mailbox
     timestamp       TIMESTAMP 
         CONSTRAINT mailbox_timestamp_NN NOT NULL,
     is_flagged      NUMBER(1, 0) NOT NULL,
-    is_read         NUMBER(1, 0) NOT NULL
+    is_ad           NUMBER(1, 0) NOT NULL
 );
