@@ -27,7 +27,7 @@ public class DatabaseUtils {
 
     public static ArrayList<Emailable> getMailbox(String userUuid) {
         ArrayList<Emailable> mailbox = new ArrayList<>();
-        String query = "SELECT * FROM MAILBOX WHERE RECIPIENT_UUID = ?";
+        String query = "SELECT * FROM MAILBOX WHERE RECIPIENT_UUID = ? ORDER BY TIMESTAMP DESC";
 
         try (Connection conn = DatabaseConnector.getConnection();
                 PreparedStatement ps = conn.prepareStatement(query)) {
