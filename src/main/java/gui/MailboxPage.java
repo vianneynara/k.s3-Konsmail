@@ -42,19 +42,21 @@ public class MailboxPage extends javax.swing.JFrame {
     private final TableActionCellRender renderer = new TableActionCellRender();
 
     /**
-     * Creates new form MailboxPage
+     * Creates new form MailboxPage, this does it all initializations.
      */
     public MailboxPage(Session session) {
         this.session = session;
         emails = DatabaseUtils.getMailbox(session.getAccountUuid());
         currentEmailType = emails;
-        System.out.println(emails.size());
 
+        // Initializes the components and sets the inbox table renderer.
         initComponents();
         initInboxTable();
         cardSwitcher = (CardLayout) MAIL_VIEW.getLayout();
         initForms();
         m_userMenu.setText(session.getAccountEmailAddress());
+
+        // Updates the table with the latest emails.
         updateTable(DatabaseUtils.getMailbox(session.getAccountUuid()));
     }
 
@@ -265,7 +267,6 @@ public class MailboxPage extends javax.swing.JFrame {
                 int rowIndex = inboxTable.rowAtPoint(e.getPoint());
                 int colIndex = inboxTable.columnAtPoint(e.getPoint());
                 if (rowIndex >= 0 && colIndex >= 0) {
-                    ULogger.log("clicked!");
                     tableButtonCallback(rowIndex);
                 }
             }
