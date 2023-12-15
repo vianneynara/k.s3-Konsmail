@@ -1,5 +1,7 @@
 package utils;
 
+import java.awt.Color;
+
 /**
  * This enum class is used to store the colors that will be used in the application. The colors are represented using
  * hexadecimal values.
@@ -8,19 +10,27 @@ package utils;
  * */
 
 public enum UColors {
-	MAROON("0x952323"),
-	RED("0xA73121"),
-	BEIGE("0xDAD4B5"),
-	IVORY("0xF2E8C6");
+	MAROON(0x952323),
+	RED(0xA73121),
+	BEIGE(0xDAD4B5),
+	IVORY(0xF2E8C6);
 
-	private final String colorHex;
+	private final int colorHex;
 
-	UColors(String colorHex) {
+	UColors(int colorHex) {
 		this.colorHex = colorHex;
 	}
 
 	@Override
 	public String toString() {
+		return String.valueOf(this.colorHex);
+	}
+
+	public int getValue() {
 		return this.colorHex;
+	}
+
+	public Color toColor() {
+		return Color.decode(String.valueOf(this.colorHex));
 	}
 }
