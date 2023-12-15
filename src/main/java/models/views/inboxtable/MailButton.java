@@ -47,6 +47,7 @@ public class MailButton extends JButton {
 
     public MailButton(Email email) {
         this.isRead = email.getRead();
+        // Sets the (internal) button text
         setText(String.format("<html>%s<br>%s<br>%s",
             email.getSubject(),
             DatabaseUtils.getFirstLastName(email.getSenderUuid()),
@@ -86,7 +87,6 @@ public class MailButton extends JButton {
         }
     }
 
-        
     public String getText() {
         return super.getText();
     }
