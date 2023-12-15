@@ -1,6 +1,9 @@
 package models.objects;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.util.Locale;
 
 /**
  * This class will be used to store emails.
@@ -17,89 +20,119 @@ import java.time.LocalDateTime;
  */
 
 public class Email {
-    // Attribute declarations
-    private String uuid;
-    private String sender;
-    private String recipient;
-    private String subject;
-    private String content;
-    private LocalDateTime date;
-    private boolean isFlagged;
-    private boolean isRead;
 
-    public Email(String uuid, String sender, String recipient, String subject, String content, LocalDateTime date,
-            boolean isFlagged, boolean isRead) {
-        this.uuid = uuid;
-        this.sender = sender;
-        this.recipient = recipient;
-        this.subject = subject;
-        this.content = content;
-        this.date = date;
-        this.isFlagged = isFlagged;
-        this.isRead = isRead;
-    }
+	public static final String DATE_FORMATTER = "DD MMMM YYYY";
+	public static final String TIME_FORMATTER = "HH:mm a";
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
+	// Attribute declarations
+	private String uuid;
+	private String sender;
+	private String recipient;
+	private String subject;
+	private String content;
+	private LocalDateTime date;
+	private boolean isFlagged;
+	private boolean isRead;
 
-    public void setSender(String source) {
-        this.sender = source;
-    }
+	public Email(String uuid, String sender, String recipient, String subject, String content, LocalDateTime date,
+				 boolean isFlagged, boolean isRead) {
+		this.uuid = uuid;
+		this.sender = sender;
+		this.recipient = recipient;
+		this.subject = subject;
+		this.content = content;
+		this.date = date;
+		this.isFlagged = isFlagged;
+		this.isRead = isRead;
+	}
 
-    public void setRecipient(String destination) {
-        this.recipient = destination;
-    }
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
 
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
+	public void setSender(String source) {
+		this.sender = source;
+	}
 
-    public void setContent(String email) {
-        this.content = email;
-    }
+	public void setRecipient(String destination) {
+		this.recipient = destination;
+	}
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
 
-    public void setFlagged(boolean isFlagged) {
-        this.isFlagged = isFlagged;
-    }
+	public void setContent(String email) {
+		this.content = email;
+	}
 
-    public void setRead(boolean isRead) {
-        this.isRead = isRead;
-    }
+	public void setDate(LocalDateTime date) {
+		this.date = date;
+	}
 
-    public String getUuid() {
-        return uuid;
-    }
+	public void setFlagged(boolean isFlagged) {
+		this.isFlagged = isFlagged;
+	}
 
-    public String getSender() {
-        return sender;
-    }
+	public void setRead(boolean isRead) {
+		this.isRead = isRead;
+	}
 
-    public String getRecipient() {
-        return recipient;
-    }
+	public String getUuid() {
+		return uuid;
+	}
 
-    public String getSubject() {
-        return subject;
-    }
+	public String getSender() {
+		return sender;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public String getRecipient() {
+		return recipient;
+	}
 
-    public LocalDateTime getDateTime() {
-        return date;
-    }
+	public String getSubject() {
+		return subject;
+	}
 
-    public boolean getFlag() {
-        return isFlagged;
-    }
+	public String getContent() {
+		return content;
+	}
 
-    public boolean getRead() {
-        return isRead;
-    }
+	public LocalDateTime getDateTime() {
+		return date;
+	}
+
+	public boolean getFlag() {
+		return isFlagged;
+	}
+
+	public boolean getRead() {
+		return isRead;
+	}
+
+    /**
+     * Formats the date to the format specified in {@link #DATE_FORMATTER}.
+     *
+     * @return {@link String} formatted date.
+     * */
+	public String getFormattedDate() {
+        DateTimeFormatter format = new DateTimeFormatterBuilder()
+            .parseCaseInsensitive()
+            .appendPattern(DATE_FORMATTER)
+            .toFormatter(Locale.US);
+        return date.format(format);
+	}
+
+    /**
+     * Formats the time to the format specified in {@link #TIME_FORMATTER}.
+     *
+     * @return {@link String} formatted time.
+     * */
+	public String getFormattedTime() {
+		DateTimeFormatter format = new DateTimeFormatterBuilder()
+			.parseCaseInsensitive()
+			.appendPattern(TIME_FORMATTER)
+			.toFormatter(Locale.US);
+        return date.format(format);
+	}
 }
