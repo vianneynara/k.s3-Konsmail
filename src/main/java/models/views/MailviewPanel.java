@@ -20,17 +20,24 @@ import javax.swing.ImageIcon;
  */
 public class MailviewPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Mailview
-     */
+    private Email email;
+
     public MailviewPanel() {
         initComponents();
+        this.email = null;
+        this.setFrom("");
+        this.setEmail("");
+        this.setAt("");
+        this.setTime("");
+        this.setSubject("");
+        this.setMailBody("");
     }
 
     public MailviewPanel(Email email) {
         initComponents();
-        this.setFrom(DatabaseUtils.getEmailAddress(email.getSenderUuid()));
-        this.setEmail(email.getSenderUuid());
+        this.email = email;
+        this.setFrom(DatabaseUtils.getFirstLastName(email.getSenderUuid()));
+        this.setEmail(DatabaseUtils.getEmailAddress(email.getSenderUuid()));
         this.setAt(email.getFormattedDate());
         this.setTime(email.getFormattedTime());
         this.setSubject(email.getSubject());
@@ -42,8 +49,9 @@ public class MailviewPanel extends javax.swing.JPanel {
      */
     public MailviewPanel(Session session, Email email) {
         initComponents();
-        this.setFrom(session.getAccountEmailAddress());
-        this.setEmail(email.getSenderUuid());
+        this.email = email;
+        this.setFrom(session.getAccountFirstName() + " " + session.getAccountLastName());
+        this.setEmail(session.getAccountEmailAddress());
         this.setAt(email.getFormattedDate());
         this.setTime(email.getFormattedTime());
         this.setSubject(email.getSubject());
@@ -268,6 +276,12 @@ public class MailviewPanel extends javax.swing.JPanel {
 
     public void setSubject(String subject) {
         this.l_subject.setText(subject);
+    }
+
+    // Getter email
+
+    public Email getEmail() {
+        return email;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
