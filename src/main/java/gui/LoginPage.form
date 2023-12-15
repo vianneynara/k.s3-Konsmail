@@ -67,26 +67,24 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="l_konsmailImage" min="-2" pref="270" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                          <Component id="l_password" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="i_email" max="32767" attributes="0"/>
                               <Component id="i_password" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="l_email" min="-2" pref="105" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="b_register" min="-2" pref="105" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
                                   <Component id="b_signIn" min="-2" pref="105" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="l_email" alignment="0" max="32767" attributes="0"/>
+                              <Component id="l_password" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
