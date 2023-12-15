@@ -4,7 +4,13 @@
  */
 package models.views;
 
+import models.objects.Email;
+import models.objects.Session;
+import utils.DatabaseUtils;
+
 import java.awt.*;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.Objects;
 import javax.swing.ImageIcon;
 
@@ -19,6 +25,29 @@ public class MailviewPanel extends javax.swing.JPanel {
      */
     public MailviewPanel() {
         initComponents();
+    }
+
+    public MailviewPanel(Email email) {
+        initComponents();
+        this.setFrom(DatabaseUtils.getEmailAddress(email.getSenderUuid()));
+        this.setEmail(email.getSenderUuid());
+        this.setAt(email.getFormattedDate());
+        this.setTime(email.getFormattedTime());
+        this.setSubject(email.getSubject());
+        this.setMailBody(email.getContent());
+    }
+
+    /**
+     * Creates new form Mailview using an {@link Email} object.
+     */
+    public MailviewPanel(Session session, Email email) {
+        initComponents();
+        this.setFrom(session.getAccountEmailAddress());
+        this.setEmail(email.getSenderUuid());
+        this.setAt(email.getFormattedDate());
+        this.setTime(email.getFormattedTime());
+        this.setSubject(email.getSubject());
+        this.setMailBody(email.getContent());
     }
 
     /**
