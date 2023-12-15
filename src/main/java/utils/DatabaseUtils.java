@@ -3,6 +3,7 @@ package utils;
 import java.sql.*;
 import java.util.ArrayList;
 
+import models.interfaces.Emailable;
 import models.objects.Account;
 import models.objects.Advertisement;
 import models.objects.Email;
@@ -24,8 +25,8 @@ public class DatabaseUtils {
      */
     // TODO: make a getSentMailbox method
 
-    public static ArrayList<Email> getMailbox(String userUuid) {
-        ArrayList<Email> mailbox = new ArrayList<>();
+    public static ArrayList<Emailable> getMailbox(String userUuid) {
+        ArrayList<Emailable> mailbox = new ArrayList<>();
         String query = "SELECT * FROM MAILBOX WHERE RECIPIENT_UUID = ?";
 
         try (Connection conn = DatabaseConnector.getConnection();

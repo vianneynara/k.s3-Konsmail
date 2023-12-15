@@ -1,5 +1,6 @@
 package models.views.inboxtable;
 
+import models.interfaces.Emailable;
 import models.objects.Email;
 import utils.DatabaseUtils;
 
@@ -46,7 +47,7 @@ public class MailButton extends JButton {
         });
     }
 
-    public MailButton(Email email) {
+    public MailButton(Emailable email) {
         this.isRead = email.getRead();
         // Sets the (internal) button text
         setText(String.format("<html>%s<br>%s<br>%s",

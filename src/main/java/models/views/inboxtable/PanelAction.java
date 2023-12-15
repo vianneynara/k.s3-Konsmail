@@ -1,5 +1,6 @@
 package models.views.inboxtable;
 
+import models.interfaces.Emailable;
 import models.objects.Email;
 import utils.DatabaseUtils;
 
@@ -23,7 +24,7 @@ public class PanelAction extends javax.swing.JPanel {
     /**
      * Creates new form PanelAction using an {@link Email} object.
      */
-    public PanelAction(Email email) {
+    public PanelAction(Emailable email) {
         initComponents();
         // Sets the renderer text if email is not null
         if (email != null) {

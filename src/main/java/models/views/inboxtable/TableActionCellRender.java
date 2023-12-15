@@ -1,5 +1,6 @@
 package models.views.inboxtable;
 
+import models.interfaces.Emailable;
 import models.objects.Email;
 
 import javax.swing.*;
@@ -15,14 +16,14 @@ import java.awt.*;
 
 public class TableActionCellRender extends DefaultTableCellRenderer {
 
-    private Email currentEmail;
+    private Emailable currentEmail;
 
     public TableActionCellRender() {
         setVerticalAlignment(SwingConstants.CENTER);
         setHorizontalAlignment(SwingConstants.LEADING);
     }
 
-    public void setCurrentEmail(Email currentEmail) {
+    public void setCurrentEmail(Emailable currentEmail) {
         this.currentEmail = currentEmail;
     }
     
