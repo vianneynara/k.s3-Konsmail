@@ -1,5 +1,7 @@
 package models.views.inboxtable;
 
+import models.objects.Email;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
@@ -13,16 +15,22 @@ import java.awt.*;
 
 public class TableActionCellRender extends DefaultTableCellRenderer {
 
+    private Email currentEmail;
+
     public TableActionCellRender() {
         setVerticalAlignment(SwingConstants.CENTER);
         setHorizontalAlignment(SwingConstants.LEADING);
+    }
+
+    public void setCurrentEmail(Email currentEmail) {
+        this.currentEmail = currentEmail;
     }
     
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         
-        PanelAction action = new PanelAction();
+        PanelAction action = new PanelAction(currentEmail);
         
         if (!isSelected && (row % 2 == 0)) {
             action.setBackground(Color.WHITE);
