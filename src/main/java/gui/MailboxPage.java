@@ -433,7 +433,6 @@ public class MailboxPage extends javax.swing.JFrame {
     /**
      * Updates the table rows using a List of Email objects.
      * */
-
     public void updateTable(List<Email> emails) {
         Object[][] data = new Object[emails.size()][];
         String[] columns = {"Inbox"};
@@ -452,6 +451,9 @@ public class MailboxPage extends javax.swing.JFrame {
         inboxTable.revalidate();
     }
 
+    /**
+     * Callback to handle which row is being clicked in the inbox table.
+     * */
     private void tableButtonCallback(int rowIndex) {
         System.out.println(rowIndex);
         this.currentEmailIndex = rowIndex;
