@@ -17,9 +17,20 @@ import java.util.Objects;
 import javax.swing.ImageIcon;
 
 /**
+ * The class holds the UI for the mail view panel. The attributes/fields shown are the following:
+ * <ul>
+ *     <li>From</li>
+ *     <li>Email</li>
+ *     <li>At</li>
+ *     <li>Time</li>
+ *     <li>Subject</li>
+ *     <li>Mail Body</li>
+ *     <li>Konsmail Logo</li>
+ * </ul>
  *
- * @author narwa
+ * @author <a href="https://github.com/vianneynara">Nara</a>
  */
+
 public class MailviewPanel extends javax.swing.JPanel {
 
     private Emailable email;

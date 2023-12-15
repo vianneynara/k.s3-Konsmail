@@ -1,9 +1,12 @@
 package utils;
 
-import gui.LoginPage;
-
 import java.time.LocalTime;
-import java.util.logging.Logger;
+
+/**
+ * Utility class that helps logging messages and errors. Made as a shortcut.
+ *
+ * @author <a href="https://github.com/vianneynara">Nara</a>
+ * */
 
 public class ULogger {
 	/**

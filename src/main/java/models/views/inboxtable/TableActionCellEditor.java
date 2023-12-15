@@ -5,7 +5,7 @@ import java.awt.*;
 
 /**
  * This class is an extended class of {@link javax.swing.DefaultCellEditor}. This class is used to set the wholke row
- * background color when it is being selected. This class is used in {@link InboxTable}.
+ * background color when it is being selected.
  *
  * @author <a href="https://github.com/vianneynara">Nara</a>
  * */
