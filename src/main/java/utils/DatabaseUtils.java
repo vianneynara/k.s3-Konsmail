@@ -26,13 +26,13 @@ public class DatabaseUtils {
     public static ArrayList<Email> getMailbox(String userUuid) {
         ArrayList<Email> mailbox = new ArrayList<>();
         String query = "SELECT * FROM MAILBOX WHERE RECIPIENT_UUID = ?";
-    
+
         try (Connection conn = DatabaseConnector.getConnection();
-             PreparedStatement ps = conn.prepareStatement(query)) {
-    
+                PreparedStatement ps = conn.prepareStatement(query)) {
+
             // Set the userUuid in the PreparedStatement
             ps.setString(1, userUuid);
-    
+
             try (ResultSet rs = ps.executeQuery()) {
                 // iterates through the result set and adds the emails to the mailbox
                 while (rs.next()) {
@@ -44,17 +44,17 @@ public class DatabaseUtils {
                     Timestamp date = rs.getTimestamp("timestamp");
                     boolean isFlagged = rs.getBoolean("is_flagged");
                     boolean isRead = rs.getBoolean("is_read");
-    
-                    mailbox.add(new Email(uuid, sender, recipient, subj, content, date.toLocalDateTime(), isFlagged, isRead));
+
+                    mailbox.add(new Email(uuid, sender, recipient, subj, content, date.toLocalDateTime(), isFlagged,
+                            isRead));
                 }
             }
-    
+
         } catch (SQLException e) {
-            e.printStackTrace(); 
+            e.printStackTrace();
         }
         return mailbox;
     }
-    
 
     /**
      * Grabs all the accounts from the database.
@@ -90,14 +90,14 @@ public class DatabaseUtils {
 
     public static String getUuid(String emailAddress) {
         String query = "SELECT uuid FROM ACCOUNTS WHERE email_address = ?";
-    
+
         try (Connection conn = DatabaseConnector.getConnection();
-             PreparedStatement ps = conn.prepareStatement(query)) {
-    
+                PreparedStatement ps = conn.prepareStatement(query)) {
+
             ps.setString(1, emailAddress);
-    
+
             ResultSet rs = ps.executeQuery();
-    
+
             // Check if the ResultSet has any rows
             if (rs.next()) {
                 // Retrieve the "uuid" column value
@@ -108,7 +108,6 @@ public class DatabaseUtils {
         }
         return null;
     }
-    
 
     /**
      * Inserts an email into the database.
@@ -130,9 +129,9 @@ public class DatabaseUtils {
             ps.setString(3, mail.getRecipient());
             ps.setString(4, mail.getSubject());
             ps.setString(5, mail.getContent());
-            ps.setString(6, mail.getDateTime().toString());
-            ps.setString(7, Boolean.toString(mail.getFlag()));
-            ps.setString(8, Boolean.toString(mail.getRead()));
+            ps.setTimestamp(6, Timestamp.valueOf(mail.getDateTime()));
+            ps.setInt(7, mail.getFlag() ? 1 : 0);
+            ps.setInt(8, mail.getRead() ? 1 : 0);
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -215,22 +214,31 @@ public class DatabaseUtils {
         String query = "UPDATE ACCOUNTS " +
                 "SET FIRST_NAME = ?, LAST_NAME = ?, PASSWORD = ? " +
                 "WHERE EMAIL_ADDRESS = ?";
-    
+
         try (Connection conn = DatabaseConnector.getConnection();
-             PreparedStatement ps = conn.prepareStatement(query)) {
-    
+                PreparedStatement ps = conn.prepareStatement(query)) {
+
             // Sets the question marks to the corresponding attributes
             ps.setString(1, fname);
             ps.setString(2, lname);
             ps.setString(3, password);
             ps.setString(4, emailAddress);
-    
+
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;
         }
         return true;
+    }
+
+    public static void commitChanges() {
+        try (Connection conn = DatabaseConnector.getConnection()) {
+            conn.commit();
+        } catch (SQLException e) {
+            System.out.println("Error committing transaction: " + e.getMessage());
+            // You might want to log the exception using a logging framework like log4j or java.util.logging
+        }
     }
     
 
