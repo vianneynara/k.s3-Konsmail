@@ -96,7 +96,7 @@ public class MailviewPanel extends javax.swing.JPanel {
         MAIL_FOOTER = new javax.swing.JPanel();
         l_konsmail = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(753, 374));
+        setPreferredSize(new java.awt.Dimension(761, 374));
 
         MAIL_HEADER.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 2, true));
 
@@ -108,17 +108,17 @@ public class MailviewPanel extends javax.swing.JPanel {
         MAIL_HEADER.setLayout(MAIL_HEADERLayout);
         MAIL_HEADERLayout.setHorizontalGroup(
             MAIL_HEADERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MAIL_HEADERLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MAIL_HEADERLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(l_subject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(10, 10, 10))
+                .addContainerGap())
         );
         MAIL_HEADERLayout.setVerticalGroup(
             MAIL_HEADERLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MAIL_HEADERLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(l_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addGap(10, 10, 10))
         );
 
         MAIL_BODY.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
@@ -245,7 +245,7 @@ public class MailviewPanel extends javax.swing.JPanel {
                         .addComponent(MAIL_FOOTER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(l_konsmail, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
