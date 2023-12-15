@@ -3,9 +3,6 @@ package models.views.inboxtable;
 import models.objects.Email;
 import utils.DatabaseUtils;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 /**
  * This class is used to create a panel with action buttons.
  *
