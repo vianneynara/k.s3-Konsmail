@@ -28,12 +28,14 @@ public class PanelAction extends javax.swing.JPanel {
      */
     public PanelAction(Email email) {
         initComponents();
-        // Sets the renderer text
-        cmdView.setText(String.format("<html>%s<br>%s<br>%s",
-            email.getSubject(),
-            DatabaseUtils.getFirstLastName(email.getSenderUuid()),
-            email.getFormattedDate() + " " + email.getFormattedTime()
-        ));
+        // Sets the renderer text if email is not null
+        if (email != null) {
+            cmdView.setText(String.format("<html>%s<br>%s<br>%s",
+                email.getSubject(),
+                DatabaseUtils.getFirstLastName(email.getSenderUuid()),
+                email.getFormattedDate() + " " + email.getFormattedTime()
+            ));
+        }
     }
     
     public void initEvents(CellsActionable event, int row) {
