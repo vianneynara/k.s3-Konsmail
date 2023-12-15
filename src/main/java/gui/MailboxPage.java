@@ -9,13 +9,12 @@ import models.views.inboxtable.MailButton;
 import models.views.inboxtable.TableActionCellEditor;
 import models.views.inboxtable.TableActionCellRender;
 import utils.DatabaseUtils;
-import utils.ULogger;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -262,17 +261,14 @@ public class MailboxPage extends javax.swing.JFrame {
                 "Inbox"
             }
         ));
-        inboxTable.addMouseListener(new MouseAdapter() {
-            public void mouseReleased(MouseEvent e) {
-                int rowIndex = inboxTable.rowAtPoint(e.getPoint());
-                int colIndex = inboxTable.columnAtPoint(e.getPoint());
-                if (rowIndex >= 0 && colIndex >= 0) {
-                    tableButtonCallback(rowIndex);
-                }
+        inboxTable.setRowHeight(79);
+        inboxTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        inboxTable.getTableHeader().setReorderingAllowed(false);
+        inboxTable.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+            public void valueChanged(ListSelectionEvent event) {
+                retrieveMail();
             }
         });
-        inboxTable.setRowHeight(79);
-        inboxTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(inboxTable);
         if (inboxTable.getColumnModel().getColumnCount() > 0) {
             inboxTable.getColumnModel().getColumn(0).setResizable(false);
@@ -482,8 +478,8 @@ public class MailboxPage extends javax.swing.JFrame {
      * Callback to handle which row is being clicked in the inbox table. This method sets the {@link #currentEmailIndex}
      * to the row index and sets the current email in the {@link MailviewPanel} and shows the {@link #MAIL_VIEW} panel.
      * */
-    private void tableButtonCallback(int rowIndex) {
-        this.currentEmailIndex = rowIndex;
+    private void retrieveMail() {
+        this.currentEmailIndex = inboxTable.getSelectedRow();
         mailviewPanel.setCurrentEmail(currentEmailType.get(currentEmailIndex));
         cardSwitcher.show(MAIL_VIEW, "mailview");
     }
