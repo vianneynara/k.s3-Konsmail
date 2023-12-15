@@ -62,7 +62,7 @@ public class MailboxPage extends javax.swing.JFrame {
         b_createMail = new javax.swing.JButton();
         b_refresh = new javax.swing.JButton();
         INBOX_SCROLLPANE = new javax.swing.JScrollPane();
-        mailboxTable = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
         MAIL_VIEW = new javax.swing.JPanel();
         MAIL_TOOLS = new javax.swing.JPanel();
         b_mailReply = new javax.swing.JButton();
@@ -135,45 +135,18 @@ public class MailboxPage extends javax.swing.JFrame {
 
         INBOX_SCROLLPANE.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        mailboxTable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        mailboxTable.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Mailbox"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        mailboxTable.setRowHeight(60);
-        mailboxTable.setShowGrid(true);
-        INBOX_SCROLLPANE.setViewportView(mailboxTable);
-        if (mailboxTable.getColumnModel().getColumnCount() > 0) {
-            mailboxTable.getColumnModel().getColumn(0).setResizable(false);
-        }
+        ));
+        INBOX_SCROLLPANE.setViewportView(jTable1);
 
         MAIL_VIEW.setPreferredSize(new java.awt.Dimension(761, 713));
         MAIL_VIEW.setLayout(new java.awt.CardLayout());
@@ -304,7 +277,7 @@ public class MailboxPage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        m_userMenu.setText("usr: "+session.getAccountEmailAddress());
+        m_userMenu.setText("usr: nara@konsmail.dev");
 
         m_configureAccount.setText("Configure Account");
         m_configureAccount.addActionListener(new java.awt.event.ActionListener() {
@@ -448,9 +421,9 @@ public class MailboxPage extends javax.swing.JFrame {
     private javax.swing.JButton b_refresh;
     private javax.swing.JTextField i_findMail;
     private javax.swing.JComboBox<String> i_inboxType;
+    private javax.swing.JTable jTable1;
     private javax.swing.JMenuItem m_configureAccount;
     private javax.swing.JMenuItem m_signOut;
     private javax.swing.JMenu m_userMenu;
-    private javax.swing.JTable mailboxTable;
     // End of variables declaration//GEN-END:variables
 }
