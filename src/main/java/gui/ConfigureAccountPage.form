@@ -58,26 +58,23 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="l_header" max="32767" attributes="0"/>
-                              <Component id="l_firstName" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                               <Component id="i_firstName" alignment="1" pref="200" max="32767" attributes="0"/>
+                              <Component id="l_firstName" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="l_lastName" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                               <Component id="i_lastName" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="l_konsmailLogo" min="-2" pref="194" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="l_lastName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="l_konsmailLogo" alignment="0" pref="194" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Component id="i_confirmNewPassword" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="l_email" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="l_newPassword" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="l_currentPassword" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="l_confirmNewPassword" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="l_email" alignment="0" max="32767" attributes="0"/>
+                      <Component id="l_currentPassword" alignment="0" max="32767" attributes="0"/>
+                      <Component id="l_newPassword" max="32767" attributes="0"/>
+                      <Component id="l_confirmNewPassword" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
