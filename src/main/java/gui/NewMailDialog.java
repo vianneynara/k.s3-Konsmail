@@ -155,7 +155,6 @@ public class NewMailDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void b_sendActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_b_sendActionPerformed
-        // TODO need to test this:
         String uuid = UUID.randomUUID().toString();
         String recipient = DatabaseUtils.getUuid(i_recipientAddress.getText());
         String sender = session.getAccountUuid();
@@ -186,7 +185,10 @@ public class NewMailDialog extends javax.swing.JDialog {
 
     private void b_previewActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_b_previewActionPerformed
         // TODO add your handling code here:
+        
 
+
+        // new MailPreviewDialog(this,true,session,null);
     }// GEN-LAST:event_b_previewActionPerformed
 
     // /**

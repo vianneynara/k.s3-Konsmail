@@ -5,6 +5,7 @@
 package gui;
 
 import models.objects.Email;
+import models.objects.Session;
 import models.views.MailviewPanel;
 import utils.USwingAppearance;
 
@@ -28,7 +29,7 @@ public class MailPreviewDialog extends javax.swing.JDialog {
     /**
      * Creates new form MailPreviewDialog using an {@link Email} object.
      */
-    public MailPreviewDialog(java.awt.Frame parent, boolean modal, Email email) {
+    public MailPreviewDialog(java.awt.Frame parent, boolean modal, Session session, Email email) {
         super(parent, modal);
         mail_view = new MailviewPanel(email);
         initComponents();
