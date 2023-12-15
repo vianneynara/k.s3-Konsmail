@@ -269,7 +269,7 @@ public class MailboxPage extends javax.swing.JFrame {
                 }
             }
         });
-        inboxTable.setRowHeight(82);
+        inboxTable.setRowHeight(79);
         inboxTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(inboxTable);
         if (inboxTable.getColumnModel().getColumnCount() > 0) {
