@@ -216,6 +216,7 @@ public class NewMailDialog extends javax.swing.JDialog {
         // new MailPreviewDialog(this,true,session,null);
     }// GEN-LAST:event_b_previewActionPerformed
 
+    // TODO remove this unused main
     // /**
     // * @param args the command line arguments
     // */
