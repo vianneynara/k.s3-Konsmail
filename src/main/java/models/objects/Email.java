@@ -9,11 +9,12 @@ import java.util.Locale;
  * This class will be used to store emails.
  * The attributes of this class as follows:
  * <ul>
- * <li>{@link #sender}: Account</li>
- * <li>{@link #recipient}: Account</li>
- * <li>{@link #subject}: String</li>
- * <li>{@link #content}: String</li>
- * <li>{@link #date}: LocalDate</li>
+ * 	<li>{@link #uuid}: String</li>
+ * 	<li>{@link #senderUuid}: Account</li>
+ * 	<li>{@link #recipientUuid}: Account</li>
+ * 	<li>{@link #subject}: String</li>
+ * 	<li>{@link #content}: String</li>
+ * 	<li>{@link #date}: LocalDate</li>
  * </ul>
  *
  * @author <a href="https://github.com/Trustacean">Edward</a>
@@ -26,19 +27,19 @@ public class Email {
 
 	// Attribute declarations
 	private String uuid;
-	private String sender;
-	private String recipient;
+	private String senderUuid;
+	private String recipientUuid;
 	private String subject;
 	private String content;
 	private LocalDateTime date;
 	private boolean isFlagged;
 	private boolean isRead;
 
-	public Email(String uuid, String sender, String recipient, String subject, String content, LocalDateTime date,
+	public Email(String uuid, String senderUuid, String recipientUuid, String subject, String content, LocalDateTime date,
 				 boolean isFlagged, boolean isRead) {
 		this.uuid = uuid;
-		this.sender = sender;
-		this.recipient = recipient;
+		this.senderUuid = senderUuid;
+		this.recipientUuid = recipientUuid;
 		this.subject = subject;
 		this.content = content;
 		this.date = date;
@@ -50,12 +51,12 @@ public class Email {
 		this.uuid = uuid;
 	}
 
-	public void setSender(String source) {
-		this.sender = source;
+	public void setSenderUuid(String source) {
+		this.senderUuid = source;
 	}
 
-	public void setRecipient(String destination) {
-		this.recipient = destination;
+	public void setRecipientUuid(String destination) {
+		this.recipientUuid = destination;
 	}
 
 	public void setSubject(String subject) {
@@ -82,12 +83,12 @@ public class Email {
 		return uuid;
 	}
 
-	public String getSender() {
-		return sender;
+	public String getSenderUuid() {
+		return senderUuid;
 	}
 
-	public String getRecipient() {
-		return recipient;
+	public String getRecipientUuid() {
+		return recipientUuid;
 	}
 
 	public String getSubject() {
@@ -110,29 +111,29 @@ public class Email {
 		return isRead;
 	}
 
-    /**
-     * Formats the date to the format specified in {@link #DATE_FORMATTER}.
-     *
-     * @return {@link String} formatted date.
-     * */
+	/**
+	 * Formats the date to the format specified in {@link #DATE_FORMATTER}.
+	 *
+	 * @return {@link String} formatted date.
+	 */
 	public String getFormattedDate() {
-        DateTimeFormatter format = new DateTimeFormatterBuilder()
-            .parseCaseInsensitive()
-            .appendPattern(DATE_FORMATTER)
-            .toFormatter(Locale.US);
-        return date.format(format);
+		DateTimeFormatter format = new DateTimeFormatterBuilder()
+			.parseCaseInsensitive()
+			.appendPattern(DATE_FORMATTER)
+			.toFormatter(Locale.US);
+		return date.format(format);
 	}
 
-    /**
-     * Formats the time to the format specified in {@link #TIME_FORMATTER}.
-     *
-     * @return {@link String} formatted time.
-     * */
+	/**
+	 * Formats the time to the format specified in {@link #TIME_FORMATTER}.
+	 *
+	 * @return {@link String} formatted time.
+	 */
 	public String getFormattedTime() {
 		DateTimeFormatter format = new DateTimeFormatterBuilder()
 			.parseCaseInsensitive()
 			.appendPattern(TIME_FORMATTER)
 			.toFormatter(Locale.US);
-        return date.format(format);
+		return date.format(format);
 	}
 }
