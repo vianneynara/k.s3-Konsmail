@@ -5,24 +5,26 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.util.Locale;
 
+import models.interfaces.Emailable;
+
 /**
  * This class will be used to store emails.
  * The attributes of this class as follows:
  * <ul>
- * 	<li>{@link #uuid}: String</li>
- * 	<li>{@link #senderUuid}: Account</li>
- * 	<li>{@link #recipientUuid}: Account</li>
- * 	<li>{@link #subject}: String</li>
- * 	<li>{@link #content}: String</li>
- * 	<li>{@link #date}: LocalDate</li>
+ * <li>{@link #uuid}: String</li>
+ * <li>{@link #senderUuid}: Account</li>
+ * <li>{@link #recipientUuid}: Account</li>
+ * <li>{@link #subject}: String</li>
+ * <li>{@link #content}: String</li>
+ * <li>{@link #date}: LocalDate</li>
  * </ul>
  *
  * @author <a href="https://github.com/Trustacean">Edward</a>
  */
 
-public class Email {
+public class Email implements Emailable {
 
-	public static final String DATE_FORMATTER = "dd MMMM YYYY";
+	public static final String DATE_FORMATTER = "dd MMM YYYY";
 	public static final String TIME_FORMATTER = "HH:mm a";
 
 	// Attribute declarations
@@ -32,18 +34,16 @@ public class Email {
 	private String subject;
 	private String content;
 	private LocalDateTime date;
-	private boolean isFlagged;
 	private boolean isRead;
 
-	public Email(String uuid, String senderUuid, String recipientUuid, String subject, String content, LocalDateTime date,
-				 boolean isFlagged, boolean isRead) {
+	public Email(String uuid, String senderUuid, String recipientUuid, String subject, String content,
+			LocalDateTime date, boolean isRead) {
 		this.uuid = uuid;
 		this.senderUuid = senderUuid;
 		this.recipientUuid = recipientUuid;
 		this.subject = subject;
 		this.content = content;
 		this.date = date;
-		this.isFlagged = isFlagged;
 		this.isRead = isRead;
 	}
 
@@ -69,10 +69,6 @@ public class Email {
 
 	public void setDate(LocalDateTime date) {
 		this.date = date;
-	}
-
-	public void setFlagged(boolean isFlagged) {
-		this.isFlagged = isFlagged;
 	}
 
 	public void setRead(boolean isRead) {
@@ -103,10 +99,6 @@ public class Email {
 		return date;
 	}
 
-	public boolean getFlag() {
-		return isFlagged;
-	}
-
 	public boolean getRead() {
 		return isRead;
 	}
@@ -118,9 +110,9 @@ public class Email {
 	 */
 	public String getFormattedDate() {
 		DateTimeFormatter format = new DateTimeFormatterBuilder()
-			.parseCaseInsensitive()
-			.appendPattern(DATE_FORMATTER)
-			.toFormatter(Locale.US);
+				.parseCaseInsensitive()
+				.appendPattern(DATE_FORMATTER)
+				.toFormatter(Locale.US);
 		return date.format(format);
 	}
 
@@ -131,9 +123,9 @@ public class Email {
 	 */
 	public String getFormattedTime() {
 		DateTimeFormatter format = new DateTimeFormatterBuilder()
-			.parseCaseInsensitive()
-			.appendPattern(TIME_FORMATTER)
-			.toFormatter(Locale.US);
+				.parseCaseInsensitive()
+				.appendPattern(TIME_FORMATTER)
+				.toFormatter(Locale.US);
 		return date.format(format);
 	}
 }

@@ -54,6 +54,7 @@ public class MailboxPage extends javax.swing.JFrame {
         initForms();
         m_userMenu.setText(session.getAccountEmailAddress());
 //        enablePreview();
+        updateTable(DatabaseUtils.getMailbox(session.getAccountUuid()));
     }
 
     private void initForms() {
@@ -374,7 +375,6 @@ public class MailboxPage extends javax.swing.JFrame {
     }//GEN-LAST:event_i_inboxTypeActionPerformed
 
     private void b_createMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_createMailActionPerformed
-        // TODO add your handling code here:
         new NewMailDialog(this, true, session).setVisible(true);
     }//GEN-LAST:event_b_createMailActionPerformed
 
@@ -391,7 +391,8 @@ public class MailboxPage extends javax.swing.JFrame {
     }//GEN-LAST:event_b_findMailActionPerformed
 
     private void b_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_refreshActionPerformed
-        updateTable(DatabaseUtils.getMailbox(session.getAccountUuid()));
+        emails = DatabaseUtils.getMailbox(session.getAccountUuid());
+        updateTable(emails);
     }//GEN-LAST:event_b_refreshActionPerformed
 
     private void m_signOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_signOutActionPerformed
@@ -452,6 +453,8 @@ public class MailboxPage extends javax.swing.JFrame {
     private void tableButtonCallback(int rowIndex) {
         System.out.println(rowIndex);
         this.currentEmailIndex = rowIndex;
+        mailviewPanel.setCurrentEmail(emails.get(currentEmailIndex));
+        cardSwitcher.show(MAIL_VIEW, "mailview");
     }
 
     // /**
