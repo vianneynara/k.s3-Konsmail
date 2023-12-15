@@ -14,6 +14,7 @@ import java.util.UUID;
 
 import models.objects.Account;
 import utils.Checker;
+import utils.ComponentUtils;
 import utils.DatabaseUtils;
 import utils.USwingAppearance;
 
@@ -333,12 +334,22 @@ public class RegisterPage extends javax.swing.JDialog {
     }                                          
 
     private void i_firstNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_firstNameFocusLost
-        // TODO add your handling code here:
-        System.out.println("a");
+        l_firstName.setText("First Name");
+
+        if (i_firstName.getText().isEmpty()) {
+            l_firstName.setText("First Name (Required!)");
+        }
+        if (Checker.containsNonAlpha(i_firstName.getText())) {
+            l_firstName.setText("First Name (Invalid!)");
+        }
     }//GEN-LAST:event_i_firstNameFocusLost
 
     private void i_lastNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_lastNameFocusLost
-        // TODO add your handling code here:
+        l_lastName.setText("Last Name (Optional)");
+
+        if (Checker.containsNonAlpha(i_lastName.getText())) {
+            l_lastName.setText("Last Name (Invalid!)");
+        }
     }//GEN-LAST:event_i_lastNameFocusLost
 
     private void i_passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_passwordFocusLost
@@ -350,7 +361,14 @@ public class RegisterPage extends javax.swing.JDialog {
     }//GEN-LAST:event_i_confirmPasswordFocusLost
 
     private void i_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_emailFocusLost
-        // TODO add your handling code here:
+        l_email.setText("Email");
+
+        if (i_email.getText().isEmpty()) {
+            l_email.setText("Email (Required!)");
+        }
+        if (Checker.containsNonAlphanumeric(i_email.getText())) {
+            l_email.setText("Email (Invalid!)");
+        }
     }//GEN-LAST:event_i_emailFocusLost
 
     /**
