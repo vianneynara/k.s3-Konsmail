@@ -391,7 +391,8 @@ public class MailboxPage extends javax.swing.JFrame {
     }//GEN-LAST:event_b_findMailActionPerformed
 
     private void b_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_refreshActionPerformed
-        updateTable(DatabaseUtils.getMailbox(session.getAccountUuid()));
+        emails = DatabaseUtils.getMailbox(session.getAccountUuid());
+        updateTable(emails);
     }//GEN-LAST:event_b_refreshActionPerformed
 
     private void m_signOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_signOutActionPerformed
