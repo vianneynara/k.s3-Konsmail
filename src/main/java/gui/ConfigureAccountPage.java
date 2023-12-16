@@ -6,27 +6,32 @@ package gui;
 
 import utils.Checker;
 import utils.DatabaseUtils;
-import utils.USwingAppearance;
 
 import java.awt.Image;
+import java.util.Arrays;
 import java.util.Objects;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import models.objects.Session;
+import utils.ULogger;
 
 /**
  *
  * @author narwa
  */
 public class ConfigureAccountPage extends javax.swing.JDialog {
-    Session session;
+    private Session session;
+    private String oldFName;
+    private String oldLName;
     /**
      * Creates new form RegisterPage
      */
     public ConfigureAccountPage(java.awt.Frame parent, boolean modal, Session session) {
         super(parent, modal);
         this.session = session;
+        this.oldFName = session.getAccountFirstName();
+        this.oldLName = session.getAccountLastName();
         initComponents();
     }
 
@@ -65,6 +70,7 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
         l_firstName.setLabelFor(i_firstName);
         l_firstName.setText("First Name");
 
+        i_firstName.setText(session.getAccountFirstName());
         i_firstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 i_firstNameActionPerformed(evt);
@@ -75,6 +81,7 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
         l_email.setText("Email");
 
         i_email.setEditable(false);
+        i_email.setText(session.getAccountEmailAddress());
 
         l_currentPassword.setLabelFor(i_currentPassword);
         l_currentPassword.setText("Current Password");
@@ -93,6 +100,8 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
 
         l_lastName.setLabelFor(i_lastName);
         l_lastName.setText("Last Name");
+
+        i_lastName.setText(session.getAccountLastName());
 
         b_cancel.setText("Cancel");
         b_cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -207,66 +216,100 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private boolean b_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_saveActionPerformed
+    private void b_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_saveActionPerformed
         String address = session.getAccountEmailAddress();
         String fName = i_firstName.getText();
         String lName = i_lastName.getText();
 
+        // Checking if the first name is empty.
         if (fName.isEmpty()){
             JOptionPane.showMessageDialog(
                     this,
                     "Are you sure that your name is right?",
-                    "Attention!",
+                    "Attention",
                     JOptionPane.WARNING_MESSAGE);
-            return false;
+            return;
         }
 
+        // Checking if the first and last name format is valid.
         if (Checker.containsNonAlpha(fName) || Checker.containsNonAlpha(lName)) {
             JOptionPane.showMessageDialog(
                     this,
                     "Name can not contain non alpha!",
-                    "Attention!",
+                    "Attention",
                     JOptionPane.WARNING_MESSAGE);
-            return false;
+            return;
         }
 
+        // Checking if the user only wants to change their first and last name.
+        if (
+            !fName.equals(oldFName) ||
+            !lName.equals(oldLName) &&
+            String.valueOf(i_newPassword.getPassword()).isEmpty()
+        ) {
+            if (DatabaseUtils.emailAddressAndPasswordMatches(address, String.valueOf(i_currentPassword.getPassword()))) {
+                // Sets the session's account new first name and last name.
+                session.setAccountFirstName(fName);
+                session.setAccountLastName(lName);
+                DatabaseUtils.updateAccount(fName, lName, address, String.valueOf(i_currentPassword.getPassword()));
+                JOptionPane.showMessageDialog(
+                    this,
+                    "Successfully changed name credentials!",
+                    "Success",
+                    JOptionPane.INFORMATION_MESSAGE
+                );
+                dispose();
+			} else {
+                JOptionPane.showMessageDialog(
+                    this,
+                    "Incorrect password!",
+                    "Attention",
+                    JOptionPane.WARNING_MESSAGE
+                );
+			}
+			return;
+		}
+
+        // Changing password
         if (!DatabaseUtils.emailAddressAndPasswordMatches(address, String.valueOf(i_currentPassword.getPassword()))) {
             JOptionPane.showMessageDialog(
                     this,
                     "Incorrect password!",
-                    "Attention!",
+                    "Attention",
                     JOptionPane.WARNING_MESSAGE);
-                return false;
+                return;
         }
 
         if (!Checker.isPasswordLengthValid(String.valueOf(i_newPassword.getPassword()))) {
             JOptionPane.showMessageDialog(
                     this,
                     "Password length must be between 8 and 128 characters long!",
-                    "Attention!",
+                    "Attention",
                     JOptionPane.WARNING_MESSAGE);
-            return false;
+            return;
         }   
 
         if (!String.valueOf(i_newPassword.getPassword()).equals(String.valueOf(i_confirmNewPassword.getPassword()))) {
             JOptionPane.showMessageDialog(
                     this,
                     "Passowrd and Password confirmation does not match!",
-                    "Attention!",
+                    "Attention",
                     JOptionPane.WARNING_MESSAGE);
-            return false;
+            return;
         }
 
+        // Sets the session's account new first name and last name.
+        session.setAccountFirstName(fName);
+        session.setAccountLastName(lName);
         DatabaseUtils.updateAccount(fName, lName, address, String.valueOf(i_newPassword.getPassword()));
         
         JOptionPane.showMessageDialog(
                     this,
-                    "Changes saved successfuly.",
+                    "Successfully updated changes!",
                     "Information",
                     JOptionPane.INFORMATION_MESSAGE);
         dispose();
-        return true;
-    }//GEN-LAST:event_b_saveActionPerformed
+	}//GEN-LAST:event_b_saveActionPerformed
 
     private void b_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cancelActionPerformed
         dispose();
@@ -279,28 +322,6 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
     private void i_firstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_firstNameActionPerformed
         // TODO unused:
     }//GEN-LAST:event_i_firstNameActionPerformed
-
-    // /**
-    //  * @param args the command line arguments
-    //  */
-    // public static void main(String[] args) {
-    //     /* Set the Nimbus look and feel */
-    //     USwingAppearance.setLooksAndFeel();
-
-    //     /* Create and display the dialog */
-    //     java.awt.EventQueue.invokeLater(new Runnable() {
-    //         public void run() {
-    //             ConfigureAccountPage dialog = new ConfigureAccountPage(new javax.swing.JFrame(), true);
-    //             dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-    //                 @Override
-    //                 public void windowClosing(java.awt.event.WindowEvent e) {
-    //                     System.exit(0);
-    //                 }
-    //             });
-    //             dialog.setVisible(true);
-    //         }
-    //     });
-    // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MAIN_PANEL;
