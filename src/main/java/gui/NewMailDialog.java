@@ -178,19 +178,49 @@ public class NewMailDialog extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_f_mailBodyFocusGained
 
+    /**
+     * Sends the mail to the database. This also checks if the recipient email address is valid.
+     * */
     private void b_sendActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_b_sendActionPerformed
-        String uuid = UUID.randomUUID().toString();
-        String recipient = DatabaseUtils.getUuid(i_recipientAddress.getText());
-        String sender = session.getAccountUuid();
+        String senderUuid = session.getAccountUuid();
+        String recipient = i_recipientAddress.getText();
         String subject = i_subject.getText().trim();
         String content = f_mailBody.getText();
 
+        // Checks if the recipient email address is valid (has @ and domain) using regex like @example.com
+        // It is divided into 3 parts:
+        // 1. ^[\\w-.]+@ - checks if the email address starts with any word, -, or .
+        // 2. ([\\w-]+\\.)+ - checks if the email address has any word or - followed by a . (dot)
+        // 3. [\\w-]{2,4}$ - checks if the email address ends with any word or - with a length of 2 to 4
+        if (!recipient.matches("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Recipient email address is invalid!",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Checks whether the recipient email address exists in the database.
+		String recipientUuid = DatabaseUtils.getUuid(recipient);
+        if (recipientUuid == null) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Recipient email address does not exist!",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Creates a random UUID for the mail.
+        String uuid = UUID.randomUUID().toString();
+
         if (i_isAdvertisement.isSelected()) {
             DatabaseUtils
-                .insertMail(new Advertisement(uuid, sender, recipient, subject, content, LocalDateTime.now(), false));
+                .insertMail(new Advertisement(uuid, senderUuid, recipientUuid, subject, content, LocalDateTime.now(), false));
         } else {
             DatabaseUtils
-                .insertMail(new Email(uuid, sender, recipient, subject, content, LocalDateTime.now(), false));
+                .insertMail(new Email(uuid, senderUuid, recipientUuid, subject, content, LocalDateTime.now(), false));
         }
         
         resetFields();
@@ -199,7 +229,7 @@ public class NewMailDialog extends javax.swing.JDialog {
                 "Email sent!",
                 "Information",
                 JOptionPane.INFORMATION_MESSAGE);
-        
+        this.dispose();
     }// GEN-LAST:event_b_sendActionPerformed
 
     private void resetFields() {
