@@ -14,8 +14,9 @@ public enum UColors {
 	RED(0xA73121),
 	BEIGE(0xDAD4B5),
 	IVORY(0xF2E8C6),
-	LIGHT_GREEN(0x52fa58),
-	LIGHT_ORANGE(0xfaac46);
+	BRIGHT_GREEN(0x52fa58),
+	BRIGHT_ORANGE(0xfaac46),
+	BRIGHT_RED(0xf7584d);
 
 	private final int colorHex;
 
