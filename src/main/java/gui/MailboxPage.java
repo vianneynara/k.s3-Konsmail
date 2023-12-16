@@ -480,9 +480,11 @@ public class MailboxPage extends javax.swing.JFrame {
      * */
     private void retrieveMail() {
         this.currentEmailIndex = inboxTable.getSelectedRow();
-        mailviewPanel.setCurrentEmail(currentEmailType.get(currentEmailIndex));
-        cardSwitcher.show(MAIL_VIEW, "mailview");
-        enableMailTools();
+        if (this.currentEmailIndex > -1) {
+            mailviewPanel.setCurrentEmail(currentEmailType.get(currentEmailIndex));
+            cardSwitcher.show(MAIL_VIEW, "mailview");
+            enableMailTools();
+        }
     }
 
     // /**
