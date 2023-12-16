@@ -6,8 +6,6 @@ CREATE TABLE Accounts
     email_address VARCHAR2(255),
     password      VARCHAR2(128)
                                            NOT NULL,
-    first_name    VARCHAR2(50)
-        CONSTRAINT accounts_first_name_NN NOT NULL,
+    first_name    VARCHAR2(50)             NOT NULL,
     last_name     VARCHAR2(50)
-        CONSTRAINT accounts_last_name_NN NOT NULL
 );
