@@ -275,6 +275,9 @@
                 <Property name="text" type="java.lang.String" value="Mark Unread"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_markUnreadActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -375,7 +378,7 @@
                     </Property>
                   </Properties>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable() {&#xa;    @Override&#xa;    public TableCellRenderer getCellRenderer(int row, int column) {&#xa;        // Get the email corresponding to the current row&#xa;        Emailable email = currentEmailType.get(row);&#xa;        // Update the current email of the renderer&#xa;        renderer.setCurrentEmail(email);&#xa;        // Return the renderer&#xa;        return renderer;&#xa;    }&#xa;}"/>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable() {&#xa;    @Override&#xa;    public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {&#xa;        Component c = super.prepareRenderer(renderer, row, column);&#xa;        if (!isRowSelected(row)) {&#xa;            c.setBackground(((Email) currentEmailType.get(row)).getRead() ? UColors.LIGHT_GREEN.toColor() : UColors.LIGHT_ORANGE.toColor());&#xa;        }&#xa;        return c;&#xa;    }&#xa;&#xa;    @Override&#xa;    public TableCellRenderer getCellRenderer(int row, int column) {&#xa;        // Get the email corresponding to the current row&#xa;        Emailable email = currentEmailType.get(row);&#xa;        // Update the current email of the renderer&#xa;        renderer.setCurrentEmail(email);&#xa;        // Return the renderer&#xa;        return renderer;&#xa;    }&#xa;}"/>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="inboxTable.getSelectionModel().addListSelectionListener(new ListSelectionListener(){&#xa;            public void valueChanged(ListSelectionEvent event) {&#xa;                retrieveMail();&#xa;            }&#xa;        });"/>
                   </AuxValues>
                 </Component>
