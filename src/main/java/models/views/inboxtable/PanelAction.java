@@ -89,8 +89,11 @@ public class PanelAction extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Action performed when the view button is clicked.
+     * */
     private void cmdViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdViewActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_cmdViewActionPerformed
 
 
