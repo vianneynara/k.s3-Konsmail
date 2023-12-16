@@ -25,7 +25,7 @@ import models.interfaces.Emailable;
 public class Email implements Emailable {
 
 	public static final String DATE_FORMATTER = "dd MMM YYYY";
-	public static final String TIME_FORMATTER = "HH:mm a";
+	public static final String TIME_FORMATTER = "hh:mm a";
 
 	// Attribute declarations
 	private String uuid;
