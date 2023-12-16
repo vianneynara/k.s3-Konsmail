@@ -2,6 +2,7 @@ package gui;
 
 import models.interfaces.Emailable;
 import models.objects.Advertisement;
+import models.objects.Email;
 import models.objects.Session;
 import models.views.MailviewPanel;
 import models.views.inboxtable.CellsActionable;
@@ -9,6 +10,7 @@ import models.views.inboxtable.MailButton;
 import models.views.inboxtable.TableActionCellEditor;
 import models.views.inboxtable.TableActionCellRender;
 import utils.DatabaseUtils;
+import utils.UColors;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -96,6 +98,15 @@ public class MailboxPage extends javax.swing.JFrame {
         INBOX_PANEL = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         inboxTable = new javax.swing.JTable() {
+            @Override
+            public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+                Component c = super.prepareRenderer(renderer, row, column);
+                if (!isRowSelected(row)) {
+                    c.setBackground(((Email) currentEmailType.get(row)).getRead() ? UColors.LIGHT_GREEN.toColor() : UColors.LIGHT_ORANGE.toColor());
+                }
+                return c;
+            }
+
             @Override
             public TableCellRenderer getCellRenderer(int row, int column) {
                 // Get the email corresponding to the current row
@@ -191,6 +202,11 @@ public class MailboxPage extends javax.swing.JFrame {
         b_markUnread.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         b_markUnread.setText("Mark Unread");
         b_markUnread.setEnabled(false);
+        b_markUnread.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_markUnreadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout MAIL_TOOLSLayout = new javax.swing.GroupLayout(MAIL_TOOLS);
         MAIL_TOOLS.setLayout(MAIL_TOOLSLayout);
@@ -384,6 +400,7 @@ public class MailboxPage extends javax.swing.JFrame {
     }//GEN-LAST:event_b_findMailActionPerformed
 
     private void b_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_refreshActionPerformed
+        disableMailTools();
         emails = DatabaseUtils.getMailbox(session.getAccountUuid());
         i_inboxType.setSelectedIndex(0);
         cardSwitcher.show(MAIL_VIEW, "emptyview");
@@ -425,6 +442,19 @@ public class MailboxPage extends javax.swing.JFrame {
         currentEmailIndex = -1;
         updateTable(currentEmailType);
     }//GEN-LAST:event_i_inboxTypeActionPerformed
+
+    /**
+     * Method that runs whenever the {@link #b_markUnread} button is clicked. This method will set the current email and
+     * initiate necessary changes to the button.
+     * */
+    private void b_markUnreadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_markUnreadActionPerformed
+        if (currentEmailIndex > -1) {
+            var email = (Email) currentEmailType.get(currentEmailIndex);
+            boolean isRead = b_markUnread.isSelected();
+            email.setRead(isRead);
+            markUnreadInit(email);
+        }
+    }//GEN-LAST:event_b_markUnreadActionPerformed
 
     /**
      * Disables the mail tools.
@@ -481,26 +511,34 @@ public class MailboxPage extends javax.swing.JFrame {
     private void retrieveMail() {
         this.currentEmailIndex = inboxTable.getSelectedRow();
         if (this.currentEmailIndex > -1) {
-            mailviewPanel.setCurrentEmail(currentEmailType.get(currentEmailIndex));
+            var email = (Email) currentEmailType.get(currentEmailIndex);
+            mailviewPanel.setCurrentEmail(email);
+
+            // Set the mailview panel as sent or received
+            if (email.getSenderUuid().equals(session.getAccountUuid())) {
+                mailviewPanel.setAsSent();
+            } else {
+                mailviewPanel.setAsReceived();
+            }
+
+            // Set the mail as read / opened
+            email.setRead(true);
+
+            // Switches the card layout to the mailview panel
             cardSwitcher.show(MAIL_VIEW, "mailview");
             enableMailTools();
+            markUnreadInit(email);
         }
     }
 
-    // /**
-    //  * @param args the command line arguments
-    //  */
-    // public static void main(String[] args) {
-    //     /* Set the Nimbus look and feel */
-    //     USwingAppearance.setLooksAndFeel();
-
-    //     /* Create and display the form */
-    //     java.awt.EventQueue.invokeLater(new Runnable() {
-    //         public void run() {
-    //             new MailboxPage().setVisible(true);
-    //         }
-    //     });
-    // }
+    /**
+     * Sets the mailbox tool's mark unread button to the current email's read status. This will also change the
+     * button label to "Mark Unread" if the email is read and "Mark Read" if the email is unread.
+     * */
+    private void markUnreadInit(Emailable email) {
+        b_markUnread.setSelected(email.getRead());
+        b_markUnread.setText(email.getRead() ? "Mark Unread" : "Mark Read");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel INBOX_PANEL;

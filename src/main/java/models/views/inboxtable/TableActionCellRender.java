@@ -1,7 +1,6 @@
 package models.views.inboxtable;
 
 import models.interfaces.Emailable;
-import models.objects.Email;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -15,7 +14,9 @@ import java.awt.*;
  * */
 
 public class TableActionCellRender extends DefaultTableCellRenderer {
-
+    /**
+     * Associated email
+     * */
     private Emailable currentEmail;
 
     public TableActionCellRender() {
@@ -26,7 +27,11 @@ public class TableActionCellRender extends DefaultTableCellRenderer {
     public void setCurrentEmail(Emailable currentEmail) {
         this.currentEmail = currentEmail;
     }
-    
+
+    /**
+     * This method sets the background color of the action buttons in the table so that it matches the table's
+     * background color.
+     * */
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
@@ -40,6 +45,4 @@ public class TableActionCellRender extends DefaultTableCellRenderer {
         }
         return action;
     }
-    
-    
 }

@@ -11,8 +11,6 @@ import models.objects.Session;
 import utils.DatabaseUtils;
 
 import java.awt.*;
-import java.time.LocalTime;
-import java.util.Date;
 import java.util.Objects;
 import javax.swing.ImageIcon;
 
@@ -300,6 +298,14 @@ public class MailviewPanel extends javax.swing.JPanel {
         } else {
             setSubject(email.getSubject());
         }
+    }
+
+    public void setAsSent() {
+        this.l_from.setText("To");
+    }
+
+    public void setAsReceived() {
+        this.l_from.setText("From");
     }
 
     // Getter email
