@@ -2,10 +2,11 @@ import gui.LoginPage;
 import utils.USwingAppearance;
 
 /**
- * Main class to run the application.
+ * This class runs the main application. Also sets the look and feel.
  *
- * @author narwa
- */
+ * @author <a href="https://github.com/vianneynara">Nara</a>
+ * @author <a href="https://github.com/trustacean">Edward</a>
+ * */
 
 public class Konsmail {
 
