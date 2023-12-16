@@ -9,6 +9,7 @@ import models.views.inboxtable.CellsActionable;
 import models.views.inboxtable.MailButton;
 import models.views.inboxtable.TableActionCellEditor;
 import models.views.inboxtable.TableActionCellRender;
+import utils.ComponentUtils;
 import utils.DatabaseUtils;
 import utils.UColors;
 
@@ -67,6 +68,16 @@ public class MailboxPage extends javax.swing.JFrame {
                 DatabaseUtils.updateReads(emails);
             }
         });
+
+        // Sets background, panels, buttons colors
+        ComponentUtils.setBackgroundColor(UColors.MAROON.toColor(), m_userMenu);
+        ComponentUtils.setBackgroundColor(UColors.IVORY.toColor(), MAIN_CONTAINER);
+        ComponentUtils.setBackgroundColor(UColors.BEIGE.toColor(),
+            TOOL_BAR, MAIL_VIEW, MAIL_TOOLS, MAILBOX_FINDPANE, INBOX_PANEL, INBOX_SCROLLPANE);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_GREEN.toColor(), b_createMail, b_refresh);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_ORANGE.toColor(), i_inboxType, b_findMail);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_RED.toColor(), b_mailReport);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_ORANGE.toColor(), b_mailReply, b_markUnread);
     }
 
     /**
@@ -74,7 +85,9 @@ public class MailboxPage extends javax.swing.JFrame {
      * */
     private void initForms() {
         MAIL_VIEW.add(mailviewPanel, "mailview");
-        MAIL_VIEW.add(new JPanel(), "emptyview");
+        JPanel emptyView = new JPanel();
+        emptyView.setBackground(UColors.BEIGE.toColor());
+        MAIL_VIEW.add(emptyView, "emptyview");
         cardSwitcher.show(MAIL_VIEW, "emptyview");
     }
 
@@ -110,13 +123,13 @@ public class MailboxPage extends javax.swing.JFrame {
         i_findMail = new javax.swing.JTextField();
         b_findMail = new javax.swing.JButton();
         INBOX_PANEL = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        INBOX_SCROLLPANE = new javax.swing.JScrollPane();
         inboxTable = new javax.swing.JTable() {
             @Override
             public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
                 Component c = super.prepareRenderer(renderer, row, column);
                 if (!isRowSelected(row)) {
-                    c.setBackground(((Email) currentEmailType.get(row)).getRead() ? UColors.LIGHT_GREEN.toColor() : UColors.LIGHT_ORANGE.toColor());
+                    c.setBackground(((Email) currentEmailType.get(row)).getRead() ? UColors.BRIGHT_GREEN.toColor() : UColors.BRIGHT_ORANGE.toColor());
                 }
                 return c;
             }
@@ -283,6 +296,7 @@ public class MailboxPage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        inboxTable.setBackground(UColors.IVORY.toColor());
         inboxTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -299,7 +313,7 @@ public class MailboxPage extends javax.swing.JFrame {
                 retrieveMail();
             }
         });
-        jScrollPane1.setViewportView(inboxTable);
+        INBOX_SCROLLPANE.setViewportView(inboxTable);
         if (inboxTable.getColumnModel().getColumnCount() > 0) {
             inboxTable.getColumnModel().getColumn(0).setResizable(false);
         }
@@ -308,11 +322,11 @@ public class MailboxPage extends javax.swing.JFrame {
         INBOX_PANEL.setLayout(INBOX_PANELLayout);
         INBOX_PANELLayout.setHorizontalGroup(
             INBOX_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+            .addComponent(INBOX_SCROLLPANE, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
         );
         INBOX_PANELLayout.setVerticalGroup(
             INBOX_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+            .addComponent(INBOX_SCROLLPANE, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout MAIN_CONTAINERLayout = new javax.swing.GroupLayout(MAIN_CONTAINER);
@@ -445,6 +459,7 @@ public class MailboxPage extends javax.swing.JFrame {
 
     private void b_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_refreshActionPerformed
         disableMailTools();
+        DatabaseUtils.updateReads(emails);
         emails = DatabaseUtils.getMailbox(session.getAccountUuid());
         i_inboxType.setSelectedIndex(0);
         cardSwitcher.show(MAIL_VIEW, "emptyview");
@@ -589,6 +604,7 @@ public class MailboxPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel INBOX_PANEL;
+    private javax.swing.JScrollPane INBOX_SCROLLPANE;
     private javax.swing.JPanel MAILBOX_FINDPANE;
     private javax.swing.JPanel MAIL_TOOLS;
     private javax.swing.JPanel MAIL_VIEW;
@@ -604,7 +620,6 @@ public class MailboxPage extends javax.swing.JFrame {
     private javax.swing.JTextField i_findMail;
     private javax.swing.JComboBox<String> i_inboxType;
     private javax.swing.JTable inboxTable;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem m_configureAccount;
     private javax.swing.JMenuItem m_signOut;
     private javax.swing.JMenu m_userMenu;

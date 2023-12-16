@@ -1,6 +1,8 @@
 package gui;
 
+import utils.ComponentUtils;
 import utils.DatabaseUtils;
+import utils.UColors;
 import utils.USwingAppearance;
 
 import javax.swing.*;
@@ -24,6 +26,11 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
+
+        // Sets background, panels, buttons colors
+        ComponentUtils.setBackgroundColor(UColors.IVORY.toColor(), MAIN_PANEL);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_GREEN.toColor(), b_signIn);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_ORANGE.toColor(), b_register);
     }
 
     /**
@@ -62,6 +69,7 @@ public class LoginPage extends javax.swing.JFrame {
         l_password.setLabelFor(i_password);
         l_password.setText("Password");
 
+        b_signIn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         b_signIn.setText("SIgn In");
         b_signIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +77,7 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
+        b_register.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         b_register.setText("Register");
         b_register.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,11 +122,11 @@ public class LoginPage extends javax.swing.JFrame {
                 .addComponent(l_password)
                 .addGap(0, 0, 0)
                 .addComponent(i_password, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGap(16, 16, 16)
                 .addGroup(MAIN_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_register, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_signIn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -5,6 +5,7 @@
 package gui;
 
 import utils.Checker;
+import utils.ComponentUtils;
 import utils.DatabaseUtils;
 
 import java.awt.Image;
@@ -13,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import models.objects.Session;
+import utils.UColors;
 
 /**
  * This is the account configuration GUI.
@@ -35,6 +37,11 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
         this.oldFName = session.getAccountFirstName();
         this.oldLName = session.getAccountLastName();
         initComponents();
+
+        // Sets background, panels, buttons colors
+        ComponentUtils.setBackgroundColor(UColors.IVORY.toColor(), MAIN_PANEL);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_ORANGE.toColor(), b_cancel);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_GREEN.toColor(), b_save);
     }
 
     /**
@@ -95,6 +102,7 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
 
         i_lastName.setText(session.getAccountLastName());
 
+        b_cancel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         b_cancel.setText("Cancel");
         b_cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +110,7 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
             }
         });
 
+        b_save.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         b_save.setText("Save");
         b_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

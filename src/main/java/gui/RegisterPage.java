@@ -13,10 +13,7 @@ import javax.xml.crypto.Data;
 import java.util.UUID;
 
 import models.objects.Account;
-import utils.Checker;
-import utils.ComponentUtils;
-import utils.DatabaseUtils;
-import utils.USwingAppearance;
+import utils.*;
 
 /**
  * This is the register page GUI of the application. It is used to create accounts, registering them
@@ -36,6 +33,11 @@ public class RegisterPage extends javax.swing.JDialog {
     public RegisterPage(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
+        // Sets background, panels, buttons colors
+        ComponentUtils.setBackgroundColor(UColors.IVORY.toColor(), MAIN_PANEL);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_GREEN.toColor(), b_register);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_ORANGE.toColor(), b_back);
     }
 
     /**
@@ -108,6 +110,7 @@ public class RegisterPage extends javax.swing.JDialog {
 
         l_konsmailLogo.setIcon(new ImageIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/KonsmailMail_logo.png"))).getImage().getScaledInstance(194, 86, Image.SCALE_SMOOTH)));
 
+        b_back.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         b_back.setText("Back");
         b_back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +118,7 @@ public class RegisterPage extends javax.swing.JDialog {
             }
         });
 
+        b_register.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         b_register.setText("Register");
         b_register.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

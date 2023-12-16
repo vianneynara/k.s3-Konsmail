@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
 package gui;
 
 import java.time.LocalDateTime;
@@ -12,7 +8,9 @@ import javax.swing.JOptionPane;
 import models.objects.Advertisement;
 import models.objects.Email;
 import models.objects.Session;
+import utils.ComponentUtils;
 import utils.DatabaseUtils;
+import utils.UColors;
 
 /**
  * This is the new mail GUI of the application. This is used to send a new mail to a recipient.
@@ -30,6 +28,8 @@ public class NewMailDialog extends javax.swing.JDialog {
         super(parent, modal);
         this.session = session;
         initComponents();
+
+        setColors();
     }
 
     public NewMailDialog(java.awt.Frame parent, boolean modal, Session session, String senderUuid) {
@@ -37,8 +37,18 @@ public class NewMailDialog extends javax.swing.JDialog {
         this.session = session;
         initComponents();
         i_recipientAddress.setText(DatabaseUtils.getEmailAddress(senderUuid));
+
+        setColors();
     }
 
+    /**
+     * Sets background, panels, buttons colors.
+     * */
+    private void setColors() {
+        ComponentUtils.setBackgroundColor(UColors.IVORY.toColor(), MAIN_PANEL);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_GREEN.toColor(), b_send);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_ORANGE.toColor(), b_cancel);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -84,6 +94,7 @@ public class NewMailDialog extends javax.swing.JDialog {
 
         l_subject.setText("Subject");
 
+        b_send.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         b_send.setText("Send");
         b_send.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +102,7 @@ public class NewMailDialog extends javax.swing.JDialog {
             }
         });
 
+        b_cancel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         b_cancel.setText("Cancel");
         b_cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

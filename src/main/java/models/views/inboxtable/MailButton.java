@@ -3,6 +3,7 @@ package models.views.inboxtable;
 import models.interfaces.Emailable;
 import models.objects.Email;
 import utils.DatabaseUtils;
+import utils.UColors;
 
 import javax.security.auth.Subject;
 import javax.swing.*;
@@ -107,12 +108,7 @@ public class MailButton extends JButton {
         int x = (getWidth() - width) / 2;
         int y = 0;
 
-        // Sets the background if the mouse is pressed.
-        if (mousePressed) {
-            g2.setColor(new Color(158, 158, 158));
-        } else {
-            g2.setColor(new Color(199, 199, 199));
-        }
+        g2.setColor(UColors.BEIGE.toColor());
 
         // Fills using the rounded corner class.
         g2.fill(new RoundedCorners(x, y, width, height, 10));

@@ -8,7 +8,9 @@ import models.interfaces.Emailable;
 import models.objects.Advertisement;
 import models.objects.Email;
 import models.objects.Session;
+import utils.ComponentUtils;
 import utils.DatabaseUtils;
+import utils.UColors;
 
 import java.awt.*;
 import java.util.Objects;
@@ -42,6 +44,9 @@ public class MailviewPanel extends javax.swing.JPanel {
         this.setTime("");
         this.setSubject("");
         this.setMailBody("");
+
+        // Sets background, panels, buttons colors
+        setColors();
     }
 
     public MailviewPanel(Email email) {
@@ -53,6 +58,9 @@ public class MailviewPanel extends javax.swing.JPanel {
         this.setTime(email.getFormattedTime());
         this.setSubject(email.getSubject());
         this.setMailBody(email.getContent());
+
+        // Sets background, panels, buttons colors
+        setColors();
     }
 
     /**
@@ -67,6 +75,17 @@ public class MailviewPanel extends javax.swing.JPanel {
         this.setTime(email.getFormattedTime());
         this.setSubject(email.getSubject());
         this.setMailBody(email.getContent());
+
+        // Sets background, panels, buttons colors
+        setColors();
+    }
+
+    /**
+     * Sets background, panels, buttons colors.
+     * */
+    private void setColors() {
+        ComponentUtils.setBackgroundColor(UColors.BEIGE.toColor(), this);
+        ComponentUtils.setBackgroundColor(UColors.IVORY.toColor(), MAIL_HEADER, MAIL_BODY, MAIL_FOOTER);
     }
 
     /**
