@@ -24,17 +24,21 @@ public class DatabaseUtils {
      *
      * @return An {@link ArrayList} of emails.
      */
-    // TODO: make a getSentMailbox method
-
     public static ArrayList<Emailable> getMailbox(String userUuid) {
         ArrayList<Emailable> mailbox = new ArrayList<>();
-        String query = "SELECT * FROM MAILBOX WHERE RECIPIENT_UUID = ? ORDER BY TIMESTAMP DESC";
+        String query =
+            "SELECT * " +
+            "FROM MAILBOX " +
+            "WHERE SENDER_UUID = ? " +
+            "OR RECIPIENT_UUID = ?" +
+            "ORDER BY TIMESTAMP DESC";
 
         try (Connection conn = DatabaseConnector.getConnection();
                 PreparedStatement ps = conn.prepareStatement(query)) {
 
             // Set the userUuid in the PreparedStatement
             ps.setString(1, userUuid);
+            ps.setString(2, userUuid);
 
             try (ResultSet rs = ps.executeQuery()) {
                 // iterates through the result set and adds the emails to the mailbox
@@ -149,7 +153,7 @@ public class DatabaseUtils {
             if (rs.next()) {
                 // Retrieve the "last_name" then check if it's empty, then add it after the
                 // "first_name".
-                String lName = rs.getString("last_name").equals("") ? "" : " " + rs.getString("last_name");
+                String lName = (rs.getString("last_name") == null) ? "" : " " + rs.getString("last_name");
                 return rs.getString("first_name") + lName;
             }
         } catch (SQLException e) {
