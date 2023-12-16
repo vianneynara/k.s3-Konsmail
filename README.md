@@ -11,18 +11,19 @@ is stored locally using an Oracle database.
 ```
 src
 └── main                    
-    ├── database            # Contains database files
-    ├── java
-    │   ├── archives        # Contains unused files
-    │   ├── backend         # Contains backend files
-    │   ├── gui             # Contains GUI files
-    │   ├── models
-    │   │   ├── objects     # Contains objects used in the app
-    │   │   └── views       # Contains views used in the app
-    │   ├── utils           # Contains utility files
-    │   └── Konsmail.java   # Main runner class
-    └── resources           
-        └── images          # Contains images used in the app
+    ├── database                    # Contains database files
+    │   ├── driver                  # Contains the driver used to connect to the database
+    │   └── sqlfiles                # Contains SQL files used to create the database needs
+    ├── java        
+    │   ├── gui                     # Contains GUI files
+    │   ├── models      
+    │   │   ├── objects             # Contains objects used in the app
+    │   │   └── views               # Contains views used in the app
+    │   │       └── inboxtable      # Contains classes required for inbox table
+    │   ├── utils                   # Contains utility files
+    │   └── Konsmail.java           # Main runner class
+    └── resources                   
+        └── images                  # Contains images used in the app
 ```
 
 ## GUI Preview
@@ -31,33 +32,33 @@ The main window is not resizable, the resolution is fixed at 1366x768.
 
 ### Login Page
 
-<div style="text-align: center">
+<p style="text-align: center">
   <img src="images/login_page.png" alt="Login Page" width="400"/>
-</div>
+</p>
 
 ### Registration Page
 
-<div style="text-align: center">
+<p style="text-align: center">
   <img src="images/registration_page.png" alt="Login Page" width="400"/>
-</div>
+</p>
 
 ### Mailbox Page
 
-<div style="text-align: center">
+<p style="text-align: center">
   <img src="images/mailbox_page.png" alt="Login Page" width="650"/>
-</div>
+</p>
 
 ### Configure Account Page
 
-<div style="text-align: center">
+<p style="text-align: center">
   <img src="images/configure_account_page.png" alt="Login Page" width="400"/>
-</div>
+</p>
 
 ### New Mail Page
 
-<div style="text-align: center">
+<p style="text-align: center">
   <img src="images/new_mail_page.png" alt="Login Page" width="400"/>
-</div>
+</p>
 
 ## Contributors
 
