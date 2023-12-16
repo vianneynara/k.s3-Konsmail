@@ -15,8 +15,10 @@ import models.objects.Session;
 import utils.DatabaseUtils;
 
 /**
+ * This is the new mail GUI of the application. This is used to send a new mail to a recipient.
  *
- * @author narwa
+ * @author <a href="https://github.com/vianneynara">Nara</a>
+ * @author <a href="https://github.com/trustacean">Edward</a>
  */
 public class NewMailDialog extends javax.swing.JDialog {
     Session session;

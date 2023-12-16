@@ -8,18 +8,20 @@ import utils.Checker;
 import utils.DatabaseUtils;
 
 import java.awt.Image;
-import java.util.Arrays;
 import java.util.Objects;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import models.objects.Session;
-import utils.ULogger;
 
 /**
+ * This is the account configuration GUI.
  *
- * @author narwa
- */
+ * @author <a href="https://github.com/vianneynara">Nara</a>
+ * @author <a href="https://github.com/trustacean">Edward</a>
+ *
+ * */
+
 public class ConfigureAccountPage extends javax.swing.JDialog {
     private Session session;
     private String oldFName;

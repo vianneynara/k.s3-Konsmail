@@ -19,9 +19,13 @@ import utils.DatabaseUtils;
 import utils.USwingAppearance;
 
 /**
+ * This is the register page GUI of the application. It is used to create accounts, registering them
+ * into the database.
  *
- * @author narwa
+ * @author <a href="https://github.com/vianneynara">Nara</a>
+ * @author <a href="https://github.com/trustacean">Edward</a>
  */
+
 public class RegisterPage extends javax.swing.JDialog {
 
     private final String DEFAULT_DOMAIN = "@konsmail.dev";

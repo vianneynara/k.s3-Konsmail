@@ -14,9 +14,13 @@ import models.objects.Account;
 import models.objects.Session;
 
 /**
+ * This is the login page GUI of the application.
  *
- * @author narwa
- */
+ * @author <a href="https://github.com/vianneynara">Nara</a>
+ * @author <a href="https://github.com/trustacean">Edward</a>
+ *
+ * */
+
 public class LoginPage extends javax.swing.JFrame {
 
     /**
