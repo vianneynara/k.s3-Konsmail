@@ -6,3 +6,4 @@ src/main/java/Konsmail.java
 
 # exlclude IDE files
 /.idea/
+/backups/
