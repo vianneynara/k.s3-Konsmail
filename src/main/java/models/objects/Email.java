@@ -131,8 +131,7 @@ public class Email implements Emailable {
 
 	@Override
 	public String toString() {
-		// TODO change uuid to names
-		return String.format("Email {senderName: %s, recipientName: %s, subject: %s, content: %s, date: %s, isRead: %s}",
+		return String.format("Email {senderUuid: %s, recipientUuid: %s, subject: %s, content: %s, date: %s, isRead: %s}",
 				senderUuid, recipientUuid, subject, content, date, isRead);
 	}
 }
