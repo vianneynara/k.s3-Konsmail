@@ -2,6 +2,7 @@ package utils;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 import models.interfaces.Emailable;
 import models.objects.Account;
@@ -186,7 +187,6 @@ public class DatabaseUtils {
             }
 
             ps.executeUpdate();
-            conn.commit();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -212,7 +212,6 @@ public class DatabaseUtils {
             ps.setString(5, account.getLastName());
 
             ps.executeUpdate();
-            conn.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -279,7 +278,6 @@ public class DatabaseUtils {
             ps.setString(4, emailAddress);
 
             ps.executeUpdate();
-            conn.commit();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;
@@ -287,14 +285,25 @@ public class DatabaseUtils {
         return true;
     }
 
-    public static void commitChanges() {
-        try (Connection conn = DatabaseConnector.getConnection()) {
-            conn.commit();
+    /**
+     * Updates the read status of the emails according to the last session using {@link List<Emailable>}.
+     * This process is optimized using addBatch().
+     * */
+    public static void updateReads(List<Emailable> emails) {
+        int emailSize = emails.size();
+        String query = "UPDATE MAILBOX SET IS_READ = ? WHERE UUID = ?";
+
+        try (Connection conn = DatabaseConnector.getConnection();
+                PreparedStatement ps = conn.prepareStatement(query)) {
+            for (int i = 0; i < emailSize; i++) {
+                ps.setInt(1, emails.get(i).getRead() ? 1 : 0);
+                ps.setString(2, emails.get(i).getUuid());
+                ps.addBatch();
+            }
+
+            ps.executeBatch();
         } catch (SQLException e) {
-            System.out.println("Error committing transaction: " + e.getMessage());
-            // You might want to log the exception using a logging framework like log4j or
-            // java.util.logging
+            System.out.println(e.getMessage());
         }
     }
-
 }
