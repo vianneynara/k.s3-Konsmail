@@ -69,12 +69,18 @@ public class MailboxPage extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * Initializes the form cards for MAIL_VIEW.
+     * */
     private void initForms() {
         MAIL_VIEW.add(mailviewPanel, "mailview");
         MAIL_VIEW.add(new JPanel(), "emptyview");
         cardSwitcher.show(MAIL_VIEW, "emptyview");
     }
 
+    /**
+     * Initializes the inbox table cell renderer for the mail column.
+     * */
     private void initInboxTable() {
         CellsActionable event = row -> row;
         inboxTable.getColumnModel().getColumn(0).setCellRenderer(new TableActionCellRender());
