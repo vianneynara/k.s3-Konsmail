@@ -187,6 +187,7 @@ public class DatabaseUtils {
             }
 
             ps.executeUpdate();
+            conn.commit();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -212,6 +213,7 @@ public class DatabaseUtils {
             ps.setString(5, account.getLastName());
 
             ps.executeUpdate();
+            conn.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -278,6 +280,7 @@ public class DatabaseUtils {
             ps.setString(4, emailAddress);
 
             ps.executeUpdate();
+            conn.commit();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;
@@ -302,6 +305,7 @@ public class DatabaseUtils {
             }
 
             ps.executeBatch();
+            conn.commit();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
