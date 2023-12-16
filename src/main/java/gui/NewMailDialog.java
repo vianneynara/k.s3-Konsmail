@@ -100,11 +100,6 @@ public class NewMailDialog extends javax.swing.JDialog {
 
         i_isAdvertisement.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         i_isAdvertisement.setText("This is an advertisement");
-        i_isAdvertisement.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_isAdvertisementActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout MAIN_PANELLayout = new javax.swing.GroupLayout(MAIN_PANEL);
         MAIN_PANEL.setLayout(MAIN_PANELLayout);
@@ -169,10 +164,6 @@ public class NewMailDialog extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void i_isAdvertisementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_isAdvertisementActionPerformed
-        // TODO unused:
-    }//GEN-LAST:event_i_isAdvertisementActionPerformed
 
     private void f_mailBodyFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_f_mailBodyFocusGained
         if (f_mailBody.getText().trim().equals("...")) {

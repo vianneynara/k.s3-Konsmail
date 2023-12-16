@@ -522,13 +522,6 @@ public class MailboxPage extends javax.swing.JFrame {
         b_markUnread.setEnabled(true);
     }
 
-    public void enablePreview() {
-        cardSwitcher.show(MAIL_VIEW, "mailview");
-        enableMailTools();
-
-        mailviewPanel.setFrom("Ohio");
-    }
-
     /**
      * Updates the table rows using a List of Email objects. Each row is filled with a {@link MailButton} object that
      * contains the iterated email information.

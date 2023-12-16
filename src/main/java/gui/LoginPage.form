@@ -128,9 +128,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="i_email">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_emailActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="l_password">
           <Properties>
@@ -141,9 +138,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="i_password">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_passwordActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b_signIn">
           <Properties>

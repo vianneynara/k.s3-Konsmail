@@ -174,10 +174,6 @@
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="i_passwordFocusLost"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="i_passwordActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="l_confirmPassword">
           <Properties>
@@ -193,9 +189,6 @@
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="i_confirmPasswordFocusLost"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="l_lastName">
           <Properties>

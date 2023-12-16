@@ -63,20 +63,8 @@ public class LoginPage extends javax.swing.JFrame {
         l_email.setLabelFor(i_email);
         l_email.setText("Email");
 
-        i_email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_emailActionPerformed(evt);
-            }
-        });
-
         l_password.setLabelFor(i_password);
         l_password.setText("Password");
-
-        i_password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_passwordActionPerformed(evt);
-            }
-        });
 
         b_signIn.setText("SIgn In");
         b_signIn.addActionListener(new java.awt.event.ActionListener() {
@@ -180,14 +168,6 @@ public class LoginPage extends javax.swing.JFrame {
         new MailboxPage(new Session(DatabaseUtils.getAccount(emailAddress))).setVisible(true);
         return true;
     }//GEN-LAST:event_b_signInActionPerformed
-
-    private void i_emailActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_i_emailActionPerformed
-        // TODO unused:
-    }// GEN-LAST:event_i_emailActionPerformed
-
-    private void i_passwordActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_i_passwordActionPerformed
-        // TODO unused:
-    }// GEN-LAST:event_i_passwordActionPerformed
 
     private void b_registerActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_b_registerActionPerformed
         RegisterPage dialog = new RegisterPage(this, true);

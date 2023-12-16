@@ -91,26 +91,11 @@ public class RegisterPage extends javax.swing.JDialog {
         l_password.setText("Password");
 
         i_password.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        i_password.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                i_passwordFocusLost(evt);
-            }
-        });
-        i_password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_passwordActionPerformed(evt);
-            }
-        });
 
         l_confirmPassword.setLabelFor(i_confirmPassword);
         l_confirmPassword.setText("Confirm Password");
 
         i_confirmPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        i_confirmPassword.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                i_confirmPasswordFocusLost(evt);
-            }
-        });
 
         l_lastName.setLabelFor(i_lastName);
         l_lastName.setText("Last Name (optional)");
@@ -332,10 +317,6 @@ public class RegisterPage extends javax.swing.JDialog {
         this.dispose();
     }// GEN-LAST:event_b_backActionPerformed
 
-    private void i_passwordActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_i_passwordActionPerformed
-        // TODO unused:
-    }                                          
-
     private void i_firstNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_firstNameFocusLost
         l_firstName.setText("First Name");
         ComponentUtils.setForegroundColor(0x000000, l_firstName);
@@ -360,14 +341,6 @@ public class RegisterPage extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_i_lastNameFocusLost
 
-    private void i_passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_passwordFocusLost
-        // TODO unused:
-    }//GEN-LAST:event_i_passwordFocusLost
-
-    private void i_confirmPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_confirmPasswordFocusLost
-        // TODO unused:
-    }//GEN-LAST:event_i_confirmPasswordFocusLost
-
     private void i_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_emailFocusLost
         l_email.setText("Email");
         ComponentUtils.setForegroundColor(0x000000, l_email);
@@ -385,27 +358,6 @@ public class RegisterPage extends javax.swing.JDialog {
             ComponentUtils.setForegroundColor(0xdc143c, l_email);
         }
     }//GEN-LAST:event_i_emailFocusLost
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        USwingAppearance.setLooksAndFeel();
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                RegisterPage dialog = new RegisterPage(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MAIN_PANEL;

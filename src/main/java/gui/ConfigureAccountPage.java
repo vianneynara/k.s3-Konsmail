@@ -73,11 +73,6 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
         l_firstName.setText("First Name");
 
         i_firstName.setText(session.getAccountFirstName());
-        i_firstName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_firstNameActionPerformed(evt);
-            }
-        });
 
         l_email.setLabelFor(i_email);
         l_email.setText("Email");
@@ -89,11 +84,6 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
         l_currentPassword.setText("Current Password");
 
         i_currentPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        i_currentPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_currentPasswordActionPerformed(evt);
-            }
-        });
 
         l_newPassword.setLabelFor(i_newPassword);
         l_newPassword.setText("New Password");
@@ -316,14 +306,6 @@ public class ConfigureAccountPage extends javax.swing.JDialog {
     private void b_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cancelActionPerformed
         dispose();
     }//GEN-LAST:event_b_cancelActionPerformed
-
-    private void i_currentPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_currentPasswordActionPerformed
-        // TODO unused:
-    }//GEN-LAST:event_i_currentPasswordActionPerformed
-
-    private void i_firstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_firstNameActionPerformed
-        // TODO unused:
-    }//GEN-LAST:event_i_firstNameActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MAIN_PANEL;
