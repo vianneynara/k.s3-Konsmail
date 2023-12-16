@@ -29,7 +29,9 @@ public class DatabaseConnector {
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}
-		return DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
+		Connection conn = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
+		conn.setAutoCommit(false);
+		return conn;
 	}
 
 	/**
