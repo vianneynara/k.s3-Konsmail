@@ -131,15 +131,8 @@ public class Email implements Emailable {
 
 	@Override
 	public String toString() {
-		// make a toString with JSON like style
-		return "{\n" +
-				"\t\"uuid\":\"" + uuid + "\"," +
-				"\n\t\"senderUuid\":\"" + senderUuid + "\"," +
-				"\n\t\"recipientUuid\":\"" + recipientUuid + "\"," +
-				"\n\t\"subject\":\"" + subject + "\"," +
-				"\n\t\"content\":\"" + content + "\"," +
-				"\n\t\"datetime\":\"" + date + "\"," +
-				"\n\t\"isRead\":\"" + isRead + "\"" +
-				"\n}";
+		// TODO change uuid to names
+		return String.format("Email {senderName: %s, recipientName: %s, subject: %s, content: %s, date: %s, isRead: %s}",
+				senderUuid, recipientUuid, subject, content, date, isRead);
 	}
 }
