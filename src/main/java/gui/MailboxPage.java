@@ -372,7 +372,7 @@ public class MailboxPage extends javax.swing.JFrame {
     }//GEN-LAST:event_b_createMailActionPerformed
 
     private void b_mailReplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_mailReplyActionPerformed
-        // TODO add your handling code here:
+        new NewMailDialog(this, true, session, emails.get(currentEmailIndex).getSenderUuid()).setVisible(true);
     }//GEN-LAST:event_b_mailReplyActionPerformed
 
     private void b_mailReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_mailReportActionPerformed
@@ -482,6 +482,7 @@ public class MailboxPage extends javax.swing.JFrame {
         this.currentEmailIndex = inboxTable.getSelectedRow();
         mailviewPanel.setCurrentEmail(currentEmailType.get(currentEmailIndex));
         cardSwitcher.show(MAIL_VIEW, "mailview");
+        enableMailTools();
     }
 
     // /**

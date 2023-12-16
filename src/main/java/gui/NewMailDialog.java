@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 import javax.swing.JOptionPane;
+import javax.xml.crypto.Data;
 
 import models.objects.Advertisement;
 import models.objects.Email;
@@ -30,6 +31,14 @@ public class NewMailDialog extends javax.swing.JDialog {
         this.session = session;
         initComponents();
     }
+
+        public NewMailDialog(java.awt.Frame parent, boolean modal, Session session, String senderUuid) {
+        super(parent, modal);
+        this.session = session;
+        initComponents();
+        i_recipientAddress.setText(DatabaseUtils.getEmailAddress(senderUuid));
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
