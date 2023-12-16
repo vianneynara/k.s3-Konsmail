@@ -59,6 +59,13 @@ public class MailboxPage extends javax.swing.JFrame {
 
         // Updates the table with the latest emails.
         updateTable(DatabaseUtils.getMailbox(session.getAccountUuid()));
+
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                DatabaseUtils.updateReads(emails);
+            }
+        });
     }
 
     private void initForms() {
@@ -392,7 +399,11 @@ public class MailboxPage extends javax.swing.JFrame {
     }//GEN-LAST:event_b_mailReplyActionPerformed
 
     private void b_mailReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_mailReportActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(
+        this,
+        "This email has been reported. We may take some time to process the report, thank you for your patience.",
+        "Report Sent!",
+        JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_b_mailReportActionPerformed
 
     private void b_findMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_findMailActionPerformed
@@ -410,6 +421,7 @@ public class MailboxPage extends javax.swing.JFrame {
     }//GEN-LAST:event_b_refreshActionPerformed
 
     private void m_signOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_signOutActionPerformed
+        DatabaseUtils.updateReads(emails);
         this.dispose();
         new LoginPage().setVisible(true);
     }//GEN-LAST:event_m_signOutActionPerformed
