@@ -302,6 +302,14 @@ public class MailviewPanel extends javax.swing.JPanel {
         }
     }
 
+    public void setAsSent() {
+        this.l_from.setText("To");
+    }
+
+    public void setAsReceived() {
+        this.l_from.setText("From");
+    }
+
     // Getter email
 
     public Emailable getEmail() {

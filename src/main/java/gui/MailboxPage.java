@@ -513,7 +513,18 @@ public class MailboxPage extends javax.swing.JFrame {
         if (this.currentEmailIndex > -1) {
             var email = (Email) currentEmailType.get(currentEmailIndex);
             mailviewPanel.setCurrentEmail(email);
+
+            // Set the mailview panel as sent or received
+            if (email.getSenderUuid().equals(session.getAccountUuid())) {
+                mailviewPanel.setAsSent();
+            } else {
+                mailviewPanel.setAsReceived();
+            }
+
+            // Set the mail as read / opened
             email.setRead(true);
+
+            // Switches the card layout to the mailview panel
             cardSwitcher.show(MAIL_VIEW, "mailview");
             enableMailTools();
             markUnreadInit(email);
