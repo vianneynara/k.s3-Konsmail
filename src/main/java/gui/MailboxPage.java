@@ -32,14 +32,15 @@ import java.util.Objects;
 
 public class MailboxPage extends javax.swing.JFrame {
 
-    private ArrayList<Emailable> emails;
-    private ArrayList<Emailable> promotionEmails;
-    private ArrayList<Emailable> sentEmails;
+    private List<Emailable> emails;
+    private List<Emailable> promotionEmails;
+    private List<Emailable> sentEmails;
+    private List<Emailable> searchedEmail;
     private final Session session;
     private final CardLayout cardSwitcher;
     private final MailviewPanel mailviewPanel = new MailviewPanel();
     private int currentEmailIndex = -1;
-    private ArrayList<Emailable> currentEmailType;
+    private List<Emailable> currentEmailType;
     private final TableActionCellRender renderer = new TableActionCellRender();
 
     /**
@@ -241,9 +242,9 @@ public class MailboxPage extends javax.swing.JFrame {
 
         i_findMail.setText("Search mail here...");
         i_findMail.setPreferredSize(new java.awt.Dimension(77, 30));
-        i_findMail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_findMailActionPerformed(evt);
+        i_findMail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                i_findMailFocusGained(evt);
             }
         });
 
@@ -386,10 +387,6 @@ public class MailboxPage extends javax.swing.JFrame {
         new ConfigureAccountPage(this, true, session).setVisible(true);
     }//GEN-LAST:event_m_configureAccountActionPerformed
 
-    private void i_findMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_findMailActionPerformed
-        // TODO unused:
-    }//GEN-LAST:event_i_findMailActionPerformed
-
     private void b_createMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_createMailActionPerformed
         new NewMailDialog(this, true, session).setVisible(true);
     }//GEN-LAST:event_b_createMailActionPerformed
@@ -407,7 +404,37 @@ public class MailboxPage extends javax.swing.JFrame {
     }//GEN-LAST:event_b_mailReportActionPerformed
 
     private void b_findMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_findMailActionPerformed
-        // TODO add your handling code here:
+        List<Emailable> searchedEmail = new ArrayList<>();
+        String query = i_findMail.getText();
+        if (query.isEmpty() || query.equals("Search mail here...")) {
+            JOptionPane.showMessageDialog(
+                this,
+                "Please enter a query to search!",
+                "No query entered!",
+                JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        // Search for emails that contains the query in the subject or content
+        for (Emailable e : emails) {
+            if (e.getSubject().contains(query) || e.getContent().contains(query)) {
+                searchedEmail.add(e);
+            }
+        }
+
+        // Update the table with the searched emails
+        if (!searchedEmail.isEmpty()) {
+            this.searchedEmail = searchedEmail;
+            currentEmailType = searchedEmail;
+            currentEmailIndex = -1;
+            updateTable(currentEmailType);
+        } else {
+            JOptionPane.showMessageDialog(
+                this,
+                "No results found for '" + query + "'!",
+                "No results found!",
+                JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_b_findMailActionPerformed
 
     private void b_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_refreshActionPerformed
@@ -467,6 +494,15 @@ public class MailboxPage extends javax.swing.JFrame {
             markUnreadInit(email);
         }
     }//GEN-LAST:event_b_markUnreadActionPerformed
+
+    /**
+     * Method to return the emails that contains the search query in the subject or content.
+     * */
+    private void i_findMailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_i_findMailFocusGained
+        if (i_findMail.getText().equals("Search mail here...")) {
+            i_findMail.setText("");
+        }
+    }//GEN-LAST:event_i_findMailFocusGained
 
     /**
      * Disables the mail tools.
