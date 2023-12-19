@@ -441,11 +441,12 @@ public class MailboxPage extends javax.swing.JFrame {
                 searchedEmail.add(e);
             }
         }
+        // Update the searchedEmail attribute, filling it with the result of the search
+        this.searchedEmail = searchedEmail;
 
         // Update the table with the searched emails
         if (!searchedEmail.isEmpty()) {
-            this.searchedEmail = searchedEmail;
-            currentEmailType = searchedEmail;
+			currentEmailType = searchedEmail;
             currentEmailIndex = -1;
             updateTable(currentEmailType);
         } else {
